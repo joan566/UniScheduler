@@ -1,6 +1,6 @@
 package org.unischeduler.academic_catalog.infrastructure.repository.excel;
 
-import org.unischeduler.backend.infrastructure.persistence.excel.core.ExcelDataStore;
+import org.unischeduler.shared.infrastructure.persistence.excel.core.ExcelDataStore;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEntity;
 
 import java.util.ArrayList;

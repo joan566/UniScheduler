@@ -1,4 +1,4 @@
-package org.unischeduler.backend.infrastructure.persistence.excel.core;
+package org.unischeduler.shared.infrastructure.persistence.excel.core;
 
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;

@@ -1,4 +1,4 @@
-package org.unischeduler.backend.infrastructure.persistence.excel.core;
+package org.unischeduler.shared.infrastructure.persistence.excel.core;
 
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEntity;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;

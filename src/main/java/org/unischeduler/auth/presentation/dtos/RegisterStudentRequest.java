@@ -1,4 +1,4 @@
-package org.unischeduler.backend.presentation.dtos;
+package org.unischeduler.auth.presentation.dtos;
 
 import java.time.LocalDate;
 

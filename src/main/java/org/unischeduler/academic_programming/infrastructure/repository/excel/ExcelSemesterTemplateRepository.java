@@ -2,7 +2,7 @@ package org.unischeduler.academic_programming.infrastructure.repository.excel;
 
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
 import org.unischeduler.academic_programming.infrastructure.entity.SemesterTemplateEntity;
-import org.unischeduler.backend.infrastructure.persistence.excel.core.ExcelDataStore;
+import org.unischeduler.shared.infrastructure.persistence.excel.core.ExcelDataStore;
 
 public class ExcelSemesterTemplateRepository {
 

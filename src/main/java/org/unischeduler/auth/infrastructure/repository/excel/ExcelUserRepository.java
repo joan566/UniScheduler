@@ -1,6 +1,6 @@
 package org.unischeduler.auth.infrastructure.repository.excel;
 
-import org.unischeduler.backend.infrastructure.persistence.excel.core.ExcelDataStore;
+import org.unischeduler.shared.infrastructure.persistence.excel.core.ExcelDataStore;
 import org.unischeduler.auth.infrastructure.entity.UserEntity;
 
 import java.util.Optional;
