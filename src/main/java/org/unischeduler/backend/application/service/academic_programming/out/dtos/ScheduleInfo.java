@@ -1,7 +1,6 @@
 package org.unischeduler.backend.application.service.academic_programming.out.dtos;
 
 import org.unischeduler.backend.domain.model.academic_programming.entity.GroupSchedule;
-import org.unischeduler.ui.viewmodel.schedule.DayOfWeek;
 
 import java.time.LocalTime;
 
