@@ -1,6 +1,6 @@
 package org.unischeduler.backend.infrastructure.mapper.enrollment;
 
-import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
+import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
 import org.unischeduler.backend.domain.model.enrollment.enums.EnrollmentStatus;
 import org.unischeduler.backend.infrastructure.entity.enrollment.EnrollmentDetailEntity;

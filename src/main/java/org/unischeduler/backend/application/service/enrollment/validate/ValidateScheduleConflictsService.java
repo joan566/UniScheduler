@@ -1,8 +1,8 @@
 package org.unischeduler.backend.application.service.enrollment.validate;
 
-import org.unischeduler.backend.application.service.academic_programming.out.dtos.GroupScheduleInfo;
+import org.unischeduler.academic_programming.application.services.out.dtos.GroupScheduleInfo;
 import org.unischeduler.backend.application.service.enrollment.validate.dtos.ValidateScheduleConflictsResponse;
-import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
+import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.backend.domain.port.in.enrollment.ValidateScheduleConflictsUseCase;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
 

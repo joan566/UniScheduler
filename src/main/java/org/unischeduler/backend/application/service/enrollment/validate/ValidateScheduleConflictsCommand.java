@@ -1,6 +1,6 @@
 package org.unischeduler.backend.application.service.enrollment.validate;
 
-import org.unischeduler.backend.application.service.academic_programming.out.dtos.GroupScheduleInfo;
+import org.unischeduler.academic_programming.application.services.out.dtos.GroupScheduleInfo;
 
 import java.util.List;
 

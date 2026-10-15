@@ -8,7 +8,7 @@ import org.unischeduler.backend.application.service.enrollment.validate.dtos.Val
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
-import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
+import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
@@ -18,7 +18,7 @@ import org.unischeduler.backend.domain.port.in.enrollment.ValidateCreditLimitUse
 import org.unischeduler.backend.domain.port.in.enrollment.ValidatePrerequisiteUseCase;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicPeriodRepository;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
-import org.unischeduler.backend.domain.port.out.academic_programming.GroupRepository;
+import org.unischeduler.academic_programming.domain.outputports.GroupRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentDetailRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;
