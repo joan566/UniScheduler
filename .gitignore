@@ -1,0 +1,21 @@
+# Archivos compilados
+target/
+out-tests/
+
+# Pruebas locales y material de trabajo de Miguel
+tests/
+parteMiguel/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db.idea/

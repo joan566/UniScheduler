@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox prefWidth="220.0"
+      spacing="5.0"
+      style="-fx-background-color: #152238; -fx-padding: 15;"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.unischeduler.ui.components.sidebar.StudentSidebarController">
+
+    <children>
+        <Button fx:id="btnHome" maxWidth="Infinity" onAction="#goToDashboard" text=" Dashboard"
+                style="-fx-background-color: #2a9d8f; -fx-text-fill: white; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+
+        <Button fx:id="btnEnrollment" maxWidth="Infinity" onAction="#goToEnrollment" text=" Mi Matrícula"
+                style="-fx-background-color: transparent; -fx-text-fill: #e0e1dd; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+
+        <Button fx:id="btnHistory" maxWidth="Infinity" onAction="#goToAcademicHistory" text="📊 Historial Académico"
+                style="-fx-background-color: transparent; -fx-text-fill: #e0e1dd; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+
+        <Button fx:id="btnSchedule" maxWidth="Infinity" onAction="#goToProvisionalSchedule" text=" Horario Provisional"
+                style="-fx-background-color: transparent; -fx-text-fill: #e0e1dd; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+
+        <Button fx:id="btnProfile" maxWidth="Infinity" onAction="#goToProfile" text=" Perfil"
+                style="-fx-background-color: transparent; -fx-text-fill: #e0e1dd; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+
+        <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+            <children>
+                <Button fx:id="btnLogout" maxWidth="Infinity" onAction="#goToLogin" text="🚪 Cerrar Sesión"
+                        style="-fx-background-color: transparent; -fx-text-fill: #e76f51; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 15; -fx-cursor: hand;"/>
+            </children>
+        </VBox>
+    </children>
+</VBox>
