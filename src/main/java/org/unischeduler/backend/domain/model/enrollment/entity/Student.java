@@ -1,7 +1,7 @@
 package org.unischeduler.backend.domain.model.enrollment.entity;
 
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
-import org.unischeduler.backend.domain.model.auth.entity.User;
+import org.unischeduler.auth.domain.entity.User;
 
 public class Student {
 

@@ -1,22 +1,22 @@
 package org.unischeduler.backend.application.service.enrollment.register;
 
-import org.unischeduler.backend.application.service.auth.login.RegisterUserCommand;
-import org.unischeduler.backend.application.service.auth.login.dtos.RegisterUserResponse;
+import org.unischeduler.auth.application.services.in.login.RegisterUserCommand;
+import org.unischeduler.auth.application.services.in.login.dtos.RegisterUserResponse;
 import org.unischeduler.backend.application.service.enrollment.register.dtos.RegisterStudentResponse;
 import org.unischeduler.backend.application.service.enrollment.register.dtos.StudentInfo;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.academic_programming.domain.entity.SemesterTemplate;
-import org.unischeduler.backend.domain.model.auth.entity.User;
+import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
-import org.unischeduler.backend.domain.port.in.auth.RegisterUserUseCase;
+import org.unischeduler.auth.domain.inputports.RegisterUserUseCase;
 import org.unischeduler.backend.domain.port.in.enrollment.RegisterEnrollmentUseCase;
 import org.unischeduler.backend.domain.port.in.enrollment.RegisterStudentUseCase;
-import org.unischeduler.backend.domain.port.out.security.PasswordGeneratorPort;
+import org.unischeduler.auth.domain.outputports.PasswordGeneratorPort;
 import org.unischeduler.backend.domain.port.out.security.StudentCodeGeneratorPort;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.academic_programming.domain.outputports.SemesterTemplateRepository;
-import org.unischeduler.backend.domain.port.out.auth.UserRepository;
+import org.unischeduler.auth.domain.outputports.UserRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;
 
 import java.util.List;
