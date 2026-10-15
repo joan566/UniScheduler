@@ -1,6 +1,6 @@
-package org.unischeduler.backend.infrastructure.persistence.excel.repository.academic_history;
+package org.unischeduler.academic_history.infrastructure.repository.excel;
 
-import org.unischeduler.backend.infrastructure.entity.academic_history.AcademicHistoryEntity;
+import org.unischeduler.academic_history.infrastructure.entity.AcademicHistoryEntity;
 import org.unischeduler.backend.infrastructure.persistence.excel.core.ExcelDataStore;
 
 import java.util.Optional;

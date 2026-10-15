@@ -7,7 +7,7 @@ import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEnt
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
 import org.unischeduler.academic_catalog.infrastructure.entity.CourseEntity;
 import org.unischeduler.academic_catalog.infrastructure.entity.PrerequisiteEntity;
-import org.unischeduler.backend.infrastructure.entity.academic_history.AcademicHistoryEntity;
+import org.unischeduler.academic_history.infrastructure.entity.AcademicHistoryEntity;
 import org.unischeduler.backend.infrastructure.entity.academic_programming.*;
 import org.unischeduler.backend.infrastructure.entity.auth.RoleEntity;
 import org.unischeduler.backend.infrastructure.entity.auth.UserEntity;

@@ -1,15 +1,15 @@
-package org.unischeduler.backend.infrastructure.repository.academic_history;
+package org.unischeduler.academic_history.infrastructure.adapter.repository;
 
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.Course;
-import org.unischeduler.backend.domain.model.academic_history.entity.AcademicHistory;
+import org.unischeduler.academic_history.domain.entity.AcademicHistory;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
-import org.unischeduler.backend.domain.port.out.academic_history.AcademicHistoryRepository;
+import org.unischeduler.academic_history.domain.outputports.AcademicHistoryRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;
-import org.unischeduler.backend.infrastructure.entity.academic_history.AcademicHistoryEntity;
-import org.unischeduler.backend.infrastructure.mapper.academic_history.AcademicHistoryMapper;
-import org.unischeduler.backend.infrastructure.persistence.excel.repository.academic_history.ExcelAcademicHistoryRepository;
+import org.unischeduler.academic_history.infrastructure.entity.AcademicHistoryEntity;
+import org.unischeduler.academic_history.infrastructure.mapper.AcademicHistoryMapper;
+import org.unischeduler.academic_history.infrastructure.repository.excel.ExcelAcademicHistoryRepository;
 
 import java.util.List;
 import java.util.Optional;

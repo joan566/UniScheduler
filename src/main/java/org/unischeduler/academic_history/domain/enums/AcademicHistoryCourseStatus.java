@@ -1,4 +1,4 @@
-package org.unischeduler.backend.domain.model.academic_history.enums;
+package org.unischeduler.academic_history.domain.enums;
 
 public enum AcademicHistoryCourseStatus {
     IN_PROGRESS,

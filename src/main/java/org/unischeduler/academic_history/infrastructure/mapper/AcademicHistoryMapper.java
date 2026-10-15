@@ -1,10 +1,10 @@
-package org.unischeduler.backend.infrastructure.mapper.academic_history;
+package org.unischeduler.academic_history.infrastructure.mapper;
 
 import org.unischeduler.academic_catalog.domain.entity.Course;
-import org.unischeduler.backend.domain.model.academic_history.entity.AcademicHistory;
-import org.unischeduler.backend.domain.model.academic_history.enums.AcademicHistoryCourseStatus;
+import org.unischeduler.academic_history.domain.entity.AcademicHistory;
+import org.unischeduler.academic_history.domain.enums.AcademicHistoryCourseStatus;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
-import org.unischeduler.backend.infrastructure.entity.academic_history.AcademicHistoryEntity;
+import org.unischeduler.academic_history.infrastructure.entity.AcademicHistoryEntity;
 
 import java.util.ArrayList;
 import java.util.List;

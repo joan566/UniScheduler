@@ -1,6 +1,6 @@
-package org.unischeduler.backend.domain.port.out.academic_history;
+package org.unischeduler.academic_history.domain.outputports;
 
-import org.unischeduler.backend.domain.model.academic_history.entity.AcademicHistory;
+import org.unischeduler.academic_history.domain.entity.AcademicHistory;
 
 import java.util.Optional;
 

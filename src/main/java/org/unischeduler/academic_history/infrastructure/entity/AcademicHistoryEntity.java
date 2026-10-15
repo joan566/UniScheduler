@@ -1,4 +1,4 @@
-package org.unischeduler.backend.infrastructure.entity.academic_history;
+package org.unischeduler.academic_history.infrastructure.entity;
 
 import java.util.List;
 

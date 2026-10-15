@@ -1,4 +1,4 @@
-package org.unischeduler.backend.application.service.academc_history;
+package org.unischeduler.academic_history.application.services;
 
 public class GetAcademicHistoryCommand {
     private final String studentId;
