@@ -9,9 +9,9 @@ import org.unischeduler.academic_programming.infrastructure.entity.*;
 import org.unischeduler.auth.infrastructure.entity.RoleEntity;
 import org.unischeduler.auth.infrastructure.entity.UserEntity;
 import org.unischeduler.auth.infrastructure.entity.UserRoleEntity;
-import org.unischeduler.backend.infrastructure.entity.enrollment.EnrollmentDetailEntity;
-import org.unischeduler.backend.infrastructure.entity.enrollment.EnrollmentEntity;
-import org.unischeduler.backend.infrastructure.entity.enrollment.StudentEntity;
+import org.unischeduler.enrollment.infrastructure.entity.EnrollmentDetailEntity;
+import org.unischeduler.enrollment.infrastructure.entity.EnrollmentEntity;
+import org.unischeduler.enrollment.infrastructure.entity.StudentEntity;
 
 import java.util.Map;
 

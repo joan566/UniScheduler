@@ -4,10 +4,10 @@ import org.unischeduler.academic_programming.application.services.out.dtos.GetSc
 import org.unischeduler.academic_programming.application.services.out.dtos.ScheduleInfo;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
 import org.unischeduler.academic_programming.domain.entity.GroupSchedule;
-import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
+import org.unischeduler.enrollment.domain.entity.Enrollment;
 import org.unischeduler.academic_programming.domain.inputports.schedule.GetScheduleUseCase;
 import org.unischeduler.academic_programming.domain.outputports.GroupScheduleRepository;
-import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
+import org.unischeduler.enrollment.domain.outputports.EnrollmentRepository;
 
 import java.util.List;
 import java.util.Map;

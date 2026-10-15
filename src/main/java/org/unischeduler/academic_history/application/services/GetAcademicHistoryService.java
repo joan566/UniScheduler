@@ -1,10 +1,10 @@
 package org.unischeduler.academic_history.application.services;
 
-import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
-import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
-import org.unischeduler.backend.domain.model.enrollment.enums.EnrollmentStatus;
+import org.unischeduler.enrollment.domain.entity.Enrollment;
+import org.unischeduler.enrollment.domain.entity.EnrollmentDetail;
+import org.unischeduler.enrollment.domain.enums.EnrollmentStatus;
 import org.unischeduler.academic_history.domain.inputports.academic_history.GetAcademicHistoryUseCase;
-import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
+import org.unischeduler.enrollment.domain.outputports.EnrollmentRepository;
 
 import java.util.List;
 import java.util.Optional;

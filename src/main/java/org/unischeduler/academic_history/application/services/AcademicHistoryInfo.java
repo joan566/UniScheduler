@@ -1,6 +1,6 @@
 package org.unischeduler.academic_history.application.services;
 
-import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
+import org.unischeduler.enrollment.domain.entity.EnrollmentDetail;
 
 public class AcademicHistoryInfo {
     private final String code;

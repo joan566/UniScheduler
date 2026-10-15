@@ -5,10 +5,10 @@ import org.unischeduler.auth.application.services.in.login.dtos.UserInfo;
 import org.unischeduler.auth.application.services.in.login.dtos.UserRoleInfo;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
 import org.unischeduler.auth.domain.entity.User;
-import org.unischeduler.backend.domain.model.enrollment.entity.Student;
+import org.unischeduler.enrollment.domain.entity.Student;
 import org.unischeduler.auth.domain.inputports.LoginUserUseCase;
 import org.unischeduler.auth.domain.outputports.UserRepository;
-import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;
+import org.unischeduler.enrollment.domain.outputports.StudentRepository;
 import org.unischeduler.auth.domain.outputports.PasswordEncoderPort;
 
 import java.util.Optional;

@@ -2,7 +2,7 @@ package org.unischeduler.academic_history.domain.entity;
 
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_history.domain.enums.AcademicHistoryCourseStatus;
-import org.unischeduler.backend.domain.model.enrollment.entity.Student;
+import org.unischeduler.enrollment.domain.entity.Student;
 
 import java.util.ArrayList;
 
