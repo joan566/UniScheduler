@@ -1,4 +1,4 @@
-package org.unischeduler.backend.domain.exceptions.shared;
+package org.unischeduler.shared.domain.exceptions;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

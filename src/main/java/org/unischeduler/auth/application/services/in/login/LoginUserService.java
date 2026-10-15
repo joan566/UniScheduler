@@ -3,7 +3,7 @@ package org.unischeduler.auth.application.services.in.login;
 import org.unischeduler.auth.application.services.in.login.dtos.LoginUserResponse;
 import org.unischeduler.auth.application.services.in.login.dtos.UserInfo;
 import org.unischeduler.auth.application.services.in.login.dtos.UserRoleInfo;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.enrollment.domain.entity.Student;
 import org.unischeduler.auth.domain.inputports.LoginUserUseCase;

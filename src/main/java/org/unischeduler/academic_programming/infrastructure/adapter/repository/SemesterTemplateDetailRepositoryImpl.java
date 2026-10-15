@@ -1,6 +1,6 @@
 package org.unischeduler.academic_programming.infrastructure.adapter.repository;
 
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.academic_programming.domain.entity.SemesterTemplateDetail;
 import org.unischeduler.academic_programming.domain.outputports.GroupRepository;

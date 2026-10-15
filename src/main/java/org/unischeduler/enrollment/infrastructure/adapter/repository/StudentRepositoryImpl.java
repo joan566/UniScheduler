@@ -1,6 +1,6 @@
 package org.unischeduler.enrollment.infrastructure.adapter.repository;
 
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.enrollment.domain.entity.Student;

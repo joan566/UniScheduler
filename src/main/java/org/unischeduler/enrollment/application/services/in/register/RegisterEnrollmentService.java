@@ -5,7 +5,7 @@ import org.unischeduler.enrollment.application.services.in.validate.ValidateCred
 import org.unischeduler.enrollment.application.services.in.validate.ValidatePrerequisiteCommand;
 import org.unischeduler.enrollment.application.services.in.validate.dtos.ValidateCreditLimitResponse;
 import org.unischeduler.enrollment.application.services.in.validate.dtos.ValidatePrerequisiteResponse;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.academic_programming.domain.entity.Group;

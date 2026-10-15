@@ -1,6 +1,6 @@
 package org.unischeduler.academic_history.infrastructure.adapter.repository;
 
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_history.domain.entity.AcademicHistory;
 import org.unischeduler.enrollment.domain.entity.Student;

@@ -2,7 +2,7 @@ package org.unischeduler.academic_programming.application.services.out;
 
 import org.unischeduler.academic_programming.application.services.out.dtos.GetScheduleResponse;
 import org.unischeduler.academic_programming.application.services.out.dtos.ScheduleInfo;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_programming.domain.entity.GroupSchedule;
 import org.unischeduler.enrollment.domain.entity.Enrollment;
 import org.unischeduler.academic_programming.domain.inputports.schedule.GetScheduleUseCase;

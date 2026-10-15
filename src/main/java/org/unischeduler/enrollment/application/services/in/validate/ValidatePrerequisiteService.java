@@ -1,7 +1,7 @@
 package org.unischeduler.enrollment.application.services.in.validate;
 
 import org.unischeduler.enrollment.application.services.in.validate.dtos.ValidatePrerequisiteResponse;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_catalog.domain.entity.Prerequisite;
 import org.unischeduler.enrollment.domain.enums.EnrollmentStatus;

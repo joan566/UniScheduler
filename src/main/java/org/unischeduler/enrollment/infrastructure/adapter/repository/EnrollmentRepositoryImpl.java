@@ -1,7 +1,7 @@
 package org.unischeduler.enrollment.infrastructure.adapter.repository;
 
 import org.unischeduler.academic_catalog.domain.exceptions.PeriodActiveNotFoundException;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.enrollment.domain.entity.Enrollment;

@@ -1,6 +1,6 @@
-package org.unischeduler.backend.infrastructure.security;
+package org.unischeduler.enrollment.infrastructure.adapter.security;
 
-import org.unischeduler.backend.domain.port.out.security.StudentCodeGeneratorPort;
+import org.unischeduler.enrollment.domain.outputports.StudentCodeGeneratorPort;
 
 import java.security.SecureRandom;
 

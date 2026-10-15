@@ -1,4 +1,4 @@
-package org.unischeduler.backend.infrastructure.security;
+package org.unischeduler.auth.infrastructure.adapter.security;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.unischeduler.auth.domain.outputports.PasswordEncoderPort;

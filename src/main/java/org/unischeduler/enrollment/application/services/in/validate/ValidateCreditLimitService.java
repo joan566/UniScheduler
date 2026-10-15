@@ -2,7 +2,7 @@ package org.unischeduler.enrollment.application.services.in;
 
 import org.unischeduler.enrollment.application.services.in.validate.ValidateCreditLimitCommand;
 import org.unischeduler.enrollment.application.services.in.validate.dtos.ValidateCreditLimitResponse;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.enrollment.domain.entity.Enrollment;
