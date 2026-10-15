@@ -1,6 +1,6 @@
 package org.unischeduler.backend.infrastructure.mapper.academic_programming;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
 import org.unischeduler.backend.domain.model.academic_programming.entity.GroupSchedule;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Teacher;

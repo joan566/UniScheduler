@@ -2,11 +2,8 @@ package org.unischeduler.backend.application.service.auth.login;
 
 import org.unischeduler.backend.application.service.auth.login.dtos.RegisterUserInfo;
 import org.unischeduler.backend.application.service.auth.login.dtos.RegisterUserResponse;
-import org.unischeduler.backend.application.service.auth.login.dtos.UserInfo;
 import org.unischeduler.backend.domain.exceptions.auth.DocumentAlreadyExistsException;
 import org.unischeduler.backend.domain.exceptions.auth.EmailAlreadyExistsException;
-import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.auth.entity.User;
 import org.unischeduler.backend.domain.model.auth.enums.DocumentType;
 import org.unischeduler.backend.domain.model.auth.enums.Gender;
@@ -15,11 +12,8 @@ import org.unischeduler.backend.domain.model.auth.enums.Status;
 import org.unischeduler.backend.domain.model.auth.vo.Email;
 import org.unischeduler.backend.domain.model.auth.vo.EncodedPassword;
 import org.unischeduler.backend.domain.port.in.auth.RegisterUserUseCase;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicProgramRepository;
 import org.unischeduler.backend.domain.port.out.auth.UserRepository;
 import org.unischeduler.backend.domain.port.out.security.PasswordEncoderPort;
-
-import java.util.Optional;
 
 public class RegisterUserService implements RegisterUserUseCase {
     private final UserRepository userRepository;

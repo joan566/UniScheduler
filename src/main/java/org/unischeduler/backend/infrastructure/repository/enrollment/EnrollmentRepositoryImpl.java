@@ -1,14 +1,14 @@
 package org.unischeduler.backend.infrastructure.repository.enrollment;
 
-import org.unischeduler.backend.domain.exceptions.academic_catalog.PeriodActiveNotFoundException;
+import org.unischeduler.academic_catalog.domain.exceptions.PeriodActiveNotFoundException;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicPeriod;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicPeriodRepository;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicProgramRepository;
+import org.unischeduler.academic_catalog.domain.outputports.AcademicPeriodRepository;
+import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentDetailRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;

@@ -1,7 +1,7 @@
 package org.unischeduler.backend.domain.model.enrollment.entity;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicPeriod;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 
 import java.time.LocalDate;
 import java.util.List;

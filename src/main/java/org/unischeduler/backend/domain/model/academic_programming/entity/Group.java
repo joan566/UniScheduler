@@ -1,8 +1,7 @@
 package org.unischeduler.backend.domain.model.academic_programming.entity;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Group {

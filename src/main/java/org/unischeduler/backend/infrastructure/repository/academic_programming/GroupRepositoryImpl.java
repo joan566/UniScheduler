@@ -1,11 +1,11 @@
 package org.unischeduler.backend.infrastructure.repository.academic_programming;
 
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
 import org.unischeduler.backend.domain.model.academic_programming.entity.GroupSchedule;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Teacher;
-import org.unischeduler.backend.domain.port.out.academic_catalog.CourseRepository;
+import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.GroupRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.GroupScheduleRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.TeacherRepository;

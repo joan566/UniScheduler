@@ -1,6 +1,6 @@
 package org.unischeduler.backend.domain.model.academic_history.entity;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_history.enums.AcademicHistoryCourseStatus;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
 

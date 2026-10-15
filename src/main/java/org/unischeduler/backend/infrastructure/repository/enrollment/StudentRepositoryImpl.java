@@ -1,10 +1,10 @@
 package org.unischeduler.backend.infrastructure.repository.enrollment;
 
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.auth.entity.User;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicProgramRepository;
+import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.backend.domain.port.out.auth.UserRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRepository;
 import org.unischeduler.backend.infrastructure.entity.enrollment.StudentEntity;

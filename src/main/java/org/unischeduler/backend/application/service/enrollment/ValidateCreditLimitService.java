@@ -3,17 +3,16 @@ package org.unischeduler.backend.application.service.enrollment;
 import org.unischeduler.backend.application.service.enrollment.validate.ValidateCreditLimitCommand;
 import org.unischeduler.backend.application.service.enrollment.validate.dtos.ValidateCreditLimitResponse;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
 import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
 import org.unischeduler.backend.domain.port.in.enrollment.ValidateCreditLimitUseCase;
-import org.unischeduler.backend.domain.port.out.academic_catalog.CourseRepository;
+import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class ValidateCreditLimitService
         implements ValidateCreditLimitUseCase {

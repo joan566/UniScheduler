@@ -1,7 +1,7 @@
 package org.unischeduler.backend.infrastructure.mapper.enrollment;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicPeriod;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
 import org.unischeduler.backend.domain.model.enrollment.entity.Student;

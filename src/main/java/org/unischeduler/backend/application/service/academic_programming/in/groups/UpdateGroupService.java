@@ -1,6 +1,5 @@
 package org.unischeduler.backend.application.service.academic_programming.in.groups;
 
-import org.unischeduler.backend.application.service.academic_programming.in.group_schedules.DeleteGroupSchedulesCommand;
 import org.unischeduler.backend.application.service.academic_programming.in.group_schedules.RegisterGroupScheduleCommand;
 import org.unischeduler.backend.application.service.academic_programming.in.group_schedules.UpdateGroupScheduleCommand;
 import org.unischeduler.backend.application.service.academic_programming.in.group_schedules.dtos.UpdateGroupScheduleResponse;
@@ -9,15 +8,12 @@ import org.unischeduler.backend.application.service.academic_programming.out.dto
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.GroupInfo;
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.GroupScheduleInfo;
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.TeacherInfo;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
-import org.unischeduler.backend.domain.model.academic_programming.entity.GroupSchedule;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Teacher;
-import org.unischeduler.backend.domain.model.academic_programming.enums.WeekDays;
 import org.unischeduler.backend.domain.port.in.academic_programming.UpdateGroupUseCase;
-import org.unischeduler.backend.domain.port.in.academic_programming.group_schedule.DeleteGroupSchedulesUseCase;
 import org.unischeduler.backend.domain.port.in.academic_programming.group_schedule.UpdateGroupScheduleUseCase;
-import org.unischeduler.backend.domain.port.out.academic_catalog.CourseRepository;
+import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.GroupRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.TeacherRepository;
 

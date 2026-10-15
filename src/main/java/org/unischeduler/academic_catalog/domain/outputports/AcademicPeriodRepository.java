@@ -1,0 +1,18 @@
+package org.unischeduler.academic_catalog.domain.outputports;
+
+
+import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface AcademicPeriodRepository {
+    Optional<AcademicPeriod> findById(String id);
+    List<AcademicPeriod> findAll();
+    boolean existsByCode(String code);
+    Optional<AcademicPeriod> findByCode(String code);
+    AcademicPeriod save(AcademicPeriod academicPeriod);
+    AcademicPeriod update(AcademicPeriod academicPeriod);
+    boolean deleteById(String id);
+    Optional<AcademicPeriod> findActive();
+}

@@ -1,6 +1,6 @@
 package org.unischeduler.backend.domain.model.academic_programming.entity;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 
 import java.util.List;
 

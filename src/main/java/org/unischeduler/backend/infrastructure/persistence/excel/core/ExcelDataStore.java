@@ -1,9 +1,9 @@
 package org.unischeduler.backend.infrastructure.persistence.excel.core;
 
-import org.unischeduler.backend.infrastructure.entity.academic_catalog.AcademicPeriodEntity;
-import org.unischeduler.backend.infrastructure.entity.academic_catalog.AcademicProgramEntity;
-import org.unischeduler.backend.infrastructure.entity.academic_catalog.CourseEntity;
-import org.unischeduler.backend.infrastructure.entity.academic_catalog.PrerequisiteEntity;
+import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEntity;
+import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
+import org.unischeduler.academic_catalog.infrastructure.entity.CourseEntity;
+import org.unischeduler.academic_catalog.infrastructure.entity.PrerequisiteEntity;
 import org.unischeduler.backend.infrastructure.entity.academic_history.AcademicHistoryEntity;
 import org.unischeduler.backend.infrastructure.entity.academic_programming.*;
 import org.unischeduler.backend.infrastructure.entity.auth.RoleEntity;

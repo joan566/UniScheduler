@@ -1,13 +1,13 @@
 package org.unischeduler.backend.infrastructure.repository.academic_programming;
 
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.academic_programming.entity.SemesterTemplate;
 import org.unischeduler.backend.domain.model.academic_programming.entity.SemesterTemplateDetail;
 import org.unischeduler.backend.domain.port.out.academic_programming.SemesterTemplateDetailRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.SemesterTemplateRepository;
-import org.unischeduler.backend.infrastructure.entity.academic_catalog.AcademicProgramEntity;
+import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
 import org.unischeduler.backend.infrastructure.entity.academic_programming.SemesterTemplateEntity;
-import org.unischeduler.backend.infrastructure.mapper.academic_catalog.AcademicProgramMapper;
+import org.unischeduler.academic_catalog.infrastructure.mapper.AcademicProgramMapper;
 import org.unischeduler.backend.infrastructure.mapper.academic_programming.SemesterTemplateMapper;
 import org.unischeduler.backend.infrastructure.persistence.excel.repository.academic_program.ExcelSemesterTemplateRepository;
 

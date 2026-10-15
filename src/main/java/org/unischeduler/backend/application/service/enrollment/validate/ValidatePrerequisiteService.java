@@ -2,20 +2,17 @@ package org.unischeduler.backend.application.service.enrollment.validate;
 
 import org.unischeduler.backend.application.service.enrollment.validate.dtos.ValidatePrerequisiteResponse;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Prerequisite;
-import org.unischeduler.backend.domain.model.academic_history.entity.AcademicHistory;
+import org.unischeduler.academic_catalog.domain.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Prerequisite;
 import org.unischeduler.backend.domain.model.enrollment.enums.EnrollmentStatus;
 import org.unischeduler.backend.domain.port.in.enrollment.ValidatePrerequisiteUseCase;
-import org.unischeduler.backend.domain.port.out.academic_catalog.CourseRepository;
-import org.unischeduler.backend.domain.port.out.academic_catalog.PrerequisiteRepository;
-import org.unischeduler.backend.domain.port.out.academic_history.AcademicHistoryRepository;
+import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
+import org.unischeduler.academic_catalog.domain.outputports.PrerequisiteRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentDetailRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 

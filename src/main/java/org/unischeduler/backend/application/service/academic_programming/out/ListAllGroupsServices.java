@@ -5,7 +5,7 @@ import org.unischeduler.backend.application.service.academic_programming.out.dto
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.GroupScheduleInfo;
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.ListAllGroupsResponse;
 import org.unischeduler.backend.application.service.academic_programming.out.dtos.TeacherInfo;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
 import org.unischeduler.backend.domain.model.academic_programming.entity.GroupSchedule;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Teacher;

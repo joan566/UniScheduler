@@ -1,14 +1,13 @@
 package org.unischeduler.backend.application.service.enrollment.register;
 
 import org.unischeduler.backend.application.service.enrollment.register.dtos.RegisterEnrollmentResponse;
-import org.unischeduler.backend.application.service.enrollment.register.dtos.RegisterStudentResponse;
 import org.unischeduler.backend.application.service.enrollment.validate.ValidateCreditLimitCommand;
 import org.unischeduler.backend.application.service.enrollment.validate.ValidatePrerequisiteCommand;
 import org.unischeduler.backend.application.service.enrollment.validate.dtos.ValidateCreditLimitResponse;
 import org.unischeduler.backend.application.service.enrollment.validate.dtos.ValidatePrerequisiteResponse;
 import org.unischeduler.backend.domain.exceptions.shared.EntityNotFoundException;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicPeriod;
-import org.unischeduler.backend.domain.model.academic_catalog.entity.AcademicProgram;
+import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
+import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.backend.domain.model.academic_programming.entity.Group;
 import org.unischeduler.backend.domain.model.enrollment.entity.Enrollment;
 import org.unischeduler.backend.domain.model.enrollment.entity.EnrollmentDetail;
@@ -17,8 +16,8 @@ import org.unischeduler.backend.domain.model.enrollment.enums.EnrollmentStatus;
 import org.unischeduler.backend.domain.port.in.enrollment.RegisterEnrollmentUseCase;
 import org.unischeduler.backend.domain.port.in.enrollment.ValidateCreditLimitUseCase;
 import org.unischeduler.backend.domain.port.in.enrollment.ValidatePrerequisiteUseCase;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicPeriodRepository;
-import org.unischeduler.backend.domain.port.out.academic_catalog.AcademicProgramRepository;
+import org.unischeduler.academic_catalog.domain.outputports.AcademicPeriodRepository;
+import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.backend.domain.port.out.academic_programming.GroupRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentDetailRepository;
 import org.unischeduler.backend.domain.port.out.enrollment.repository.EnrollmentRepository;
@@ -26,7 +25,6 @@ import org.unischeduler.backend.domain.port.out.enrollment.repository.StudentRep
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
