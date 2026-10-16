@@ -15,14 +15,14 @@ public class RegisterStudentCommand {
     private final String address;
     private final String email;
 
-    private final String academicProgramId;
+    private final Long academicProgramId;
     private final int initialSemester;
     private final LocalDate admissionDate;
     private final String status;
 
     public RegisterStudentCommand(String firstName, String lastName, String documentType,
                                   String documentNumber, LocalDate birthDate, String gender,
-                                  String phoneNumber, String address, String email, String academicProgramId,
+                                  String phoneNumber, String address, String email, Long academicProgramId,
                                   int initialSemester, LocalDate admissionDate, String status) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -75,7 +75,7 @@ public class RegisterStudentCommand {
         return email;
     }
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 

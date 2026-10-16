@@ -1,15 +1,15 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
 public class AcademicProgramEntity {
-    private String academicProgramId;
+    private Long academicProgramId;
     private String name;
     private int totalSemesters;
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 
-    public void setAcademicProgramId(String academicProgramId) {
+    public void setAcademicProgramId(Long academicProgramId) {
         this.academicProgramId = academicProgramId;
     }
 

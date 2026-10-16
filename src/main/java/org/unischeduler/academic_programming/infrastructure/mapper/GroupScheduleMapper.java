@@ -10,11 +10,11 @@ public class GroupScheduleMapper {
         GroupScheduleEntity entity = new GroupScheduleEntity();
 
         entity.setGroupScheduleId(
-                String.valueOf(schedule.getGroupScheduleId())
+                schedule.getGroupScheduleId()
         );
 
         entity.setGroupId(
-                String.valueOf(schedule.getGroupId())
+                schedule.getGroupId()
         );
 
         entity.setDayOfWeek(

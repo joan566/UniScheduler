@@ -1,14 +1,14 @@
 package org.unischeduler.academic_programming.infrastructure.entity;
 
 public class TeacherEntity {
-    private String teacherId;
+    private Long teacherId;
     private String name;
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 

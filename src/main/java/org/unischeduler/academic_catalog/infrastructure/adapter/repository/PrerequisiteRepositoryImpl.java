@@ -22,7 +22,7 @@ public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
     }
 
     @Override
-    public List<Prerequisite> findAllPrerequisitesWhereCourseId(String courseId) {
+    public List<Prerequisite> findAllPrerequisitesWhereCourseId(Long courseId) {
         List<PrerequisiteEntity> entities = prerequisiteRepository.findAllPrerequisitesWhereCourseId(courseId);
 
         List<Prerequisite> prerequisites = new ArrayList<>();
@@ -41,7 +41,7 @@ public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
     }
 
     @Override
-    public Prerequisite save(String courseId, String coursePrerequisiteId) {
+    public Prerequisite save(Long courseId, Long coursePrerequisiteId) {
         PrerequisiteEntity entity = prerequisiteRepository.save(courseId, coursePrerequisiteId);
         Optional<Course> course = courseRepository.findById(entity.getCourseId());
 
@@ -49,7 +49,7 @@ public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
     }
 
     @Override
-    public boolean deleteWhereCourseId(String id) {
+    public boolean deleteWhereCourseId(Long id) {
         return prerequisiteRepository.deleteWhereCourseId(id);
     }
 }

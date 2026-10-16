@@ -20,7 +20,7 @@ public class ExcelEnrollmentDetailRepository {
     // =====================================================
     public EnrollmentDetailEntity save(EnrollmentDetailEntity detail) {
 
-        String id = generateId();
+        Long id = generateId();
         detail.setEnrollmentDetailId(id);
 
         store.getEnrollmentDetails().put(id, detail);
@@ -31,7 +31,7 @@ public class ExcelEnrollmentDetailRepository {
     // =====================================================
     // 🔍 FIND BY ENROLLMENT ID (LINEAR SEARCH)
     // =====================================================
-    public List<EnrollmentDetailEntity> findByEnrollmentId(String enrollmentId) {
+    public List<EnrollmentDetailEntity> findByEnrollmentId(Long enrollmentId) {
 
         List<EnrollmentDetailEntity> results = new ArrayList<>();
 
@@ -50,21 +50,21 @@ public class ExcelEnrollmentDetailRepository {
     // =====================================================
     // ⚙️ DELETE (OPTIONAL BUT CONSISTENT)
     // =====================================================
-    public void delete(String enrollmentDetailId) {
+    public void delete(Long enrollmentDetailId) {
         store.getEnrollmentDetails().remove(enrollmentDetailId);
     }
 
     // =====================================================
     // 🧠 FIND BY ID
     // =====================================================
-    public EnrollmentDetailEntity findById(String id) {
+    public EnrollmentDetailEntity findById(Long id) {
         return store.getEnrollmentDetails().get(id);
     }
 
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return "ED" + (store.getEnrollmentDetails().size() + 1);
+    private Long generateId() {
+        return store.getEnrollmentDetails().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

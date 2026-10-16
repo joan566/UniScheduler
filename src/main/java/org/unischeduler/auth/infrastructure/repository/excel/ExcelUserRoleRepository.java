@@ -15,14 +15,14 @@ public class ExcelUserRoleRepository {
         this.dataStore = dataStore;
     }
 
-    public Optional<UserRoleEntity> findById(String id) {
+    public Optional<UserRoleEntity> findById(Long id) {
 
         UserRoleEntity entity = dataStore.getUserRoles().get(id);
 
         return Optional.ofNullable(entity);
     }
 
-    public List<UserRoleEntity> findByUserId(String userId) {
+    public List<UserRoleEntity> findByUserId(Long userId) {
 
         return dataStore.getUserRoles()
                 .values()
@@ -31,7 +31,7 @@ public class ExcelUserRoleRepository {
                 .toList();
     }
 
-    public List<UserRoleEntity> findByRoleId(String roleId) {
+    public List<UserRoleEntity> findByRoleId(Long roleId) {
 
         return dataStore.getUserRoles()
                 .values()

@@ -1,13 +1,13 @@
 package org.unischeduler.academic_programming.application.services.in.group_schedules;
 
 public class DeleteGroupSchedulesCommand {
-    private final String groupId;
+    private final Long groupId;
 
-    public DeleteGroupSchedulesCommand(String groupId) {
+    public DeleteGroupSchedulesCommand(Long groupId) {
         this.groupId = groupId;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 }

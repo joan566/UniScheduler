@@ -3,17 +3,17 @@ package org.unischeduler.academic_catalog.application.services.out.academic_prog
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 
 public class AcademicProgramInfo {
-    private final String academicProgramId;
+    private final Long academicProgramId;
     private final String name;
     private final int totalSemesters;
 
-    public AcademicProgramInfo(String academicProgramId, String name, int totalSemesters) {
+    public AcademicProgramInfo(Long academicProgramId, String name, int totalSemesters) {
         this.academicProgramId = academicProgramId;
         this.name = name;
         this.totalSemesters = totalSemesters;
     }
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 

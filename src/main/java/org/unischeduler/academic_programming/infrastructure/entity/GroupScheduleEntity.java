@@ -3,26 +3,26 @@ package org.unischeduler.academic_programming.infrastructure.entity;
 import java.time.LocalTime;
 
 public class GroupScheduleEntity {
-    private String groupScheduleId;
-    private String groupId;
+    private Long groupScheduleId;
+    private Long groupId;
     private String dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
     private String classroom;
 
-    public String getGroupScheduleId() {
+    public Long getGroupScheduleId() {
         return groupScheduleId;
     }
 
-    public void setGroupScheduleId(String groupScheduleId) {
+    public void setGroupScheduleId(Long groupScheduleId) {
         this.groupScheduleId = groupScheduleId;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 

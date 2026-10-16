@@ -5,7 +5,7 @@ import org.unischeduler.academic_catalog.domain.entity.Prerequisite;
 import java.util.List;
 
 public interface PrerequisiteRepository {
-    List<Prerequisite> findAllPrerequisitesWhereCourseId(String courseId);
-    Prerequisite save(String courseId, String coursePrerequisiteId);
-    boolean deleteWhereCourseId(String id);
+    List<Prerequisite> findAllPrerequisitesWhereCourseId(Long courseId);
+    Prerequisite save(Long courseId, Long coursePrerequisiteId);
+    boolean deleteWhereCourseId(Long id);
 }

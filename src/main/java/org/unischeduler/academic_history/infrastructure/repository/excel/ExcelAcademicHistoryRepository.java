@@ -12,7 +12,7 @@ public class ExcelAcademicHistoryRepository {
         this.store = store;
     }
 
-    public Optional<AcademicHistoryEntity> findByStudentId(String studentId) {
+    public Optional<AcademicHistoryEntity> findByStudentId(Long studentId) {
         for(AcademicHistoryEntity entity : store.getHistories().values()) {
             if(studentId.equals(entity.getStudentId())) {
                 return Optional.of(entity);
@@ -23,7 +23,7 @@ public class ExcelAcademicHistoryRepository {
     }
 
     public AcademicHistoryEntity save(AcademicHistoryEntity entity) {
-        String id = generateId();
+        Long id = generateId();
         entity.setHistoryId(id);
 
         store.getHistories().put(id, entity);
@@ -34,7 +34,7 @@ public class ExcelAcademicHistoryRepository {
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getHistories().size() + 1);
+    private Long generateId() {
+        return store.getHistories().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

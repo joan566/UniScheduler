@@ -2,15 +2,15 @@ package org.unischeduler.academic_catalog.application.services.in.prerequisite;
 
 public class FindAllPrerequisitesCommand {
 
-    private final String courseId;
+    private final Long courseId;
 
     public FindAllPrerequisitesCommand(
-            String courseId
+            Long courseId
     ) {
         this.courseId = courseId;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 }

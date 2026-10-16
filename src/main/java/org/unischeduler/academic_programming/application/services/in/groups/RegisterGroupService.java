@@ -158,7 +158,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
     }
 
     private BuildSchedulesResult buildSchedules(
-            String groupId,
+            Long groupId,
             List<RegisterGroupScheduleCommand> commands
     ) {
 

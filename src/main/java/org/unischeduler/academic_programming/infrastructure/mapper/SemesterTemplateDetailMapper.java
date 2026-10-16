@@ -8,7 +8,7 @@ public class SemesterTemplateDetailMapper {
 
     public static SemesterTemplateDetailEntity toEntity(
             SemesterTemplateDetail detail,
-            String templateId
+            Long templateId
     ) {
         SemesterTemplateDetailEntity entity =
                 new SemesterTemplateDetailEntity();

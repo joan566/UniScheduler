@@ -17,26 +17,26 @@ import java.util.Map;
 
 public class ExcelDataStore {
 
-    private Map<String, AcademicProgramEntity> programs;
-    private Map<String, CourseEntity> courses;
-    private Map<String, AcademicPeriodEntity> periods;
-    private Map<String, PrerequisiteEntity> prerequisites;
+    private Map<Long, AcademicProgramEntity> programs;
+    private Map<Long, CourseEntity> courses;
+    private Map<Long, AcademicPeriodEntity> periods;
+    private Map<Long, PrerequisiteEntity> prerequisites;
 
-    private Map<String, AcademicHistoryEntity> histories;
+    private Map<Long, AcademicHistoryEntity> histories;
 
-    private Map<String, GroupEntity> groups;
-    private Map<String, TeacherEntity> teachers;
-    private Map<String, GroupScheduleEntity> groupSchedules;
-    private Map<String, SemesterTemplateEntity> templates;
-    private Map<String, SemesterTemplateDetailEntity> templateDetails;
+    private Map<Long, GroupEntity> groups;
+    private Map<Long, TeacherEntity> teachers;
+    private Map<Long, GroupScheduleEntity> groupSchedules;
+    private Map<Long, SemesterTemplateEntity> templates;
+    private Map<Long, SemesterTemplateDetailEntity> templateDetails;
 
-    private Map<String, StudentEntity> students;
-    private Map<String, EnrollmentEntity> enrollments;
-    private Map<String, EnrollmentDetailEntity> enrollmentDetails;
+    private Map<Long, StudentEntity> students;
+    private Map<Long, EnrollmentEntity> enrollments;
+    private Map<Long, EnrollmentDetailEntity> enrollmentDetails;
 
-    private Map<String, UserEntity> users;
-    private Map<String, RoleEntity> roles;
-    private Map<String, UserRoleEntity> userRoles;
+    private Map<Long, UserEntity> users;
+    private Map<Long, RoleEntity> roles;
+    private Map<Long, UserRoleEntity> userRoles;
 
     private boolean loaded = false;
 
@@ -69,123 +69,123 @@ public class ExcelDataStore {
         loaded = true;
     }
 
-    public Map<String, AcademicProgramEntity> getPrograms() {
+    public Map<Long, AcademicProgramEntity> getPrograms() {
         return programs;
     }
 
-    public void setPrograms(Map<String, AcademicProgramEntity> programs) {
+    public void setPrograms(Map<Long, AcademicProgramEntity> programs) {
         this.programs = programs;
     }
 
-    public Map<String, CourseEntity> getCourses() {
+    public Map<Long, CourseEntity> getCourses() {
         return courses;
     }
 
-    public void setCourses(Map<String, CourseEntity> courses) {
+    public void setCourses(Map<Long, CourseEntity> courses) {
         this.courses = courses;
     }
 
-    public Map<String, AcademicPeriodEntity> getPeriods() {
+    public Map<Long, AcademicPeriodEntity> getPeriods() {
         return periods;
     }
 
-    public void setPeriods(Map<String, AcademicPeriodEntity> periods) {
+    public void setPeriods(Map<Long, AcademicPeriodEntity> periods) {
         this.periods = periods;
     }
 
-    public Map<String, PrerequisiteEntity> getPrerequisites() {
+    public Map<Long, PrerequisiteEntity> getPrerequisites() {
         return prerequisites;
     }
 
-    public void setPrerequisites(Map<String, PrerequisiteEntity> prerequisites) {
+    public void setPrerequisites(Map<Long, PrerequisiteEntity> prerequisites) {
         this.prerequisites = prerequisites;
     }
 
-    public Map<String, GroupEntity> getGroups() {
+    public Map<Long, GroupEntity> getGroups() {
         return groups;
     }
 
-    public void setGroups(Map<String, GroupEntity> groups) {
+    public void setGroups(Map<Long, GroupEntity> groups) {
         this.groups = groups;
     }
 
-    public Map<String, TeacherEntity> getTeachers() {
+    public Map<Long, TeacherEntity> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(Map<String, TeacherEntity> teachers) {
+    public void setTeachers(Map<Long, TeacherEntity> teachers) {
         this.teachers = teachers;
     }
 
-    public Map<String, GroupScheduleEntity> getGroupSchedules() {
+    public Map<Long, GroupScheduleEntity> getGroupSchedules() {
         return groupSchedules;
     }
 
-    public void setGroupSchedules(Map<String, GroupScheduleEntity> groupSchedules) {
+    public void setGroupSchedules(Map<Long, GroupScheduleEntity> groupSchedules) {
         this.groupSchedules = groupSchedules;
     }
 
-    public Map<String, SemesterTemplateEntity> getTemplates() {
+    public Map<Long, SemesterTemplateEntity> getTemplates() {
         return templates;
     }
 
-    public void setTemplates(Map<String, SemesterTemplateEntity> templates) {
+    public void setTemplates(Map<Long, SemesterTemplateEntity> templates) {
         this.templates = templates;
     }
 
-    public Map<String, SemesterTemplateDetailEntity> getTemplateDetails() {
+    public Map<Long, SemesterTemplateDetailEntity> getTemplateDetails() {
         return templateDetails;
     }
 
-    public void setTemplateDetails(Map<String, SemesterTemplateDetailEntity> templateDetails) {
+    public void setTemplateDetails(Map<Long, SemesterTemplateDetailEntity> templateDetails) {
         this.templateDetails = templateDetails;
     }
 
-    public Map<String, StudentEntity> getStudents() {
+    public Map<Long, StudentEntity> getStudents() {
         return students;
     }
 
-    public void setStudents(Map<String, StudentEntity> students) {
+    public void setStudents(Map<Long, StudentEntity> students) {
         this.students = students;
     }
 
-    public Map<String, EnrollmentEntity> getEnrollments() {
+    public Map<Long, EnrollmentEntity> getEnrollments() {
         return enrollments;
     }
 
-    public void setEnrollments(Map<String, EnrollmentEntity> enrollments) {
+    public void setEnrollments(Map<Long, EnrollmentEntity> enrollments) {
         this.enrollments = enrollments;
     }
 
-    public Map<String, EnrollmentDetailEntity> getEnrollmentDetails() {
+    public Map<Long, EnrollmentDetailEntity> getEnrollmentDetails() {
         return enrollmentDetails;
     }
 
-    public void setEnrollmentDetails(Map<String, EnrollmentDetailEntity> enrollmentDetails) {
+    public void setEnrollmentDetails(Map<Long, EnrollmentDetailEntity> enrollmentDetails) {
         this.enrollmentDetails = enrollmentDetails;
     }
 
-    public Map<String, UserEntity> getUsers() {
+    public Map<Long, UserEntity> getUsers() {
         return users;
     }
 
-    public void setUsers(Map<String, UserEntity> users) {
+    public void setUsers(Map<Long, UserEntity> users) {
         this.users = users;
     }
 
-    public Map<String, RoleEntity> getRoles() {
+    public Map<Long, RoleEntity> getRoles() {
         return roles;
     }
 
-    public void setRoles(Map<String, RoleEntity> roles) {
+    public void setRoles(Map<Long, RoleEntity> roles) {
         this.roles = roles;
     }
 
-    public Map<String, UserRoleEntity> getUserRoles() {
+    public Map<Long, UserRoleEntity> getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(Map<String, UserRoleEntity> userRoles) {
+    public void setUserRoles(Map<Long, UserRoleEntity> userRoles) {
         this.userRoles = userRoles;
     }
 
@@ -197,11 +197,11 @@ public class ExcelDataStore {
         this.loaded = loaded;
     }
 
-    public Map<String, AcademicHistoryEntity> getHistories() {
+    public Map<Long, AcademicHistoryEntity> getHistories() {
         return histories;
     }
 
-    public void setHistories(Map<String, AcademicHistoryEntity> histories) {
+    public void setHistories(Map<Long, AcademicHistoryEntity> histories) {
         this.histories = histories;
     }
 }

@@ -1,17 +1,17 @@
 package org.unischeduler.auth.application.services.in.login.dtos;
 
 public class UserRoleInfo {
-    private String userRoleId;
+    private Long userRoleId;
     private String userRoleCode;
 
     public UserRoleInfo() {}
 
-    public UserRoleInfo(String userRoleId, String userRoleCode) {
+    public UserRoleInfo(Long userRoleId, String userRoleCode) {
         this.userRoleId = userRoleId;
         this.userRoleCode = userRoleCode;
     }
 
-    public String getUserRoleId() {
+    public Long getUserRoleId() {
         return userRoleId;
     }
 
@@ -19,7 +19,7 @@ public class UserRoleInfo {
         return userRoleCode;
     }
 
-    public void setUserRoleId(String userRoleId) {
+    public void setUserRoleId(Long userRoleId) {
         this.userRoleId = userRoleId;
     }
 

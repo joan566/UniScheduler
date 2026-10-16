@@ -17,7 +17,7 @@ public class ExcelPrerequisiteRepository {
     // =====================================================
     // 🔍 FIND ALL BY COURSE ID
     // =====================================================
-    public List<PrerequisiteEntity> findAllPrerequisitesWhereCourseId(String courseId) {
+    public List<PrerequisiteEntity> findAllPrerequisitesWhereCourseId(Long courseId) {
 
         List<PrerequisiteEntity> result = new ArrayList<>();
 
@@ -34,9 +34,9 @@ public class ExcelPrerequisiteRepository {
     // =====================================================
     // 💾 SAVE RELATION
     // =====================================================
-    public PrerequisiteEntity save(String courseId, String coursePrerequisiteId) {
+    public PrerequisiteEntity save(Long courseId, Long coursePrerequisiteId) {
 
-        String id = generateId();
+        Long id = generateId();
 
         PrerequisiteEntity entity = new PrerequisiteEntity();
         entity.setPrerequisiteId(id);
@@ -51,11 +51,11 @@ public class ExcelPrerequisiteRepository {
     // =====================================================
     // ❌ DELETE BY COURSE OR PREREQUISITE COURSE ID
     // =====================================================
-    public boolean deleteWhereCourseId(String id) {
+    public boolean deleteWhereCourseId(Long id) {
 
         boolean removed = false;
 
-        List<String> toRemove = new ArrayList<>();
+        List<Long> toRemove = new ArrayList<>();
 
         for (PrerequisiteEntity p : store.getPrerequisites().values()) {
 
@@ -66,7 +66,7 @@ public class ExcelPrerequisiteRepository {
             }
         }
 
-        for (String removeId : toRemove) {
+        for (Long removeId : toRemove) {
             store.getPrerequisites().remove(removeId);
             removed = true;
         }
@@ -77,7 +77,7 @@ public class ExcelPrerequisiteRepository {
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getPrerequisites().size() + 1);
+    private Long generateId() {
+        return store.getPrerequisites().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

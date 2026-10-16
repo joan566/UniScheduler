@@ -40,7 +40,7 @@ public class RegisterCourseService implements RegisterCourseUseCase {
         List<Course> prerequisites = new ArrayList<>();
         List<PrerequisiteInfo> prerequisiteInfos = new ArrayList<>();
 
-        for (String prerequisiteId : command.getPrerequisiteIds()) {
+        for (Long prerequisiteId : command.getPrerequisiteIds()) {
 
             Course prerequisite = courseRepository
                     .findById(prerequisiteId)

@@ -26,7 +26,7 @@ public class AcademicHistoryRepositoryImpl implements AcademicHistoryRepository 
     }
 
     @Override
-    public Optional<AcademicHistory> findByStudentId(String studentId) {
+    public Optional<AcademicHistory> findByStudentId(Long studentId) {
         Optional<Student> studentOptional = studentRepository.findById(studentId);
         if(studentOptional.isEmpty()) {
             return Optional.empty();

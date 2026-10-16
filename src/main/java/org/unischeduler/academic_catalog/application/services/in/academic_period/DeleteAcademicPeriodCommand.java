@@ -1,13 +1,13 @@
 package org.unischeduler.academic_catalog.application.services.in.academic_period;
 
 public class DeleteAcademicPeriodCommand {
-    private final String id;
+    private final Long id;
 
-    public DeleteAcademicPeriodCommand(String id) {
+    public DeleteAcademicPeriodCommand(Long id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 }

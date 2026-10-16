@@ -18,7 +18,7 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public Optional<Course> findById(String id) {
+    public Optional<Course> findById(Long id) {
         Optional<CourseEntity> entityOptional = courseRepository.findById(id);
         if(entityOptional.isEmpty()) {
             return Optional.empty();
@@ -75,7 +75,7 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
         return courseRepository.deleteById(id);
     }
 }

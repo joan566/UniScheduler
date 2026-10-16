@@ -91,7 +91,7 @@ public class ExcelDataWriter {
     //  CATALOG
     // =====================================================
     private void writeHistories(SpreadsheetDocument doc,
-                               Map<String, AcademicHistoryEntity> map) {
+                               Map<Long, AcademicHistoryEntity> map) {
 
         Table table = doc.getTableByName("AcademicHistory");
 
@@ -100,10 +100,10 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
             for(int i = 0; i < e.getCompletedCoursesId().size(); i++) {
-                table.getCellByPosition(0, row).setStringValue(e.getHistoryId());
-                table.getCellByPosition(1, row).setStringValue(e.getStudentId());
+                table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getHistoryId()));
+                table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getStudentId()));
                 table.getCellByPosition(2, row).setStringValue(
-                        e.getCompletedCoursesId().get(i)
+                        String.valueOf(e.getCompletedCoursesId().get(i))
                 );
                 table.getCellByPosition(3, row).setDoubleValue(e.getGrade());
                 table.getCellByPosition(4, row).setStringValue(e.getStatus());
@@ -114,7 +114,7 @@ public class ExcelDataWriter {
     }
 
     private void writePrograms(SpreadsheetDocument doc,
-                               Map<String, AcademicProgramEntity> map) {
+                               Map<Long, AcademicProgramEntity> map) {
 
         Table table = doc.getTableByName("AcademicProgram");
 
@@ -123,7 +123,7 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getAcademicProgramId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getAcademicProgramId()));
             table.getCellByPosition(1, row).setStringValue(e.getName());
             table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getTotalSemesters()));
 
@@ -132,7 +132,7 @@ public class ExcelDataWriter {
     }
 
     private void writeCourses(SpreadsheetDocument doc,
-                              Map<String, CourseEntity> map) {
+                              Map<Long, CourseEntity> map) {
 
         Table table = doc.getTableByName("Course");
 
@@ -141,7 +141,7 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getCourseId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getCourseId()));
             table.getCellByPosition(1, row).setStringValue(e.getName());
             table.getCellByPosition(2, row).setStringValue(e.getCode());
             table.getCellByPosition(3, row).setStringValue(String.valueOf(e.getCredits()));
@@ -152,7 +152,7 @@ public class ExcelDataWriter {
     }
 
     private void writePeriods(SpreadsheetDocument doc,
-                              Map<String, AcademicPeriodEntity> map) {
+                              Map<Long, AcademicPeriodEntity> map) {
 
         Table table = doc.getTableByName("AcademicPeriod");
 
@@ -161,7 +161,7 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getAcademicPeriodId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getAcademicPeriodId()));
             table.getCellByPosition(1, row).setStringValue(e.getCode());
             table.getCellByPosition(2, row).setStringValue(e.getName());
             table.getCellByPosition(3, row).setStringValue(e.getStartDate());
@@ -173,7 +173,7 @@ public class ExcelDataWriter {
     }
 
     private void writePrerequisites(SpreadsheetDocument doc,
-                                    Map<String, PrerequisiteEntity> map) {
+                                    Map<Long, PrerequisiteEntity> map) {
 
         Table table = doc.getTableByName("Prerequisite");
 
@@ -182,9 +182,9 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getPrerequisiteId());
-            table.getCellByPosition(1, row).setStringValue(e.getCourseId());
-            table.getCellByPosition(2, row).setStringValue(e.getPrerequisiteCourseId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getPrerequisiteId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getCourseId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getPrerequisiteCourseId()));
 
             row++;
         }
@@ -195,7 +195,7 @@ public class ExcelDataWriter {
     // =====================================================
 
     private void writeGroups(SpreadsheetDocument doc,
-                             Map<String, GroupEntity> map) {
+                             Map<Long, GroupEntity> map) {
 
         Table table = doc.getTableByName("Group");
 
@@ -204,9 +204,9 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getGroupId());
-            table.getCellByPosition(1, row).setStringValue(e.getCourseId());
-            table.getCellByPosition(2, row).setStringValue(e.getTeacherId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getGroupId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getCourseId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getTeacherId()));
             table.getCellByPosition(3, row).setStringValue(e.getGroupCode());
             table.getCellByPosition(4, row).setStringValue(String.valueOf(e.getCapacity()));
 
@@ -215,7 +215,7 @@ public class ExcelDataWriter {
     }
 
     private void writeTeachers(SpreadsheetDocument doc,
-                               Map<String, TeacherEntity> map) {
+                               Map<Long, TeacherEntity> map) {
 
         Table table = doc.getTableByName("Teachers");
 
@@ -224,7 +224,7 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getTeacherId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getTeacherId()));
             table.getCellByPosition(1, row).setStringValue(e.getName());
 
             row++;
@@ -232,7 +232,7 @@ public class ExcelDataWriter {
     }
 
     private void writeGroupSchedules(SpreadsheetDocument doc,
-                                     Map<String, GroupScheduleEntity> map) {
+                                     Map<Long, GroupScheduleEntity> map) {
 
         Table table = doc.getTableByName("GroupSchedule");
 
@@ -241,8 +241,8 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getGroupScheduleId());
-            table.getCellByPosition(1, row).setStringValue(e.getGroupId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getGroupScheduleId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getGroupId()));
             table.getCellByPosition(2, row).setStringValue(e.getDayOfWeek());
 
             table.getCellByPosition(3, row).setStringValue(e.getStartTime().format(TIME_FORMATTER));
@@ -255,7 +255,7 @@ public class ExcelDataWriter {
     }
 
     private void writeTemplates(SpreadsheetDocument doc,
-                                Map<String, SemesterTemplateEntity> map) {
+                                Map<Long, SemesterTemplateEntity> map) {
 
         Table table = doc.getTableByName("SemesterTemplate");
 
@@ -264,8 +264,8 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getTemplateId());
-            table.getCellByPosition(1, row).setStringValue(e.getProgramId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getTemplateId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getProgramId()));
             table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getSemester()));
 
             row++;
@@ -273,7 +273,7 @@ public class ExcelDataWriter {
     }
 
     private void writeTemplateDetails(SpreadsheetDocument doc,
-                                      Map<String, SemesterTemplateDetailEntity> map) {
+                                      Map<Long, SemesterTemplateDetailEntity> map) {
 
         Table table = doc.getTableByName("SemesterTemplateDetails");
 
@@ -282,9 +282,9 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getTemplateDetailId());
-            table.getCellByPosition(1, row).setStringValue(e.getTemplateId());
-            table.getCellByPosition(2, row).setStringValue(e.getGroupId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getTemplateDetailId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getTemplateId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getGroupId()));
 
             row++;
         }
@@ -295,7 +295,7 @@ public class ExcelDataWriter {
     // =====================================================
 
     private void writeStudents(SpreadsheetDocument doc,
-                               Map<String, StudentEntity> map) {
+                               Map<Long, StudentEntity> map) {
 
         Table table = doc.getTableByName("Students");
 
@@ -304,17 +304,17 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getStudentId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getStudentId()));
             table.getCellByPosition(1, row).setStringValue(e.getStudentCode());
-            table.getCellByPosition(2, row).setStringValue(e.getUserId());
-            table.getCellByPosition(3, row).setStringValue(e.getAcademicProgramId());
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getUserId()));
+            table.getCellByPosition(3, row).setStringValue(String.valueOf(e.getAcademicProgramId()));
 
             row++;
         }
     }
 
     private void writeEnrollments(SpreadsheetDocument doc,
-                                  Map<String, EnrollmentEntity> map) {
+                                  Map<Long, EnrollmentEntity> map) {
 
         Table table = doc.getTableByName("Enrollments");
 
@@ -323,18 +323,18 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getEnrollmentId());
-            table.getCellByPosition(1, row).setStringValue(e.getStudentId());
-            table.getCellByPosition(2, row).setStringValue(e.getAcademicProgramId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getEnrollmentId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getStudentId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getAcademicProgramId()));
             table.getCellByPosition(3, row).setStringValue(e.getEnrollmentDate().toString());
-            table.getCellByPosition(4, row).setStringValue(e.getAcademicPeriodId());
+            table.getCellByPosition(4, row).setStringValue(String.valueOf(e.getAcademicPeriodId()));
 
             row++;
         }
     }
 
     private void writeEnrollmentDetails(SpreadsheetDocument doc,
-                                        Map<String, EnrollmentDetailEntity> map) {
+                                        Map<Long, EnrollmentDetailEntity> map) {
 
         Table table = doc.getTableByName("EnrollmentDetails");
 
@@ -343,9 +343,9 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getEnrollmentDetailId());
-            table.getCellByPosition(1, row).setStringValue(e.getEnrollmentId());
-            table.getCellByPosition(2, row).setStringValue(e.getGroupId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getEnrollmentDetailId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getEnrollmentId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getGroupId()));
             table.getCellByPosition(3, row).setStringValue(e.getStatus());
             table.getCellByPosition(4, row).setStringValue(String.valueOf(e.getFinalGrade()));
 
@@ -358,7 +358,7 @@ public class ExcelDataWriter {
     // =====================================================
 
     private void writeUsers(SpreadsheetDocument doc,
-                            Map<String, UserEntity> map) {
+                            Map<Long, UserEntity> map) {
 
         Table table = doc.getTableByName("Users");
 
@@ -367,19 +367,18 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getUserId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getUserId()));
             table.getCellByPosition(1, row).setStringValue(e.getFirstName());
             table.getCellByPosition(2, row).setStringValue(e.getLastName());
-            table.getCellByPosition(3, row).setStringValue(e.getDocumentType());
+            table.getCellByPosition(3, row).setStringValue(String.valueOf(e.getDocumentType()));
             table.getCellByPosition(4, row).setStringValue(e.getDocumentNumber());
             table.getCellByPosition(5, row).setStringValue(String.valueOf(e.getBirthDate()));
-            table.getCellByPosition(6, row).setStringValue(e.getGender());
+            table.getCellByPosition(6, row).setStringValue(String.valueOf(e.getGender()));
             table.getCellByPosition(7, row).setStringValue(e.getPhoneNumber());
             table.getCellByPosition(8, row).setStringValue(e.getAddress());
             table.getCellByPosition(9, row).setStringValue(e.getEmail());
             table.getCellByPosition(10, row).setStringValue(e.getPassword());
-            table.getCellByPosition(11, row).setStringValue(e.getStatus());
-            table.getCellByPosition(12, row).setStringValue(e.getRole());
+            table.getCellByPosition(11, row).setStringValue(String.valueOf(e.getStatus()));
             table.getCellByPosition(13, row).setStringValue(String.valueOf(e.getCreatedAt()));
 
             row++;
@@ -387,7 +386,7 @@ public class ExcelDataWriter {
     }
 
     private void writeRoles(SpreadsheetDocument doc,
-                            Map<String, RoleEntity> map) {
+                            Map<Long, RoleEntity> map) {
 
         Table table = doc.getTableByName("Roles");
 
@@ -396,7 +395,7 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getRoleId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getRoleId()));
             table.getCellByPosition(1, row).setStringValue(e.getName());
 
             row++;
@@ -404,7 +403,7 @@ public class ExcelDataWriter {
     }
 
     private void writeUserRoles(SpreadsheetDocument doc,
-                                Map<String, UserRoleEntity> map) {
+                                Map<Long, UserRoleEntity> map) {
 
         Table table = doc.getTableByName("UserRole");
 
@@ -413,9 +412,9 @@ public class ExcelDataWriter {
 
             ensureRow(table, row);
 
-            table.getCellByPosition(0, row).setStringValue(e.getUserRoleId());
-            table.getCellByPosition(1, row).setStringValue(e.getUserId());
-            table.getCellByPosition(2, row).setStringValue(e.getRoleId());
+            table.getCellByPosition(0, row).setStringValue(String.valueOf(e.getUserRoleId()));
+            table.getCellByPosition(1, row).setStringValue(String.valueOf(e.getUserId()));
+            table.getCellByPosition(2, row).setStringValue(String.valueOf(e.getRoleId()));
 
             row++;
         }

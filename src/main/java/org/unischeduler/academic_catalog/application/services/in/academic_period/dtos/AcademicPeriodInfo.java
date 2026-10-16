@@ -7,14 +7,14 @@ import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import java.time.LocalDate;
 
 public class AcademicPeriodInfo {
-    private final String academicPeriodId;
+    private final Long academicPeriodId;
     private final String code;
     private final String name;
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final String status;
 
-    public AcademicPeriodInfo(String academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, String status) {
+    public AcademicPeriodInfo(Long academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, String status) {
         this.academicPeriodId = academicPeriodId;
         this.code = code;
         this.name = name;
@@ -34,7 +34,7 @@ public class AcademicPeriodInfo {
         );
     }
 
-    public String getAcademicPeriodId() {
+    public Long getAcademicPeriodId() {
         return academicPeriodId;
     }
 

@@ -3,14 +3,14 @@ package org.unischeduler.academic_catalog.application.services.in.academic_perio
 import java.time.LocalDate;
 
 public class UpdateAcademicPeriodCommand {
-    private final String academicPeriodId;
+    private final Long academicPeriodId;
     private final String code;
     private final String name;
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final String status;
 
-    public UpdateAcademicPeriodCommand(String academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, String status) {
+    public UpdateAcademicPeriodCommand(Long academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, String status) {
         this.academicPeriodId = academicPeriodId;
         this.code = code;
         this.name = name;
@@ -19,7 +19,7 @@ public class UpdateAcademicPeriodCommand {
         this.status = status;
     }
 
-    public String getAcademicPeriodId() {
+    public Long getAcademicPeriodId() {
         return academicPeriodId;
     }
 

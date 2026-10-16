@@ -40,7 +40,7 @@ public class RegisterPrerequisiteService
                         )
                 );
 
-        Set<String> uniquePrerequisiteIds =
+        Set<Long> uniquePrerequisiteIds =
                 new HashSet<>(command.getPrerequisiteIds());
 
         if (uniquePrerequisiteIds.size()
@@ -51,7 +51,7 @@ public class RegisterPrerequisiteService
             );
         }
 
-        for (String prerequisiteId : uniquePrerequisiteIds) {
+        for (Long prerequisiteId : uniquePrerequisiteIds) {
 
             if (course.getCourseId().equals(prerequisiteId)) {
 
@@ -76,7 +76,7 @@ public class RegisterPrerequisiteService
                 prerequisiteRepository
                         .findAllPrerequisitesWhereCourseId(course.getCourseId());
 
-        Set<String> existingIds =
+        Set<Long> existingIds =
                 existing.stream()
                         .map(Prerequisite::getPrerequisite)
                         .collect(java.util.stream.Collectors.toSet());
@@ -90,7 +90,7 @@ public class RegisterPrerequisiteService
                     )
             );
 
-            for (String prerequisiteId : uniquePrerequisiteIds) {
+            for (Long prerequisiteId : uniquePrerequisiteIds) {
 
                 prerequisiteRepository.save(
                         course.getCourseId(),

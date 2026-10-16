@@ -5,15 +5,15 @@ import org.unischeduler.academic_programming.application.services.out.dtos.Group
 import java.util.List;
 
 public class ValidateScheduleConflictsCommand {
-    private final String studentId;
+    private final Long studentId;
     private final List<GroupScheduleInfo> groupInfos;
 
-    public ValidateScheduleConflictsCommand(String studentId, List<GroupScheduleInfo> groupInfos) {
+    public ValidateScheduleConflictsCommand(Long studentId, List<GroupScheduleInfo> groupInfos) {
         this.studentId = studentId;
         this.groupInfos = groupInfos;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 

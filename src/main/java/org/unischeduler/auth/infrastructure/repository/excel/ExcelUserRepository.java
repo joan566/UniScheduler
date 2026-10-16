@@ -21,7 +21,7 @@ public class ExcelUserRepository {
     // =====================================================
     public UserEntity save(UserEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setUserId(id);
 
         store.getUsers().put(id, entity);
@@ -86,7 +86,7 @@ public class ExcelUserRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<UserEntity> findById(String id) {
+    public Optional<UserEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getUsers().get(id)
@@ -106,14 +106,14 @@ public class ExcelUserRepository {
     // =====================================================
     // ❌ DELETE
     // =====================================================
-    public void delete(String id) {
+    public void delete(Long id) {
         store.getUsers().remove(id);
     }
 
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getUsers().size() + 1);
+    private Long generateId() {
+        return store.getUsers().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

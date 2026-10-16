@@ -16,14 +16,14 @@ public class ExcelGroupScheduleRepository {
     }
 
     public GroupScheduleEntity save(GroupScheduleEntity entity) {
-        String id = generateId();
+        Long id = generateId();
         entity.setGroupScheduleId(id);
 
         store.getGroupSchedules().put(id, entity);
         return entity;
     }
 
-    public void deleteAllWhereGroupId(String groupId) {
+    public void deleteAllWhereGroupId(Long groupId) {
         store.getGroupSchedules()
                 .entrySet()
                 .removeIf(entry -> groupId.equals(entry.getValue().getGroupId()));
@@ -32,7 +32,7 @@ public class ExcelGroupScheduleRepository {
     // =====================================================
     // 🔍 FIND BY GROUP ID
     // =====================================================
-    public List<GroupScheduleEntity> findAllWhereGroupId(String groupId) {
+    public List<GroupScheduleEntity> findAllWhereGroupId(Long groupId) {
 
         List<GroupScheduleEntity> results = new ArrayList<>();
 
@@ -49,7 +49,7 @@ public class ExcelGroupScheduleRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public GroupScheduleEntity findById(String id) {
+    public GroupScheduleEntity findById(Long id) {
 
         return store.getGroupSchedules().get(id);
     }
@@ -67,7 +67,7 @@ public class ExcelGroupScheduleRepository {
     // =====================================================
     // ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getGroupSchedules().size() + 1);
+    private Long generateId() {
+        return store.getGroupSchedules().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

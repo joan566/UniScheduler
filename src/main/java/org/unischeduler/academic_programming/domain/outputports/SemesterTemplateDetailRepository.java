@@ -5,5 +5,5 @@ import org.unischeduler.academic_programming.domain.entity.SemesterTemplateDetai
 import java.util.ArrayList;
 
 public interface SemesterTemplateDetailRepository {
-    ArrayList<SemesterTemplateDetail> findAllWhereTemplateId(String templateId);
+    ArrayList<SemesterTemplateDetail> findAllWhereTemplateId(Long templateId);
 }

@@ -1,19 +1,19 @@
 package org.unischeduler.academic_programming.domain.entity;
 
 public class SemesterTemplateDetail {
-    private String templateDetailId;
+    private Long templateDetailId;
     private Group group;
 
-    public SemesterTemplateDetail(String templateDetailId, Group group) {
+    public SemesterTemplateDetail(Long templateDetailId, Group group) {
         this.templateDetailId = templateDetailId;
         this.group = group;
     }
 
-    public String getTemplateDetailId() {
+    public Long getTemplateDetailId() {
         return templateDetailId;
     }
 
-    public void setTemplateDetailId(String templateDetailId) {
+    public void setTemplateDetailId(Long templateDetailId) {
         this.templateDetailId = templateDetailId;
     }
 

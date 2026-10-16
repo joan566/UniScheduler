@@ -54,8 +54,6 @@ public class RegisterUserService implements RegisterUserUseCase {
                 email,
                 encodedPassword,
                 Status.valueOf(command.getStatus()),
-                command.getRole() == null ?
-                        null : Role.valueOf(command.getRole()),
                 null
         );
 
@@ -67,8 +65,7 @@ public class RegisterUserService implements RegisterUserUseCase {
                 new RegisterUserInfo(
                         userSaved.getUserId(),
                         userSaved.getFirstName() + " " + userSaved.getLastName(),
-                        userSaved.getEmail().getValue(),
-                        userSaved.getRole().name()
+                        userSaved.getEmail().getValue()
                 )
         );
     }

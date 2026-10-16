@@ -18,7 +18,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     }
 
     @Override
-    public Optional<Teacher> findById(String id) {
+    public Optional<Teacher> findById(Long id) {
         Optional<TeacherEntity> entityOptional = teacherRepository.findById(id);
         if(entityOptional.isEmpty()) {
             return Optional.empty();

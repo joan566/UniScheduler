@@ -17,7 +17,7 @@ public class AcademicProgramRepositoryImpl implements AcademicProgramRepository 
     }
 
     @Override
-    public Optional<AcademicProgram> findById(String id) {
+    public Optional<AcademicProgram> findById(Long id) {
         Optional<AcademicProgramEntity> entityOptional = programRepository.findById(id);
         if(entityOptional.isEmpty()) {
             return Optional.empty();

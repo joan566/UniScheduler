@@ -3,19 +3,19 @@ package org.unischeduler.enrollment.application.services.in.validate;
 import java.util.List;
 
 public class ValidatePrerequisiteCommand {
-    private final String studentId;
-    private final List<String> courseIds;
+    private final Long studentId;
+    private final List<Long> courseIds;
 
-    public ValidatePrerequisiteCommand(String studentId, List<String> courseIds) {
+    public ValidatePrerequisiteCommand(Long studentId, List<Long> courseIds) {
         this.studentId = studentId;
         this.courseIds = courseIds;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public List<String> getCourseIds() {
+    public List<Long> getCourseIds() {
         return courseIds;
     }
 }

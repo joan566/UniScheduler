@@ -13,7 +13,7 @@ public class ExcelRoleRepository {
         this.dataStore = dataStore;
     }
 
-    public Optional<RoleEntity> findById(String id) {
+    public Optional<RoleEntity> findById(Long id) {
 
         RoleEntity role = dataStore.getRoles().get(id);
 

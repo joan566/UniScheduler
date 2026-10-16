@@ -18,7 +18,7 @@ public class ExcelAcademicProgramRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<AcademicProgramEntity> findById(String id) {
+    public Optional<AcademicProgramEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getPrograms().get(id)

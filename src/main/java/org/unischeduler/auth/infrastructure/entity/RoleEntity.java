@@ -1,14 +1,14 @@
 package org.unischeduler.auth.infrastructure.entity;
 
 public class RoleEntity {
-    private String roleId;
+    private Long roleId;
     private String name;
 
-    public String getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(String roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 

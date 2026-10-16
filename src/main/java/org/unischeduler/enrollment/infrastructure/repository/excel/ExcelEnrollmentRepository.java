@@ -20,7 +20,7 @@ public class ExcelEnrollmentRepository {
     // =====================================================
     public EnrollmentEntity save(EnrollmentEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setEnrollmentId(id);
 
         store.getEnrollments().put(id, entity);
@@ -31,7 +31,7 @@ public class ExcelEnrollmentRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public EnrollmentEntity findById(String id) {
+    public EnrollmentEntity findById(Long id) {
         return store.getEnrollments().get(id);
     }
 
@@ -45,11 +45,11 @@ public class ExcelEnrollmentRepository {
     // =====================================================
     // ❌ DELETE
     // =====================================================
-    public void delete(String id) {
+    public void delete(Long id) {
         store.getEnrollments().remove(id);
     }
 
-    public Optional<EnrollmentEntity> findByStudentAndActivePeriod(String studentId, String periodId) {
+    public Optional<EnrollmentEntity> findByStudentAndActivePeriod(Long studentId, Long periodId) {
         for(EnrollmentEntity e : store.getEnrollments().values()) {
             if(studentId.equals(e.getStudentId()) && periodId.equals(e.getAcademicPeriodId())) {
                 return Optional.of(e);
@@ -59,7 +59,7 @@ public class ExcelEnrollmentRepository {
         return Optional.empty();
     }
 
-    public List<EnrollmentEntity> findAllWhereStudentId(String studentId) {
+    public List<EnrollmentEntity> findAllWhereStudentId(Long studentId) {
         return store.getEnrollments()
                 .values()
                 .stream()
@@ -70,7 +70,7 @@ public class ExcelEnrollmentRepository {
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getEnrollments().size() + 1);
+    private Long generateId() {
+        return store.getEnrollments().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

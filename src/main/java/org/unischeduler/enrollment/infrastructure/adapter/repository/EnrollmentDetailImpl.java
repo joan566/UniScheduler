@@ -22,7 +22,7 @@ public class EnrollmentDetailImpl implements EnrollmentDetailRepository {
     }
 
     @Override
-    public EnrollmentDetail save(EnrollmentDetail enrollmentDetail, String enrollmentId) {
+    public EnrollmentDetail save(EnrollmentDetail enrollmentDetail, Long enrollmentId) {
         EnrollmentDetailEntity entity = EnrollmentDetailMapper.toEntity(enrollmentDetail, enrollmentId);
 
         EnrollmentDetailEntity entitySaved = detailRepository.save(entity);
@@ -33,7 +33,7 @@ public class EnrollmentDetailImpl implements EnrollmentDetailRepository {
     }
 
     @Override
-    public ArrayList<EnrollmentDetail> findByEnrollmentId(String enrollmentId) {
+    public ArrayList<EnrollmentDetail> findByEnrollmentId(Long enrollmentId) {
 
         List<EnrollmentDetailEntity> entities =
                 detailRepository.findByEnrollmentId(enrollmentId);

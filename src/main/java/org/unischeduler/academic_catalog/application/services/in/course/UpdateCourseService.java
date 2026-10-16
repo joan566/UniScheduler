@@ -47,10 +47,10 @@ public class UpdateCourseService implements UpdateCourseUseCase {
                 });
 
         // Validar que existan todos los prerrequisitos por ID
-        List<String> prerequisiteIds = new ArrayList<>();
+        List<Long> prerequisiteIds = new ArrayList<>();
         List<PrerequisiteInfo> prerequisiteInfos = new ArrayList<>();
 
-        for (String prerequisiteId : command.getPrerequisiteIds()) {
+        for (Long prerequisiteId : command.getPrerequisiteIds()) {
 
             Course prerequisite = courseRepository
                     .findById(prerequisiteId)

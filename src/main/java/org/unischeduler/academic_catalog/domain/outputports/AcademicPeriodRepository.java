@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AcademicPeriodRepository {
-    Optional<AcademicPeriod> findById(String id);
+    Optional<AcademicPeriod> findById(Long id);
     List<AcademicPeriod> findAll();
     boolean existsByCode(String code);
     Optional<AcademicPeriod> findByCode(String code);
     AcademicPeriod save(AcademicPeriod academicPeriod);
     AcademicPeriod update(AcademicPeriod academicPeriod);
-    boolean deleteById(String id);
+    boolean deleteById(Long id);
     Optional<AcademicPeriod> findActive();
 }

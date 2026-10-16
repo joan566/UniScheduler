@@ -8,14 +8,14 @@ public class RegisterCourseCommand {
     private final String name;
     private final int credits;
     private final String description;
-    private final List<String> prerequisiteIds;
+    private final List<Long> prerequisiteIds;
 
     public RegisterCourseCommand(
             String courseCode,
             String name,
             int credits,
             String description,
-            List<String> prerequisiteIds
+            List<Long> prerequisiteIds
     ) {
         this.courseCode = courseCode;
         this.name = name;
@@ -40,7 +40,7 @@ public class RegisterCourseCommand {
         return description;
     }
 
-    public List<String> getPrerequisiteIds() {
+    public List<Long> getPrerequisiteIds() {
         return prerequisiteIds;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class Enrollment {
 
     //================// Atributos //================//
-    private final String enrollmentId;
+    private final Long enrollmentId;
     private final Student student;
     private  AcademicProgram academicProgram;
     private final LocalDate enrollmentDate;
@@ -17,7 +17,7 @@ public class Enrollment {
     private AcademicPeriod academicPeriod;
 
 
-    public Enrollment(String enrollmentId, Student student, AcademicProgram academicProgram,
+    public Enrollment(Long enrollmentId, Student student, AcademicProgram academicProgram,
                       LocalDate enrollmentDate, List<EnrollmentDetail> details,
                       AcademicPeriod academicPeriod) {
         this.enrollmentId = enrollmentId;
@@ -30,7 +30,7 @@ public class Enrollment {
 
     //================// Setters y Getters //================//
 
-    public String getEnrollmentId() {
+    public Long getEnrollmentId() {
         return enrollmentId;
     }
 

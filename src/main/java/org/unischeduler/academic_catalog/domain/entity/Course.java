@@ -6,7 +6,7 @@ import java.util.List;
 public class Course {
 
     //================// Atributos //================//
-    private String courseId;
+    private Long courseId;
     private String name;
     private String code;
     private int credits;
@@ -15,7 +15,7 @@ public class Course {
     private List<Course> prerequisites;
 
 
-    public Course(String courseId, String name, String code, int credits, String description, List<Course> prerequisites) {
+    public Course(Long courseId, String name, String code, int credits, String description, List<Course> prerequisites) {
         this.courseId = courseId;
         this.name = name;
         this.code = code;
@@ -26,11 +26,11 @@ public class Course {
 
     //================// Setters y Getters //================//
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 

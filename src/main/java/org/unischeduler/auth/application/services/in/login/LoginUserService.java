@@ -48,27 +48,10 @@ public class LoginUserService implements LoginUserUseCase {
             );
         }
 
-
-        UserRoleInfo userRoleInfo = new UserRoleInfo();
-        if("STUDENT".equals(user.getRole())) {
-            Student student = studentRepository.findByUserId(user.getUserId())
-                    .orElseThrow(()
-                            -> new EntityNotFoundException("No existe un estudiante relacionado a el usuario " + user.getUserId()));
-
-            userRoleInfo.setUserRoleId(student.getStudentId());
-            userRoleInfo.setUserRoleCode(student.getStudentCode());
-
-        } else {
-            userRoleInfo.setUserRoleId(null);
-            userRoleInfo.setUserRoleCode(null);
-        }
-
         UserInfo userInfo = new UserInfo(
                 user.getUserId(),
                 user.getFirstName() + " " + user.getLastName(),
-                user.getEmail().getValue(),
-                userRoleInfo,
-                user.getRole().name()
+                user.getEmail().getValue()
         );
 
         return new LoginUserResponse(

@@ -22,7 +22,7 @@ public class ExcelTeacherRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<TeacherEntity> findById(String id) {
+    public Optional<TeacherEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getTeachers().get(id)

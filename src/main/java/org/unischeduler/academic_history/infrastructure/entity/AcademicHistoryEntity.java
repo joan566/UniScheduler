@@ -4,18 +4,18 @@ import java.util.List;
 
 public class AcademicHistoryEntity {
 
-    private String historyId;
-    private String studentId;
-    private List<String> completedCoursesId;
+    private Long historyId;
+    private Long studentId;
+    private List<Long> completedCoursesId;
     private double grade;
     private String status;
 
     public AcademicHistoryEntity() {}
 
     public AcademicHistoryEntity(
-            String historyId,
-            String studentId,
-            List<String> completedCoursesId,
+            Long historyId,
+            Long studentId,
+            List<Long> completedCoursesId,
             double grade,
             String status
     ) {
@@ -26,31 +26,31 @@ public class AcademicHistoryEntity {
         this.status = status;
     }
 
-    public String getHistoryId() {
+    public Long getHistoryId() {
         return historyId;
     }
 
-    public void setHistoryId(String historyId) {
+    public void setHistoryId(Long historyId) {
         this.historyId = historyId;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
-    public List<String> getCompletedCoursesId() {
+    public List<Long> getCompletedCoursesId() {
         return completedCoursesId;
     }
 
-    public void setCompletedCourses(List<String> completedCourseId) {
+    public void setCompletedCourses(List<Long> completedCourseId) {
         this.completedCoursesId = completedCourseId;
     }
 
-    public void setCompletedCoursesId(List<String> completedCoursesId) {
+    public void setCompletedCoursesId(List<Long> completedCoursesId) {
         this.completedCoursesId = completedCoursesId;
     }
 

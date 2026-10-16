@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface EnrollmentRepository {
     Enrollment save(Enrollment enrollment);
-    Optional<Enrollment> findByStudentAndActivePeriod(String studentId);
-    List<Enrollment> findAllWhereStudentId(String studentId);
+    Optional<Enrollment> findByStudentAndActivePeriod(Long studentId);
+    List<Enrollment> findAllWhereStudentId(Long studentId);
 }

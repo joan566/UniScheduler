@@ -1,18 +1,18 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
 public class AcademicPeriodEntity {
-    private String academicPeriodId;
+    private Long academicPeriodId;
     private String code;
     private String name;
     private String startDate;
     private String endDate;
     private String status;
 
-    public String getAcademicPeriodId() {
+    public Long getAcademicPeriodId() {
         return academicPeriodId;
     }
 
-    public void setAcademicPeriodId(String academicPeriodId) {
+    public void setAcademicPeriodId(Long academicPeriodId) {
         this.academicPeriodId = academicPeriodId;
     }
 

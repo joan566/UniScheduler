@@ -4,8 +4,8 @@ import org.odftoolkit.simple.table.Table;
 
 public class ExcelIdGenerator {
 
-    public static String generateNextId(Table table, int idColumnIndex) {
-        int max = 0;
+    public static Long generateNextId(Table table, int idColumnIndex) {
+        long max = 0;
         int rowCount = table.getRowCount();
 
         for (int i = 1; i < rowCount; i++) { // skip header
@@ -13,7 +13,7 @@ public class ExcelIdGenerator {
                 String value = table.getCellByPosition(idColumnIndex, i).getStringValue();
 
                 if (value != null && !value.isEmpty()) {
-                    int id = Integer.parseInt(value.trim());
+                    long id = Long.parseLong(value.trim());
                     max = Math.max(max, id);
                 }
 
@@ -24,6 +24,6 @@ public class ExcelIdGenerator {
             }
         }
 
-        return String.valueOf(max + 1);
+        return max + 1;
     }
 }

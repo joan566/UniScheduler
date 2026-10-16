@@ -72,7 +72,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
                 .distinct()
                 .toList();
 
-        List<String> courseIds = groups.stream()
+        List<Long> courseIds = groups.stream()
                 .map(group -> group.getCourse().getCourseId())
                 .toList();
 
@@ -185,7 +185,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
 
     private boolean hasDuplicatedGroups(
             Enrollment enrollment,
-            List<String> newGroupIds
+            List<Long> newGroupIds
     ) {
 
         if (enrollment.getDetails() == null) {
@@ -207,7 +207,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
             return false;
         }
 
-        Set<String> enrolledCourseIds = enrollment.getDetails()
+        Set<Long> enrolledCourseIds = enrollment.getDetails()
                 .stream()
                 .map(detail ->
                         detail.getGroup()
@@ -223,8 +223,8 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
     }
 
     public RegisterEnrollmentResponse validateData(
-            String studentId,
-            List<String> courseIds
+            Long studentId,
+            List<Long> courseIds
     ) {
 
         ValidateCreditLimitCommand creditLimitCommand =

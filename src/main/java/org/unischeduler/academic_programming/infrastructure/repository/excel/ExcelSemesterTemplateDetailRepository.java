@@ -18,7 +18,7 @@ public class ExcelSemesterTemplateDetailRepository {
     // =====================================================
     // 🔍 FIND ALL BY TEMPLATE ID
     // =====================================================
-    public List<SemesterTemplateDetailEntity> findAllWhereTemplateId(String templateId) {
+    public List<SemesterTemplateDetailEntity> findAllWhereTemplateId(Long templateId) {
 
         List<SemesterTemplateDetailEntity> results = new ArrayList<>();
 

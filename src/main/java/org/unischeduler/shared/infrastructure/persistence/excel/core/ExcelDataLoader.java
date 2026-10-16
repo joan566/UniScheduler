@@ -8,6 +8,9 @@ import org.unischeduler.academic_catalog.infrastructure.entity.CourseEntity;
 import org.unischeduler.academic_catalog.infrastructure.entity.PrerequisiteEntity;
 import org.unischeduler.academic_history.infrastructure.entity.AcademicHistoryEntity;
 import org.unischeduler.academic_programming.infrastructure.entity.*;
+import org.unischeduler.auth.domain.enums.DocumentType;
+import org.unischeduler.auth.domain.enums.Gender;
+import org.unischeduler.auth.domain.enums.Status;
 import org.unischeduler.auth.infrastructure.entity.RoleEntity;
 import org.unischeduler.auth.infrastructure.entity.UserEntity;
 import org.unischeduler.auth.infrastructure.entity.UserRoleEntity;
@@ -64,25 +67,26 @@ public class ExcelDataLoader {
         return null;
     }
 
-    private Map<String, AcademicHistoryEntity> readHistories(SpreadsheetDocument doc) {
-        Map<String, AcademicHistoryEntity> map = new HashMap<>();
+    private Map<Long, AcademicHistoryEntity> readHistories(SpreadsheetDocument doc) {
+        Map<Long, AcademicHistoryEntity> map = new HashMap<>();
         Table table = doc.getTableByName("AcademicHistory");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             AcademicHistoryEntity e = new AcademicHistoryEntity();
 
-            e.setHistoryId(table.getCellByPosition(0, i).getStringValue());
-            e.setStudentId(table.getCellByPosition(1, i).getStringValue());
+            e.setHistoryId(readId(table, 0, i));
+            e.setStudentId(readId(table, 1, i));
 
-            List<String> completedCourses = new ArrayList<>();
+            List<Long> completedCourses = new ArrayList<>();
             for(int j = 1; j < table.getRowCount(); j++) {
+                if (!hasId(table, j)) continue;
 
-                String studentId = table.getCellByPosition(1, j).getStringValue();
-                if(studentId.equals(e.getStudentId())) {
-                    completedCourses.add(
-                        table.getCellByPosition(2, j).getStringValue()
-                    );
+                Long studentId = readId(table, 1, j);
+                Long courseId = readId(table, 2, j);
+                if (studentId != null && studentId.equals(e.getStudentId()) && courseId != null) {
+                    completedCourses.add(courseId);
                 }
             }
 
@@ -100,16 +104,17 @@ public class ExcelDataLoader {
     // 📚 CATALOG
     // =====================================================
 
-    private Map<String, AcademicProgramEntity> readPrograms(SpreadsheetDocument doc) {
+    private Map<Long, AcademicProgramEntity> readPrograms(SpreadsheetDocument doc) {
 
-        Map<String, AcademicProgramEntity> map = new HashMap<>();
+        Map<Long, AcademicProgramEntity> map = new HashMap<>();
         Table table = doc.getTableByName("AcademicProgram");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             AcademicProgramEntity e = new AcademicProgramEntity();
 
-            e.setAcademicProgramId(table.getCellByPosition(0, i).getStringValue());
+            e.setAcademicProgramId(readId(table, 0, i));
             e.setName(table.getCellByPosition(1, i).getStringValue());
             e.setTotalSemesters(Integer.parseInt(
                     table.getCellByPosition(2, i).getStringValue()
@@ -122,16 +127,17 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, CourseEntity> readCourses(SpreadsheetDocument doc) {
+    private Map<Long, CourseEntity> readCourses(SpreadsheetDocument doc) {
 
-        Map<String, CourseEntity> map = new HashMap<>();
+        Map<Long, CourseEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Course");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             CourseEntity e = new CourseEntity();
 
-            e.setCourseId(table.getCellByPosition(0, i).getStringValue());
+            e.setCourseId(readId(table, 0, i));
             e.setName(table.getCellByPosition(1, i).getStringValue());
             e.setCode(table.getCellByPosition(2, i).getStringValue());
             e.setCredits(Integer.parseInt(
@@ -144,16 +150,17 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, AcademicPeriodEntity> readPeriods(SpreadsheetDocument doc) {
+    private Map<Long, AcademicPeriodEntity> readPeriods(SpreadsheetDocument doc) {
 
-        Map<String, AcademicPeriodEntity> map = new HashMap<>();
+        Map<Long, AcademicPeriodEntity> map = new HashMap<>();
         Table table = doc.getTableByName("AcademicPeriod");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             AcademicPeriodEntity e = new AcademicPeriodEntity();
 
-            e.setAcademicPeriodId(table.getCellByPosition(0, i).getStringValue());
+            e.setAcademicPeriodId(readId(table, 0, i));
             e.setCode(table.getCellByPosition(1, i).getStringValue());
             e.setName(table.getCellByPosition(2, i).getStringValue());
             e.setStartDate(table.getCellByPosition(3, i).getStringValue());
@@ -166,18 +173,19 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, PrerequisiteEntity> readPrerequisites(SpreadsheetDocument doc) {
+    private Map<Long, PrerequisiteEntity> readPrerequisites(SpreadsheetDocument doc) {
 
-        Map<String, PrerequisiteEntity> map = new HashMap<>();
+        Map<Long, PrerequisiteEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Prerequisite");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             PrerequisiteEntity e = new PrerequisiteEntity();
 
-            e.setPrerequisiteId(table.getCellByPosition(0, i).getStringValue());
-            e.setCourseId(table.getCellByPosition(1, i).getStringValue());
-            e.setPrerequisiteCourseId(table.getCellByPosition(2, i).getStringValue());
+            e.setPrerequisiteId(readId(table, 0, i));
+            e.setCourseId(readId(table, 1, i));
+            e.setPrerequisiteCourseId(readId(table, 2, i));
 
             map.put(e.getPrerequisiteId(), e);
         }
@@ -189,18 +197,19 @@ public class ExcelDataLoader {
     // 🏫 PROGRAMMING
     // =====================================================
 
-    private Map<String, GroupEntity> readGroups(SpreadsheetDocument doc) {
+    private Map<Long, GroupEntity> readGroups(SpreadsheetDocument doc) {
 
-        Map<String, GroupEntity> map = new HashMap<>();
+        Map<Long, GroupEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Group");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             GroupEntity g = new GroupEntity();
 
-            g.setGroupId(table.getCellByPosition(0, i).getStringValue());
-            g.setCourseId(table.getCellByPosition(1, i).getStringValue());
-            g.setTeacherId(table.getCellByPosition(2, i).getStringValue());
+            g.setGroupId(readId(table, 0, i));
+            g.setCourseId(readId(table, 1, i));
+            g.setTeacherId(readId(table, 2, i));
             g.setGroupCode(table.getCellByPosition(3, i).getStringValue());
             g.setCapacity(Integer.parseInt(
                     table.getCellByPosition(4, i).getStringValue()
@@ -214,16 +223,17 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, TeacherEntity> readTeachers(SpreadsheetDocument doc) {
+    private Map<Long, TeacherEntity> readTeachers(SpreadsheetDocument doc) {
 
-        Map<String, TeacherEntity> map = new HashMap<>();
+        Map<Long, TeacherEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Teachers");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             TeacherEntity t = new TeacherEntity();
 
-            t.setTeacherId(table.getCellByPosition(0, i).getStringValue());
+            t.setTeacherId(readId(table, 0, i));
             t.setName(table.getCellByPosition(1, i).getStringValue());
 
             map.put(t.getTeacherId(), t);
@@ -232,18 +242,19 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, GroupScheduleEntity> readGroupSchedules(SpreadsheetDocument doc) {
+    private Map<Long, GroupScheduleEntity> readGroupSchedules(SpreadsheetDocument doc) {
 
-        Map<String, GroupScheduleEntity> map = new HashMap<>();
+        Map<Long, GroupScheduleEntity> map = new HashMap<>();
         Table table = doc.getTableByName("GroupSchedule");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             GroupScheduleEntity e = new GroupScheduleEntity();
 
-            e.setGroupScheduleId(table.getCellByPosition(0, i).getStringValue());
-            e.setGroupId(table.getCellByPosition(1, i).getStringValue());
+            e.setGroupScheduleId(readId(table, 0, i));
+            e.setGroupId(readId(table, 1, i));
             e.setDayOfWeek(table.getCellByPosition(2, i).getStringValue());
 
             String startStr = table.getCellByPosition(3, i).getStringValue();
@@ -260,17 +271,18 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, SemesterTemplateEntity> readTemplates(SpreadsheetDocument doc) {
+    private Map<Long, SemesterTemplateEntity> readTemplates(SpreadsheetDocument doc) {
 
-        Map<String, SemesterTemplateEntity> map = new HashMap<>();
+        Map<Long, SemesterTemplateEntity> map = new HashMap<>();
         Table table = doc.getTableByName("SemesterTemplate");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             SemesterTemplateEntity e = new SemesterTemplateEntity();
 
-            e.setTemplateId(table.getCellByPosition(0, i).getStringValue());
-            e.setProgramId(table.getCellByPosition(1, i).getStringValue());
+            e.setTemplateId(readId(table, 0, i));
+            e.setProgramId(readId(table, 1, i));
             e.setSemester(Integer.parseInt(
                     table.getCellByPosition(2, i).getStringValue()
             ));
@@ -281,18 +293,19 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, SemesterTemplateDetailEntity> readTemplateDetails(SpreadsheetDocument doc) {
+    private Map<Long, SemesterTemplateDetailEntity> readTemplateDetails(SpreadsheetDocument doc) {
 
-        Map<String, SemesterTemplateDetailEntity> map = new HashMap<>();
+        Map<Long, SemesterTemplateDetailEntity> map = new HashMap<>();
         Table table = doc.getTableByName("SemesterTemplateDetails");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             SemesterTemplateDetailEntity e = new SemesterTemplateDetailEntity();
 
-            e.setTemplateDetailId(table.getCellByPosition(0, i).getStringValue());
-            e.setTemplateId(table.getCellByPosition(1, i).getStringValue());
-            e.setGroupId(table.getCellByPosition(2, i).getStringValue());
+            e.setTemplateDetailId(readId(table, 0, i));
+            e.setTemplateId(readId(table, 1, i));
+            e.setGroupId(readId(table, 2, i));
 
             map.put(e.getTemplateDetailId(), e);
         }
@@ -304,19 +317,20 @@ public class ExcelDataLoader {
     // 🧑‍🎓 ENROLLMENT
     // =====================================================
 
-    private Map<String, StudentEntity> readStudents(SpreadsheetDocument doc) {
+    private Map<Long, StudentEntity> readStudents(SpreadsheetDocument doc) {
 
-        Map<String, StudentEntity> map = new HashMap<>();
+        Map<Long, StudentEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Students");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             StudentEntity s = new StudentEntity();
 
-            s.setStudentId(table.getCellByPosition(0, i).getStringValue());
+            s.setStudentId(readId(table, 0, i));
             s.setStudentCode(table.getCellByPosition(1, i).getStringValue());
-            s.setUserId(table.getCellByPosition(2, i).getStringValue());
-            s.setAcademicProgramId(table.getCellByPosition(3, i).getStringValue());
+            s.setUserId(readId(table, 2, i));
+            s.setAcademicProgramId(readId(table, 3, i));
 
             map.put(s.getStudentId(), s);
         }
@@ -324,20 +338,21 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, EnrollmentEntity> readEnrollments(SpreadsheetDocument doc) {
+    private Map<Long, EnrollmentEntity> readEnrollments(SpreadsheetDocument doc) {
 
-        Map<String, EnrollmentEntity> map = new HashMap<>();
+        Map<Long, EnrollmentEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Enrollments");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             EnrollmentEntity e = new EnrollmentEntity();
 
-            e.setEnrollmentId(table.getCellByPosition(0, i).getStringValue());
-            e.setStudentId(table.getCellByPosition(1, i).getStringValue());
-            e.setAcademicProgramId(table.getCellByPosition(2, i).getStringValue());
+            e.setEnrollmentId(readId(table, 0, i));
+            e.setStudentId(readId(table, 1, i));
+            e.setAcademicProgramId(readId(table, 2, i));
             e.setEnrollmentDate(LocalDate.parse(table.getCellByPosition(3, i).getStringValue()));
-            e.setAcademicPeriodId(table.getCellByPosition(4, i).getStringValue());
+            e.setAcademicPeriodId(readId(table, 4, i));
 
             map.put(e.getEnrollmentId(), e);
         }
@@ -345,18 +360,19 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, EnrollmentDetailEntity> readEnrollmentDetails(SpreadsheetDocument doc) {
+    private Map<Long, EnrollmentDetailEntity> readEnrollmentDetails(SpreadsheetDocument doc) {
 
-        Map<String, EnrollmentDetailEntity> map = new HashMap<>();
+        Map<Long, EnrollmentDetailEntity> map = new HashMap<>();
         Table table = doc.getTableByName("EnrollmentDetails");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             EnrollmentDetailEntity e = new EnrollmentDetailEntity();
 
-            e.setEnrollmentDetailId(table.getCellByPosition(0, i).getStringValue());
-            e.setEnrollmentId(table.getCellByPosition(1, i).getStringValue());
-            e.setGroupId(table.getCellByPosition(2, i).getStringValue());
+            e.setEnrollmentDetailId(readId(table, 0, i));
+            e.setEnrollmentId(readId(table, 1, i));
+            e.setGroupId(readId(table, 2, i));
             e.setStatus(table.getCellByPosition(3, i).getStringValue());
             e.setFinalGrade(Double.parseDouble(
                     table.getCellByPosition(4, i).getStringValue()
@@ -372,28 +388,28 @@ public class ExcelDataLoader {
     // 🔐 AUTH
     // =====================================================
 
-    private Map<String, UserEntity> readUsers(SpreadsheetDocument doc) {
+    private Map<Long, UserEntity> readUsers(SpreadsheetDocument doc) {
 
-        Map<String, UserEntity> map = new HashMap<>();
+        Map<Long, UserEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Users");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             UserEntity u = new UserEntity();
 
-            u.setUserId(table.getCellByPosition(0, i).getStringValue());
+            u.setUserId(readId(table, 0, i));
             u.setFirstName(table.getCellByPosition(1, i).getStringValue());
             u.setLastName(table.getCellByPosition(2, i).getStringValue());
-            u.setDocumentType(table.getCellByPosition(3, i).getStringValue());
+            u.setDocumentType(DocumentType.valueOf(table.getCellByPosition(3, i).getStringValue()));
             u.setDocumentNumber(table.getCellByPosition(4, i).getStringValue());
             u.setBirthDate(LocalDate.parse(table.getCellByPosition(5, i).getStringValue()));
-            u.setGender(table.getCellByPosition(6, i).getStringValue());
+            u.setGender(Gender.valueOf(table.getCellByPosition(6, i).getStringValue()));
             u.setPhoneNumber(table.getCellByPosition(7, i).getStringValue());
             u.setAddress(table.getCellByPosition(8, i).getStringValue());
             u.setEmail(table.getCellByPosition(9, i).getStringValue());
             u.setPassword(table.getCellByPosition(10, i).getStringValue());
-            u.setStatus(table.getCellByPosition(11, i).getStringValue());
-            u.setRole(table.getCellByPosition(12, i).getStringValue());
+            u.setStatus(Status.valueOf(table.getCellByPosition(11, i).getStringValue()));
             u.setCreatedAt(LocalDateTime.parse(table.getCellByPosition(13, i).getStringValue()));
 
             map.put(u.getUserId(), u);
@@ -402,16 +418,17 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, RoleEntity> readRoles(SpreadsheetDocument doc) {
+    private Map<Long, RoleEntity> readRoles(SpreadsheetDocument doc) {
 
-        Map<String, RoleEntity> map = new HashMap<>();
+        Map<Long, RoleEntity> map = new HashMap<>();
         Table table = doc.getTableByName("Roles");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             RoleEntity r = new RoleEntity();
 
-            r.setRoleId(table.getCellByPosition(0, i).getStringValue());
+            r.setRoleId(readId(table, 0, i));
             r.setName(table.getCellByPosition(1, i).getStringValue());
 
             map.put(r.getRoleId(), r);
@@ -420,22 +437,43 @@ public class ExcelDataLoader {
         return map;
     }
 
-    private Map<String, UserRoleEntity> readUserRoles(SpreadsheetDocument doc) {
+    private Map<Long, UserRoleEntity> readUserRoles(SpreadsheetDocument doc) {
 
-        Map<String, UserRoleEntity> map = new HashMap<>();
+        Map<Long, UserRoleEntity> map = new HashMap<>();
         Table table = doc.getTableByName("UserRole");
 
         for (int i = 1; i < table.getRowCount(); i++) {
+            if (!hasId(table, i)) continue;
 
             UserRoleEntity ur = new UserRoleEntity();
 
-            ur.setUserRoleId(table.getCellByPosition(0, i).getStringValue());
-            ur.setUserId(table.getCellByPosition(1, i).getStringValue());
-            ur.setRoleId(table.getCellByPosition(2, i).getStringValue());
+            ur.setUserRoleId(readId(table, 0, i));
+            ur.setUserId(readId(table, 1, i));
+            ur.setRoleId(readId(table, 2, i));
 
             map.put(ur.getUserRoleId(), ur);
         }
 
         return map;
     }
+    private boolean hasId(Table table, int row) {
+        String value = table.getCellByPosition(0, row).getStringValue();
+        return value != null && !value.isBlank();
+    }
+
+    private Long readId(Table table, int column, int row) {
+        String cellValue = table.getCellByPosition(column, row).getStringValue();
+        if (cellValue == null || cellValue.isBlank()) {
+            return null;
+        }
+        String value = cellValue.trim();
+        java.util.regex.Matcher matcher = java.util.regex.Pattern
+                .compile("(?:[A-Za-z]+)?(\\d+)")
+                .matcher(value);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Invalid numeric ID: " + value);
+        }
+        return Long.parseLong(matcher.group(1));
+    }
+
 }

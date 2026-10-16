@@ -40,7 +40,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public Optional<Student> findById(String id) {
+    public Optional<Student> findById(Long id) {
         Optional<StudentEntity> entityOptional = studentRepository.findById(id);
         if(entityOptional.isEmpty()) {
             return Optional.empty();
@@ -63,7 +63,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public Optional<Student> findByUserId(String userId) {
+    public Optional<Student> findByUserId(Long userId) {
         Optional<StudentEntity> entityOptional = studentRepository.findStudentByUserId(userId);
         if(entityOptional.isEmpty()) {
             return Optional.empty();

@@ -5,20 +5,20 @@ import java.util.List;
 
 public class UpdateCourseCommand {
 
-    private final String courseId;
+    private final Long courseId;
     private final String courseCode;
     private final String name;
     private final int credits;
     private final String description;
-    private final List<String> prerequisiteIds;
+    private final List<Long> prerequisiteIds;
 
     public UpdateCourseCommand(
-            String courseId,
+            Long courseId,
             String courseCode,
             String name,
             int credits,
             String description,
-            List<String> prerequisiteIds
+            List<Long> prerequisiteIds
     ) {
         this.courseId = courseId;
         this.courseCode = courseCode;
@@ -28,7 +28,7 @@ public class UpdateCourseCommand {
         this.prerequisiteIds = prerequisiteIds;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
@@ -48,7 +48,7 @@ public class UpdateCourseCommand {
         return description;
     }
 
-    public List<String> getPrerequisiteIds() {
+    public List<Long> getPrerequisiteIds() {
         return prerequisiteIds;
     }
 }

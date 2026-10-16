@@ -1,33 +1,33 @@
 package org.unischeduler.enrollment.infrastructure.entity;
 
 public class EnrollmentDetailEntity {
-    private String enrollmentDetailId;
-    private String enrollmentId;
-    private String groupId;
+    private Long enrollmentDetailId;
+    private Long enrollmentId;
+    private Long groupId;
     private String status;
     private Double finalGrade;
 
-    public String getEnrollmentDetailId() {
+    public Long getEnrollmentDetailId() {
         return enrollmentDetailId;
     }
 
-    public void setEnrollmentDetailId(String enrollmentDetailId) {
+    public void setEnrollmentDetailId(Long enrollmentDetailId) {
         this.enrollmentDetailId = enrollmentDetailId;
     }
 
-    public String getEnrollmentId() {
+    public Long getEnrollmentId() {
         return enrollmentId;
     }
 
-    public void setEnrollmentId(String enrollmentId) {
+    public void setEnrollmentId(Long enrollmentId) {
         this.enrollmentId = enrollmentId;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 

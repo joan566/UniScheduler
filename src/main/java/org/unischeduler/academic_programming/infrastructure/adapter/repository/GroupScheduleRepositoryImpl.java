@@ -17,7 +17,7 @@ public class GroupScheduleRepositoryImpl implements GroupScheduleRepository {
     }
 
     @Override
-    public List<GroupSchedule> findAllWhereGroupId(String groupId) {
+    public List<GroupSchedule> findAllWhereGroupId(Long groupId) {
         List<GroupScheduleEntity> entities = groupScheduleRepository.findAllWhereGroupId(groupId);
 
         List<GroupSchedule> groupSchedules = new ArrayList<>();
@@ -38,7 +38,7 @@ public class GroupScheduleRepositoryImpl implements GroupScheduleRepository {
     }
 
     @Override
-    public void deleteAllWhereGroupId(String groupId) {
+    public void deleteAllWhereGroupId(Long groupId) {
         groupScheduleRepository.deleteAllWhereGroupId(groupId);
     }
 }

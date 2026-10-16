@@ -6,9 +6,8 @@ import java.util.Optional;
 
 public interface UserRepository {
     User save(User user);
-    User changePassword(User user);
     Optional<User> findByEmail(String email);
-    Optional<User> findById(String id);
+    Optional<User> findById(Long id);
     boolean existsByEmail(String email);
     boolean existsByDocumentNumber(String documentNumber);
 }

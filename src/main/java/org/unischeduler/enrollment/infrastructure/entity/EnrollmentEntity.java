@@ -4,33 +4,33 @@ package org.unischeduler.enrollment.infrastructure.entity;
 import java.time.LocalDate;
 
 public class EnrollmentEntity {
-    private String enrollmentId;
-    private String studentId;
-    private String academicProgramId;
+    private Long enrollmentId;
+    private Long studentId;
+    private Long academicProgramId;
     private LocalDate enrollmentDate;
-    private String academicPeriodId;
+    private Long academicPeriodId;
 
-    public String getEnrollmentId() {
+    public Long getEnrollmentId() {
         return enrollmentId;
     }
 
-    public void setEnrollmentId(String enrollmentId) {
+    public void setEnrollmentId(Long enrollmentId) {
         this.enrollmentId = enrollmentId;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 
-    public void setAcademicProgramId(String academicProgramId) {
+    public void setAcademicProgramId(Long academicProgramId) {
         this.academicProgramId = academicProgramId;
     }
 
@@ -42,11 +42,11 @@ public class EnrollmentEntity {
         this.enrollmentDate = enrollmentDate;
     }
 
-    public String getAcademicPeriodId() {
+    public Long getAcademicPeriodId() {
         return academicPeriodId;
     }
 
-    public void setAcademicPeriodId(String academicPeriodId) {
+    public void setAcademicPeriodId(Long academicPeriodId) {
         this.academicPeriodId = academicPeriodId;
     }
 }

@@ -3,7 +3,7 @@ package org.unischeduler.academic_catalog.domain.entity;
 public class AcademicProgram {
 
     //================// Atributos //================//
-    private String academicProgramId;
+    private Long academicProgramId;
     private String name;
     private int totalSemesters;
 
@@ -12,7 +12,7 @@ public class AcademicProgram {
     public AcademicProgram() {
     }
 
-    public AcademicProgram(String academicProgramId, String name, int totalSemesters) {
+    public AcademicProgram(Long academicProgramId, String name, int totalSemesters) {
         this.academicProgramId = academicProgramId;
         this.name = name;
         this.totalSemesters = totalSemesters;
@@ -20,11 +20,11 @@ public class AcademicProgram {
 
     //================// Setters y Getters //================//
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 
-    public void setAcademicProgramId(String academicProgramId) {
+    public void setAcademicProgramId(Long academicProgramId) {
         this.academicProgramId = academicProgramId;
     }
 

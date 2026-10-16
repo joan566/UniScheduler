@@ -72,7 +72,7 @@ public class ChangePasswordService implements ChangePasswordUseCase {
                 new EncodedPassword(encodedPassword)
         );
 
-        userRepository.changePassword(user);
+        userRepository.save(user);
 
         return new ChangePasswordResponse(
                 true,

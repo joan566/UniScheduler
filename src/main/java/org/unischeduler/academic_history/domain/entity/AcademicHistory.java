@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class AcademicHistory {
 
     //================// Atributos //================//
-    private String historyId;
+    private Long historyId;
     private Student student;
     private ArrayList<Course> completedCourses;
     private double grade;
@@ -18,7 +18,7 @@ public class AcademicHistory {
 
     //================// Constructores //================//
 
-    public AcademicHistory(String historyId, Student student, ArrayList<Course> completedCourses, double grade, AcademicHistoryCourseStatus status) {
+    public AcademicHistory(Long historyId, Student student, ArrayList<Course> completedCourses, double grade, AcademicHistoryCourseStatus status) {
         this.historyId = historyId;
         this.student = student;
         this.completedCourses = completedCourses;
@@ -26,11 +26,11 @@ public class AcademicHistory {
         this.status = status;
     }
 
-    public String getHistoryId() {
+    public Long getHistoryId() {
         return historyId;
     }
 
-    public void setHistoryId(String historyId) {
+    public void setHistoryId(Long historyId) {
         this.historyId = historyId;
     }
 

@@ -1,15 +1,15 @@
 package org.unischeduler.academic_programming.application.services.out.dtos;
 
 public class TeacherInfo {
-    private final String teacherId;
+    private final Long teacherId;
     private final String teacherName;
 
-    public TeacherInfo(String teacherId, String teacherName) {
+    public TeacherInfo(Long teacherId, String teacherName) {
         this.teacherId = teacherId;
         this.teacherName = teacherName;
     }
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 

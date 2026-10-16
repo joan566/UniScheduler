@@ -1,13 +1,13 @@
 package org.unischeduler.academic_programming.application.services.out;
 
 public class GetScheduleCommand {
-    private final String studentId;
+    private final Long studentId;
 
-    public GetScheduleCommand(String studentId) {
+    public GetScheduleCommand(Long studentId) {
         this.studentId = studentId;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 }

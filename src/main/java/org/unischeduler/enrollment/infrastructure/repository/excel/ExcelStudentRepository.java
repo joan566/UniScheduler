@@ -21,7 +21,7 @@ public class ExcelStudentRepository {
     // =====================================================
     public StudentEntity save(StudentEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setStudentId(id);
 
         store.getStudents().put(id, entity);
@@ -32,7 +32,7 @@ public class ExcelStudentRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<StudentEntity> findById(String id) {
+    public Optional<StudentEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getStudents().get(id)
@@ -67,11 +67,11 @@ public class ExcelStudentRepository {
     // =====================================================
     //  DELETE
     // =====================================================
-    public void delete(String id) {
+    public void delete(Long id) {
         store.getStudents().remove(id);
     }
 
-    public Optional<StudentEntity> findStudentByUserId(String userId) {
+    public Optional<StudentEntity> findStudentByUserId(Long userId) {
         for (StudentEntity s : store.getStudents().values()) {
             if (userId.equals(s.getUserId())) {
                 return Optional.of(s);
@@ -84,7 +84,7 @@ public class ExcelStudentRepository {
     // =====================================================
     //  ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getStudents().size() + 1);
+    private Long generateId() {
+        return store.getStudents().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

@@ -1,19 +1,19 @@
 package org.unischeduler.auth.application.services.in;
 
 public class ChangePasswordCommand {
-    private final String userId;
+    private final Long userId;
     private final String currentPassword;
     private final String newPassword;
     private final String confirmPassword;
 
-    public ChangePasswordCommand(String userId, String currentPassword, String newPassword, String confirmPassword) {
+    public ChangePasswordCommand(Long userId, String currentPassword, String newPassword, String confirmPassword) {
         this.userId = userId;
         this.currentPassword = currentPassword;
         this.newPassword = newPassword;
         this.confirmPassword = confirmPassword;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 

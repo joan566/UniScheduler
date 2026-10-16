@@ -3,16 +3,16 @@ package org.unischeduler.academic_programming.application.services.out.dtos;
 import java.time.LocalTime;
 
 public class GroupScheduleInfo {
-    private final String groupId;
+    private final Long groupId;
     private final String courseName;
 
-    private final String groupScheduleId;
+    private final Long groupScheduleId;
     private final String day;
     private final LocalTime startTime;
     private final LocalTime endTime;
     private final String classroom;
 
-    public GroupScheduleInfo(String groupId, String courseName, String groupScheduleId, String day, LocalTime startTime, LocalTime endTime, String classroom) {
+    public GroupScheduleInfo(Long groupId, String courseName, Long groupScheduleId, String day, LocalTime startTime, LocalTime endTime, String classroom) {
         this.groupId = groupId;
         this.courseName = courseName;
         this.groupScheduleId = groupScheduleId;
@@ -22,7 +22,7 @@ public class GroupScheduleInfo {
         this.classroom = classroom;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
@@ -30,7 +30,7 @@ public class GroupScheduleInfo {
         return courseName;
     }
 
-    public String getGroupScheduleId() {
+    public Long getGroupScheduleId() {
         return groupScheduleId;
     }
 

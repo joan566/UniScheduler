@@ -1,16 +1,16 @@
 package org.unischeduler.enrollment.infrastructure.entity;
 
 public class StudentEntity {
-    private String studentId;
+    private Long studentId;
     private String studentCode;
-    private String userId;
-    private String academicProgramId;
+    private Long userId;
+    private Long academicProgramId;
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
@@ -22,19 +22,19 @@ public class StudentEntity {
         this.studentCode = studentCode;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public String getAcademicProgramId() {
+    public Long getAcademicProgramId() {
         return academicProgramId;
     }
 
-    public void setAcademicProgramId(String academicProgramId) {
+    public void setAcademicProgramId(Long academicProgramId) {
         this.academicProgramId = academicProgramId;
     }
 }

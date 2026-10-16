@@ -1,21 +1,17 @@
 package org.unischeduler.auth.application.services.in.login.dtos;
 
 public class UserInfo {
-    private final String userId;
+    private final Long userId;
     private final String fullName;
     private final String email;
-    private final UserRoleInfo userRoleInfo;
-    private final String role;
 
-    public UserInfo(String userId, String fullName, String email, UserRoleInfo userRoleInfo, String role) {
+    public UserInfo(Long userId, String fullName, String email) {
         this.userId = userId;
         this.fullName = fullName;
         this.email = email;
-        this.userRoleInfo = userRoleInfo;
-        this.role = role;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -25,13 +21,5 @@ public class UserInfo {
 
     public String getEmail() {
         return email;
-    }
-
-    public UserRoleInfo getUserRoleInfo() {
-        return userRoleInfo;
-    }
-
-    public String getRole() {
-        return role;
     }
 }

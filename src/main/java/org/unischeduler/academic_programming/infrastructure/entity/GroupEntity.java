@@ -1,25 +1,25 @@
 package org.unischeduler.academic_programming.infrastructure.entity;
 
 public class GroupEntity {
-    private String groupId;
-    private String courseId;
+    private Long groupId;
+    private Long courseId;
     private String groupCode;
-    private String teacherId;
+    private Long teacherId;
     private int capacity;
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 
@@ -31,11 +31,11 @@ public class GroupEntity {
         this.groupCode = groupCode;
     }
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 

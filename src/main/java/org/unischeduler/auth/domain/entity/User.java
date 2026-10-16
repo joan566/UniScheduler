@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 public class User {
     // Identificación
-    private final String userId;
+    private final Long userId;
 
     // Información personal
     private final String firstName;
@@ -32,13 +32,12 @@ public class User {
 
     // Sistema
     private Status status;
-    private final Role role;
     private final LocalDateTime createdAt;
 
-    public User(String userId, String firstName, String lastName,
+    public User(Long userId, String firstName, String lastName,
                 DocumentType documentType, String documentNumber, LocalDate birthDate,
                 Gender gender, String phoneNumber, String address,
-                Email email, EncodedPassword password, Status status, Role role, LocalDateTime createdAt) {
+                Email email, EncodedPassword password, Status status, LocalDateTime createdAt) {
 
 
         this.userId = userId;
@@ -53,11 +52,10 @@ public class User {
         this.email = email;
         this.password = password;
         this.status = status;
-        this.role = role != null ? role : Role.STUDENT;
         this.createdAt = createdAt != null? createdAt : LocalDateTime.now();
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -103,10 +101,6 @@ public class User {
 
     public Status getStatus() {
         return status;
-    }
-
-    public Role getRole() {
-        return role;
     }
 
     public LocalDateTime getCreatedAt() {

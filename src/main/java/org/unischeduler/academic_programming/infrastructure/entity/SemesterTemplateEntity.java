@@ -1,23 +1,23 @@
 package org.unischeduler.academic_programming.infrastructure.entity;
 
 public class SemesterTemplateEntity {
-    private String templateId;
-    private String programId;
+    private Long templateId;
+    private Long programId;
     private int semester;
 
-    public String getTemplateId() {
+    public Long getTemplateId() {
         return templateId;
     }
 
-    public void setTemplateId(String templateId) {
+    public void setTemplateId(Long templateId) {
         this.templateId = templateId;
     }
 
-    public String getProgramId() {
+    public Long getProgramId() {
         return programId;
     }
 
-    public void setProgramId(String programId) {
+    public void setProgramId(Long programId) {
         this.programId = programId;
     }
 

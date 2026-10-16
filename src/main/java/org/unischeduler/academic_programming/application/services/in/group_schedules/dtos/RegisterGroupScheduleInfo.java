@@ -3,14 +3,14 @@ package org.unischeduler.academic_programming.application.services.in.group_sche
 import java.time.LocalTime;
 
 public class RegisterGroupScheduleInfo {
-    private final String groupScheduleId;
-    private final String groupId;
+    private final Long groupScheduleId;
+    private final Long groupId;
     private final String day;
     private final LocalTime startTime;
     private final LocalTime endTime;
     private final String classroom;
 
-    public RegisterGroupScheduleInfo(String groupScheduleId, String groupId, String day, LocalTime startTime, LocalTime endTime, String classroom) {
+    public RegisterGroupScheduleInfo(Long groupScheduleId, Long groupId, String day, LocalTime startTime, LocalTime endTime, String classroom) {
         this.groupScheduleId = groupScheduleId;
         this.groupId = groupId;
         this.day = day;
@@ -19,11 +19,11 @@ public class RegisterGroupScheduleInfo {
         this.classroom = classroom;
     }
 
-    public String getGroupScheduleId() {
+    public Long getGroupScheduleId() {
         return groupScheduleId;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 

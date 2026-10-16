@@ -23,7 +23,7 @@ public class AcademicPeriodRepositoryImpl implements AcademicPeriodRepository {
     }
 
     @Override
-    public Optional<AcademicPeriod> findById(String id) {
+    public Optional<AcademicPeriod> findById(Long id) {
         return academicPeriodRepository.findById(id)
                 .map(AcademicPeriodMapper::toDomain);
     }
@@ -72,7 +72,7 @@ public class AcademicPeriodRepositoryImpl implements AcademicPeriodRepository {
     }
 
     @Override
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
         return academicPeriodRepository.deleteById(id);
     }
 

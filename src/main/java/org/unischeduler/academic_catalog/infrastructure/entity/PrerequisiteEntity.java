@@ -1,31 +1,31 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
 public class PrerequisiteEntity {
-    private String prerequisiteId;
-    private String courseId;
-    private String prerequisiteCourseId;
+    private Long prerequisiteId;
+    private Long courseId;
+    private Long prerequisiteCourseId;
 
-    public String getPrerequisiteId() {
+    public Long getPrerequisiteId() {
         return prerequisiteId;
     }
 
-    public void setPrerequisiteId(String prerequisiteId) {
+    public void setPrerequisiteId(Long prerequisiteId) {
         this.prerequisiteId = prerequisiteId;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 
-    public String getPrerequisiteCourseId() {
+    public Long getPrerequisiteCourseId() {
         return prerequisiteCourseId;
     }
 
-    public void setPrerequisiteCourseId(String prerequisiteCourseId) {
+    public void setPrerequisiteCourseId(Long prerequisiteCourseId) {
         this.prerequisiteCourseId = prerequisiteCourseId;
     }
 }

@@ -22,7 +22,7 @@ public class SemesterTemplateDetailRepositoryImpl implements SemesterTemplateDet
     }
 
     @Override
-    public ArrayList<SemesterTemplateDetail> findAllWhereTemplateId(String templateId) {
+    public ArrayList<SemesterTemplateDetail> findAllWhereTemplateId(Long templateId) {
         List<SemesterTemplateDetailEntity> entities = templateDetailRepository.findAllWhereTemplateId(templateId);
 
         ArrayList<SemesterTemplateDetail> details = new ArrayList<>();

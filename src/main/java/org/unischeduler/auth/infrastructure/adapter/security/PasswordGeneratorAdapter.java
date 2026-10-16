@@ -1,9 +1,11 @@
 package org.unischeduler.auth.infrastructure.adapter.security;
 
+import org.springframework.stereotype.Component;
 import org.unischeduler.auth.domain.outputports.PasswordGeneratorPort;
 
 import java.security.SecureRandom;
 
+@Component
 public class PasswordGeneratorAdapter implements PasswordGeneratorPort {
     private final String CHARACTERES =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +

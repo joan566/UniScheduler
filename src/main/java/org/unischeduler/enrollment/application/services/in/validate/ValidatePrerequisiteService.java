@@ -41,7 +41,7 @@ public class ValidatePrerequisiteService
             ValidatePrerequisiteCommand command
     ) {
 
-        Set<String> approvedCourses = enrollmentRepository
+        Set<Long> approvedCourses = enrollmentRepository
                 .findAllWhereStudentId(command.getStudentId())
                 .stream()
                 .flatMap(enrollment ->
@@ -93,7 +93,7 @@ public class ValidatePrerequisiteService
 
             for (Prerequisite prerequisite : prerequisites) {
 
-                String requiredCourseId =
+                Long requiredCourseId =
                         prerequisite.getRequiredCourse()
                                 .getCourseId();
 

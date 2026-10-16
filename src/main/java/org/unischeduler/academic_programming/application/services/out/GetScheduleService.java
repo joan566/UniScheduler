@@ -31,7 +31,7 @@ public class GetScheduleService implements GetScheduleUseCase {
                                 "El estudiante no tiene una matricula en este periodo academico"
                         ));
 
-        Map<String, String> courseNameByGroupId = enrollment.getDetails().stream()
+        Map<Long, String> courseNameByGroupId = enrollment.getDetails().stream()
                 .collect(Collectors.toMap(
                         d -> d.getGroup().getGroupId(),
                         d -> d.getGroup().getCourse().getName()

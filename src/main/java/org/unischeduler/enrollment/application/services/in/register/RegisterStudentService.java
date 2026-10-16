@@ -117,7 +117,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
 
         SemesterTemplate template = semesterTemplateRepository.findByProgramAndSemester(academicProgram, command.getInitialSemester());
 
-        List<String> groupIds = template.getDetails()
+        List<Long> groupIds = template.getDetails()
                 .stream()
                 .map(detail -> detail.getGroup().getGroupId())
                 .toList();

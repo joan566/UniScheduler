@@ -19,11 +19,11 @@ public class UserMapper {
         entity.setFirstName(user.getFirstName());
         entity.setLastName(user.getLastName());
 
-        entity.setDocumentType(user.getDocumentType().name());
+        entity.setDocumentType(user.getDocumentType());
         entity.setDocumentNumber(user.getDocumentNumber());
 
         entity.setBirthDate(user.getBirthDate());
-        entity.setGender(user.getGender().name());
+        entity.setGender(user.getGender());
 
         entity.setPhoneNumber(user.getPhoneNumber());
         entity.setAddress(user.getAddress());
@@ -31,8 +31,7 @@ public class UserMapper {
         entity.setEmail(user.getEmail().getValue());
         entity.setPassword(user.getPassword().getValue());
 
-        entity.setStatus(user.getStatus().name());
-        entity.setRole(user.getRole().name());
+        entity.setStatus(user.getStatus());
 
         entity.setCreatedAt(user.getCreatedAt());
 
@@ -47,12 +46,12 @@ public class UserMapper {
                 entity.getFirstName(),
                 entity.getLastName(),
 
-                DocumentType.valueOf(entity.getDocumentType()),
+                entity.getDocumentType(),
                 entity.getDocumentNumber(),
 
                 entity.getBirthDate(),
 
-                Gender.valueOf(entity.getGender()),
+                entity.getGender(),
 
                 entity.getPhoneNumber(),
                 entity.getAddress(),
@@ -60,9 +59,7 @@ public class UserMapper {
                 new Email(entity.getEmail()),
                 new EncodedPassword(entity.getPassword()),
 
-                Status.valueOf(entity.getStatus()),
-                Role.valueOf(entity.getRole()),
-
+                entity.getStatus(),
                 entity.getCreatedAt()
         );
     }

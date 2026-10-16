@@ -51,7 +51,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
         return EnrollmentMapper.toDomain(entitySaved, student, program, null, academicPeriod);
     }
 
-    public Optional<Enrollment> findByStudentAndActivePeriod(String studentId) {
+    public Optional<Enrollment> findByStudentAndActivePeriod(Long studentId) {
         AcademicPeriod academicPeriod = academicPeriodRepository.findActive()
                 .orElseThrow(() -> new PeriodActiveNotFoundException(
                         "No se encontro un periodo academico activo"));
@@ -92,7 +92,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
     }
 
     @Override
-    public List<Enrollment> findAllWhereStudentId(String studentId) {
+    public List<Enrollment> findAllWhereStudentId(Long studentId) {
 
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new EntityNotFoundException(

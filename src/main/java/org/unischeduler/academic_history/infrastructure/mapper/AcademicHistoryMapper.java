@@ -18,14 +18,14 @@ public class AcademicHistoryMapper {
             AcademicHistory history
     ) {
 
-        List<String> completedCoursesIds =
+        List<Long> completedCoursesIds =
                 history.getCompletedCourses()
                         .stream()
                         .map(Course::getCourseId)
                         .toList();
 
         return new AcademicHistoryEntity(
-                String.valueOf(history.getHistoryId()),
+                history.getHistoryId(),
                 history.getStudent().getStudentId(),
                 completedCoursesIds,
                 history.getGrade(),

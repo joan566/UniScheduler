@@ -3,14 +3,14 @@ package org.unischeduler.academic_programming.application.services.out.dtos;
 import java.util.List;
 
 public class GroupInfo {
-    private final String groupId;
+    private final Long groupId;
     private final CourseInfo courseInfo;
     private final String groupCode;
     private final TeacherInfo teacherInfo;
     private final int capacity;
     private final List<GroupScheduleInfo> schedules;
 
-    public GroupInfo(String groupId, CourseInfo courseInfo, String groupCode, TeacherInfo teacherInfo, int capacity, List<GroupScheduleInfo> schedules) {
+    public GroupInfo(Long groupId, CourseInfo courseInfo, String groupCode, TeacherInfo teacherInfo, int capacity, List<GroupScheduleInfo> schedules) {
         this.groupId = groupId;
         this.courseInfo = courseInfo;
         this.groupCode = groupCode;
@@ -19,7 +19,7 @@ public class GroupInfo {
         this.schedules = schedules;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 

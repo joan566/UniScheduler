@@ -9,7 +9,7 @@ public class EnrollmentDetailMapper {
 
     public static EnrollmentDetailEntity toEntity(
             EnrollmentDetail detail,
-            String enrollmentId
+            Long enrollmentId
     ) {
         EnrollmentDetailEntity entity = new EnrollmentDetailEntity();
 

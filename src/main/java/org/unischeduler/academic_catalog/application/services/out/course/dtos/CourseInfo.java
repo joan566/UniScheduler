@@ -4,14 +4,14 @@ package org.unischeduler.academic_catalog.application.services.out.course.dtos;
 import java.util.List;
 
 public class CourseInfo {
-    private final String courseId;
+    private final Long courseId;
     private final String name;
     private final String code;
     private final int credits;
     private final String description;
     private final List<PrerequisiteInfo> prerequisites;
 
-    public CourseInfo(String courseId, String name, String code, int credits, String description, List<PrerequisiteInfo> prerequisites) {
+    public CourseInfo(Long courseId, String name, String code, int credits, String description, List<PrerequisiteInfo> prerequisites) {
         this.courseId = courseId;
         this.name = name;
         this.code = code;
@@ -20,7 +20,7 @@ public class CourseInfo {
         this.prerequisites = prerequisites;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 

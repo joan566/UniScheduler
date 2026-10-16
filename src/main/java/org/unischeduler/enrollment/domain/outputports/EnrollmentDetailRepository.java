@@ -5,7 +5,7 @@ import org.unischeduler.enrollment.domain.entity.EnrollmentDetail;
 import java.util.ArrayList;
 
 public interface EnrollmentDetailRepository {
-    EnrollmentDetail save(EnrollmentDetail enrollmentDetail, String enrollmentId);
+    EnrollmentDetail save(EnrollmentDetail enrollmentDetail, Long enrollmentId);
 
-    ArrayList<EnrollmentDetail> findByEnrollmentId(String enrollmentId);
+    ArrayList<EnrollmentDetail> findByEnrollmentId(Long enrollmentId);
 }

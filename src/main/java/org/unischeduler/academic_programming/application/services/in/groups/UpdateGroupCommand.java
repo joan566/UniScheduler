@@ -5,14 +5,14 @@ import org.unischeduler.academic_programming.application.services.in.group_sched
 import java.util.List;
 
 public class UpdateGroupCommand {
-    private final String groupId;
-    private final String courseId;
+    private final Long groupId;
+    private final Long courseId;
     private final String groupCode;
-    private final String teacherId;
+    private final Long teacherId;
     private final int capacity;
     private final List<RegisterGroupScheduleCommand> groupSchedules;
 
-    public UpdateGroupCommand(String groupId, String courseId, String groupCode, String teacherId, int capacity, List<RegisterGroupScheduleCommand> groupSchedules) {
+    public UpdateGroupCommand(Long groupId, Long courseId, String groupCode, Long teacherId, int capacity, List<RegisterGroupScheduleCommand> groupSchedules) {
         this.groupId = groupId;
         this.courseId = courseId;
         this.groupCode = groupCode;
@@ -21,11 +21,11 @@ public class UpdateGroupCommand {
         this.groupSchedules = groupSchedules;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
@@ -33,7 +33,7 @@ public class UpdateGroupCommand {
         return groupCode;
     }
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 

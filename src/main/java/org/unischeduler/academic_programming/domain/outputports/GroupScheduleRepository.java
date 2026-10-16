@@ -5,7 +5,7 @@ import org.unischeduler.academic_programming.domain.entity.GroupSchedule;
 import java.util.List;
 
 public interface GroupScheduleRepository {
-    List<GroupSchedule> findAllWhereGroupId(String groupId);
+    List<GroupSchedule> findAllWhereGroupId(Long groupId);
     GroupSchedule save(GroupSchedule groupSchedule);
-    void deleteAllWhereGroupId(String groupId);
+    void deleteAllWhereGroupId(Long groupId);
 }

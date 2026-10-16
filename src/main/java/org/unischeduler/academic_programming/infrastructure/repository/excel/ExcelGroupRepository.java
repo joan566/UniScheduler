@@ -20,7 +20,7 @@ public class ExcelGroupRepository {
     // =====================================================
     public GroupEntity save(GroupEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setGroupId(id);
 
         store.getGroups().put(id, entity);
@@ -31,7 +31,7 @@ public class ExcelGroupRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<GroupEntity> findById(String id) {
+    public Optional<GroupEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getGroups().get(id)
@@ -51,7 +51,7 @@ public class ExcelGroupRepository {
     // =====================================================
     // ❌ DELETE BY ID
     // =====================================================
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
 
         return store.getGroups().remove(id) != null;
     }
@@ -75,7 +75,7 @@ public class ExcelGroupRepository {
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return "GRP" + (store.getGroups().size() + 1);
+    private Long generateId() {
+        return store.getGroups().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

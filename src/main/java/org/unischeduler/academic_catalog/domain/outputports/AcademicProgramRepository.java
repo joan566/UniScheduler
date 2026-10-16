@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AcademicProgramRepository {
-    Optional<AcademicProgram> findById(String id);
+    Optional<AcademicProgram> findById(Long id);
     List<AcademicProgram> findAll();
 }

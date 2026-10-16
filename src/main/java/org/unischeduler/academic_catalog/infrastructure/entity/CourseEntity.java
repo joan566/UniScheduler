@@ -1,17 +1,17 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
 public class CourseEntity {
-    private String courseId;
+    private Long courseId;
     private String name;
     private String code;
     private int credits;
     private String description;
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 

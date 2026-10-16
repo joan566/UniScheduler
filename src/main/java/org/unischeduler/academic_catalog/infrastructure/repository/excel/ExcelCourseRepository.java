@@ -18,7 +18,7 @@ public class ExcelCourseRepository {
     // =====================================================
     // 🔍 FIND BY ID
     // =====================================================
-    public Optional<CourseEntity> findById(String id) {
+    public Optional<CourseEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getCourses().get(id)
@@ -70,7 +70,7 @@ public class ExcelCourseRepository {
     // =====================================================
     public CourseEntity save(CourseEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setCourseId(id);
 
         store.getCourses().put(id, entity);
@@ -97,7 +97,7 @@ public class ExcelCourseRepository {
     // =====================================================
     // ❌ DELETE
     // =====================================================
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
 
         return store.getCourses().remove(id) != null;
     }
@@ -105,7 +105,7 @@ public class ExcelCourseRepository {
     // =====================================================
     // 🔢 ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getCourses().size() + 1);
+    private Long generateId() {
+        return store.getCourses().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

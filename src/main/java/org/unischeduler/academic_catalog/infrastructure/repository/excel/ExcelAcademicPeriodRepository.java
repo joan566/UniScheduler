@@ -18,7 +18,7 @@ public class ExcelAcademicPeriodRepository {
     // =====================================================
     //  FIND BY ID
     // =====================================================
-    public Optional<AcademicPeriodEntity> findById(String id) {
+    public Optional<AcademicPeriodEntity> findById(Long id) {
 
         return Optional.ofNullable(
                 store.getPeriods().get(id)
@@ -70,7 +70,7 @@ public class ExcelAcademicPeriodRepository {
     // =====================================================
     public AcademicPeriodEntity save(AcademicPeriodEntity entity) {
 
-        String id = generateId();
+        Long id = generateId();
         entity.setAcademicPeriodId(id);
 
         store.getPeriods().put(id, entity);
@@ -97,7 +97,7 @@ public class ExcelAcademicPeriodRepository {
     // =====================================================
     // DELETE
     // =====================================================
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
 
         return store.getPeriods().remove(id) != null;
     }
@@ -116,7 +116,7 @@ public class ExcelAcademicPeriodRepository {
     // =====================================================
     //  ID GENERATOR
     // =====================================================
-    private String generateId() {
-        return String.valueOf(store.getPeriods().size() + 1);
+    private Long generateId() {
+        return store.getPeriods().keySet().stream().mapToLong(Long::longValue).max().orElse(0L) + 1;
     }
 }

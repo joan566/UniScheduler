@@ -1,13 +1,13 @@
 package org.unischeduler.academic_catalog.application.services.in.prerequisite;
 
 public class DeletePrerequisiteCommand {
-    private final String courseId;
+    private final Long courseId;
 
-    public DeletePrerequisiteCommand(String courseId) {
+    public DeletePrerequisiteCommand(Long courseId) {
         this.courseId = courseId;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 }

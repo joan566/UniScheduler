@@ -31,7 +31,7 @@ public class GroupRepositoryImpl implements GroupRepository {
     }
 
     @Override
-    public Optional<Group> findById(String id) {
+    public Optional<Group> findById(Long id) {
         Optional<GroupEntity> entityOptional = groupRepository.findById(id);
         return entityOptional.map(this::toDomain);
 
@@ -62,7 +62,7 @@ public class GroupRepositoryImpl implements GroupRepository {
     }
 
     @Override
-    public boolean deleteById(String id) {
+    public boolean deleteById(Long id) {
         return groupRepository.deleteById(id);
     }
 

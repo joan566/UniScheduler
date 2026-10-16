@@ -7,13 +7,13 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class RegisterGroupScheduleCommand {
-    private final String groupId;
+    private final Long groupId;
     private final String dayOfWeak;
     private final LocalTime startTime;
     private final LocalTime endTime;
     private final String classroom;
 
-    public RegisterGroupScheduleCommand(String groupId, String dayOfWeak, LocalTime startTime, LocalTime endTime, String classroom) {
+    public RegisterGroupScheduleCommand(Long groupId, String dayOfWeak, LocalTime startTime, LocalTime endTime, String classroom) {
         this.groupId = groupId;
         this.dayOfWeak = dayOfWeak;
         this.startTime = startTime;
@@ -21,7 +21,7 @@ public class RegisterGroupScheduleCommand {
         this.classroom = classroom;
     }
 
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 

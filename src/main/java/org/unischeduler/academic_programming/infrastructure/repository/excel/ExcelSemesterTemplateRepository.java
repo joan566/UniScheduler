@@ -17,7 +17,7 @@ public class ExcelSemesterTemplateRepository {
     // =====================================================
     public SemesterTemplateEntity findByProgramAndSemester(AcademicProgramEntity program, int semester) {
 
-        String programId = program.getAcademicProgramId();
+        Long programId = program.getAcademicProgramId();
 
         for (SemesterTemplateEntity t : store.getTemplates().values()) {
 

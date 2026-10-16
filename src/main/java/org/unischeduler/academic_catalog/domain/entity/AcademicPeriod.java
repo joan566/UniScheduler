@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class AcademicPeriod {
 
     //================// Atributos //================//
-    private final String academicPeriodId;
+    private final Long academicPeriodId;
     private final String code;
     private String name;
     private final LocalDate startDate;
@@ -18,7 +18,7 @@ public class AcademicPeriod {
     //================// Constructores //================//
 
 
-    public AcademicPeriod(String academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, AcademicPeriodStatus status) {
+    public AcademicPeriod(Long academicPeriodId, String code, String name, LocalDate startDate, LocalDate endDate, AcademicPeriodStatus status) {
         this.academicPeriodId = academicPeriodId;
         this.code = code;
         this.name = name;
@@ -27,7 +27,7 @@ public class AcademicPeriod {
         this.status = status;
     }
 
-    public String getAcademicPeriodId() {
+    public Long getAcademicPeriodId() {
         return academicPeriodId;
     }
 
