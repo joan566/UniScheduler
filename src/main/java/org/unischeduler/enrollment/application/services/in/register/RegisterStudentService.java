@@ -58,9 +58,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
                 command.getPhoneNumber(),
                 command.getAddress(),
                 command.getEmail(),
-                rawPassword,
-                "STUDENT",
-                "ACTIVE"
+                rawPassword
         );
 
         RegisterUserResponse userResponse = registerUserUseCase.execute(registerUserCommand);

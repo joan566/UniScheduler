@@ -7,7 +7,6 @@ import org.unischeduler.auth.domain.exceptions.EmailAlreadyExistsException;
 import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.auth.domain.enums.DocumentType;
 import org.unischeduler.auth.domain.enums.Gender;
-import org.unischeduler.auth.domain.enums.Role;
 import org.unischeduler.auth.domain.enums.Status;
 import org.unischeduler.auth.domain.valueobjects.Email;
 import org.unischeduler.auth.domain.valueobjects.EncodedPassword;
@@ -26,34 +25,34 @@ public class RegisterUserService implements RegisterUserUseCase {
 
     @Override
     public RegisterUserResponse execute(RegisterUserCommand command) {
-        if(userRepository.existsByDocumentNumber(command.getDocumentNumber())) {
+        if(userRepository.existsByDocumentNumber(command.documentNumber())) {
             throw new DocumentAlreadyExistsException("El numero de documento ya se encuentra registrado");
         }
 
-        if(userRepository.existsByEmail(command.getEmail())) {
+        if(userRepository.existsByEmail(command.email())) {
             throw  new EmailAlreadyExistsException("El correo electronico ingresado ya existe");
         }
 
-        String hashedPassword = passwordEncoderPort.encode(command.getPassword());
+        String hashedPassword = passwordEncoderPort.encode(command.password());
         EncodedPassword encodedPassword = new EncodedPassword(hashedPassword);
 
-        Email email = new Email(command.getEmail());
-        DocumentType documentType = DocumentType.valueOf(command.getDocumentType());
-        Gender gender = Gender.valueOf(command.getGender());
+        Email email = new Email(command.email());
+        DocumentType documentType = DocumentType.valueOf(command.documentType());
+        Gender gender = Gender.valueOf(command.gender());
 
         User user = new User(
                 null,
-                command.getFirstName(),
-                command.getLastName(),
+                command.firstName(),
+                command.lastName(),
                 documentType,
-                command.getDocumentNumber(),
-                command.getBirthDate(),
+                command.documentNumber(),
+                command.birthDate(),
                 gender,
-                command.getPhoneNumber(),
-                command.getAddress(),
+                command.phoneNumber(),
+                command.address(),
                 email,
                 encodedPassword,
-                Status.valueOf(command.getStatus()),
+                Status.ACTIVE,
                 null
         );
 

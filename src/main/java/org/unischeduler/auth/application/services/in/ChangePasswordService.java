@@ -24,8 +24,8 @@ public class ChangePasswordService implements ChangePasswordUseCase {
     @Override
     public ChangePasswordResponse execute(ChangePasswordCommand command) {
 
-        Optional<User> optionalUser =
-                userRepository.findById(command.getUserId());
+        // TODO: Replace the hardcoded user ID with the authenticate user's ID extracted from JWT once the token flow is implemented.
+        Optional<User> optionalUser = userRepository.findById(1L);
 
         if (optionalUser.isEmpty()) {
             return new ChangePasswordResponse(
@@ -37,7 +37,7 @@ public class ChangePasswordService implements ChangePasswordUseCase {
         User user = optionalUser.get();
 
         if (!passwordEncoderPort.matches(
-                command.getCurrentPassword(),
+                command.currentPassword(),
                 user.getPassword().getValue())) {
 
             return new ChangePasswordResponse(
@@ -46,8 +46,8 @@ public class ChangePasswordService implements ChangePasswordUseCase {
             );
         }
 
-        if (!command.getNewPassword()
-                .equals(command.getConfirmPassword())) {
+        if (!command.newPassword()
+                .equals(command.confirmPassword())) {
 
             return new ChangePasswordResponse(
                     false,
@@ -56,7 +56,7 @@ public class ChangePasswordService implements ChangePasswordUseCase {
         }
 
         if (passwordEncoderPort.matches(
-                command.getNewPassword(),
+                command.newPassword(),
                 user.getPassword().getValue())) {
 
             return new ChangePasswordResponse(
@@ -66,7 +66,7 @@ public class ChangePasswordService implements ChangePasswordUseCase {
         }
 
         String encodedPassword =
-                passwordEncoderPort.encode(command.getNewPassword());
+                passwordEncoderPort.encode(command.newPassword());
 
         user.setPassword(
                 new EncodedPassword(encodedPassword)

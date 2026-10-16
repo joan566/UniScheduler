@@ -2,7 +2,7 @@ package org.unischeduler.auth.presentation.dtos;
 
 import java.time.LocalDate;
 
-public class RegisterStudentRequest {
+public class RegisterUserRequest {
     private final String firstName;
     private final String lastName;
     private final String documentType;
@@ -15,14 +15,11 @@ public class RegisterStudentRequest {
     private final String address;
     private final String email;
 
-    private final Long academicProgramId;
-    private final int initialSemester;
-    private final LocalDate admissionDate;
-    private final String status;
+    private final String password;
 
-    public RegisterStudentRequest(String firstName, String lastName, String documentType, String documentNumber,
-                                  LocalDate birthDate, String gender, String phoneNumber, String address,
-                                  String email, Long academicProgramId, int initialSemester, LocalDate admissionDate, String status) {
+    public RegisterUserRequest(String firstName, String lastName, String documentType, String documentNumber,
+                               LocalDate birthDate, String gender, String phoneNumber, String address,
+                               String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.documentType = documentType;
@@ -32,10 +29,7 @@ public class RegisterStudentRequest {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
-        this.academicProgramId = academicProgramId;
-        this.initialSemester = initialSemester;
-        this.admissionDate = admissionDate;
-        this.status = status;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -74,19 +68,7 @@ public class RegisterStudentRequest {
         return email;
     }
 
-    public Long getAcademicProgramId() {
-        return academicProgramId;
-    }
-
-    public int getInitialSemester() {
-        return initialSemester;
-    }
-
-    public LocalDate getAdmissionDate() {
-        return admissionDate;
-    }
-
-    public String getStatus() {
-        return status;
+    public String getPassword() {
+        return password;
     }
 }
