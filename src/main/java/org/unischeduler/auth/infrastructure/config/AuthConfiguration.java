@@ -8,6 +8,7 @@ import org.unischeduler.auth.application.services.in.login.RegisterUserService;
 import org.unischeduler.auth.domain.inputports.ChangePasswordUseCase;
 import org.unischeduler.auth.domain.inputports.LoginUserUseCase;
 import org.unischeduler.auth.domain.inputports.RegisterUserUseCase;
+import org.unischeduler.auth.domain.outputports.AccessTokenIssuerPort;
 import org.unischeduler.auth.domain.outputports.PasswordEncoderPort;
 import org.unischeduler.auth.domain.outputports.UserRepository;
 import org.unischeduler.enrollment.domain.outputports.StudentRepository;
@@ -16,10 +17,10 @@ import org.unischeduler.enrollment.domain.outputports.StudentRepository;
 public class AuthConfiguration {
     @Bean
     LoginUserUseCase loginUserUseCase(UserRepository userRepository,
-                                      StudentRepository studentRepository, PasswordEncoderPort passwordEncoderPort) {
+                                      AccessTokenIssuerPort accessTokenIssuerPort, PasswordEncoderPort passwordEncoderPort) {
         return new LoginUserService(
                 userRepository,
-                studentRepository,
+                accessTokenIssuerPort,
                 passwordEncoderPort
         );
     }

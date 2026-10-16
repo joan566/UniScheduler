@@ -3,6 +3,8 @@ package org.unischeduler.auth.application.services.in.login;
 import org.unischeduler.auth.application.services.in.login.dtos.LoginUserResponse;
 import org.unischeduler.auth.application.services.in.login.dtos.UserInfo;
 import org.unischeduler.auth.application.services.in.login.dtos.UserRoleInfo;
+import org.unischeduler.auth.domain.exceptions.InvalidCredentialsException;
+import org.unischeduler.auth.domain.outputports.AccessTokenIssuerPort;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.enrollment.domain.entity.Student;
@@ -15,38 +17,29 @@ import java.util.Optional;
 
 public class LoginUserService implements LoginUserUseCase {
     private final UserRepository userRepository;
-    private final StudentRepository studentRepository;
+    private final AccessTokenIssuerPort accessTokenIssuerPort;
     private final PasswordEncoderPort passwordEncoderPort;
 
-    public LoginUserService(UserRepository userRepository, StudentRepository studentRepository, PasswordEncoderPort passwordEncoderPort) {
+    public LoginUserService(UserRepository userRepository, AccessTokenIssuerPort accessTokenIssuerPort, PasswordEncoderPort passwordEncoderPort) {
         this.userRepository = userRepository;
-        this.studentRepository = studentRepository;
+        this.accessTokenIssuerPort = accessTokenIssuerPort;
         this.passwordEncoderPort = passwordEncoderPort;
     }
 
     @Override
     public LoginUserResponse execute(LoginUserCommand command) {
-        Optional<User> userOptional = userRepository.findByEmail(command.getEmail());
+        User user = userRepository.findByEmail(command.getEmail())
+                .orElseThrow(() -> new InvalidCredentialsException("Usuario o contraseña incorrectos"));
 
-        if(userOptional.isEmpty()) {
-            System.out.println("Case 1");
-            return new LoginUserResponse(
-                    false,
-                    "Usuario o contraseña incorrectos",
-                    null
-            );
-        }
-
-        User user = userOptional.get();
 
         if(!passwordEncoderPort.matches(command.getPassword(), user.getPassword().getValue())) {
-            System.out.println("Case 2");
-            return new LoginUserResponse(
-                    false,
-                    "Usuario o contraseña incorrectos",
-                    null
-            );
+            throw new InvalidCredentialsException("Usuario o contraseña incorrectos");
         }
+
+        String accessToken = accessTokenIssuerPort.issueAccessToken(
+                user.getUserId(),
+                user.getEmail().getValue()
+        );
 
         UserInfo userInfo = new UserInfo(
                 user.getUserId(),
@@ -57,7 +50,8 @@ public class LoginUserService implements LoginUserUseCase {
         return new LoginUserResponse(
                 true,
                 "Inicio de sesion exitoso",
-                userInfo
+                userInfo,
+                accessToken
         );
     }
 }

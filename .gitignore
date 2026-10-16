@@ -2,6 +2,8 @@
 target/
 out-tests/
 
+.env
+
 # Pruebas locales y material de trabajo de Miguel
 tests/
 parteMiguel/
