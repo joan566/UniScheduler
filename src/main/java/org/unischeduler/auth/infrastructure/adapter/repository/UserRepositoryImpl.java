@@ -5,20 +5,16 @@ import org.unischeduler.auth.domain.entity.User;
 import org.unischeduler.auth.domain.outputports.UserRepository;
 import org.unischeduler.auth.infrastructure.entity.UserEntity;
 import org.unischeduler.auth.infrastructure.mapper.UserMapper;
-import org.unischeduler.auth.infrastructure.repository.excel.ExcelUserRepository;
 import org.unischeduler.auth.infrastructure.repository.posgresql.SpringDataUserRepository;
 
 import java.util.Optional;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-    private final ExcelUserRepository excelUserRepository;
     private final SpringDataUserRepository springDataUserRepository;
 
 
-    public UserRepositoryImpl(ExcelUserRepository excelUserRepository,
-                              SpringDataUserRepository springDataUserRepository) {
-        this.excelUserRepository = excelUserRepository;
+    public UserRepositoryImpl(SpringDataUserRepository springDataUserRepository) {
         this.springDataUserRepository = springDataUserRepository;
     }
 
