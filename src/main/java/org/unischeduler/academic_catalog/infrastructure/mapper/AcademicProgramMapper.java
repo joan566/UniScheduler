@@ -14,7 +14,7 @@ public class AcademicProgramMapper {
 
     public static AcademicProgramEntity toEntity(AcademicProgram domain) {
         AcademicProgramEntity entity = new AcademicProgramEntity();
-        entity.setId(domain.getAcademicProgramId());
+        entity.setId(domain.getId());
         entity.setName(domain.getName());
         entity.setTotalSemesters(domain.getTotalSemesters());
 

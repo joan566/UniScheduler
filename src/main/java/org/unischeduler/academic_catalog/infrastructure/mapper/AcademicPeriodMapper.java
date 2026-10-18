@@ -33,7 +33,7 @@ public class AcademicPeriodMapper {
 
         AcademicPeriodEntity entity = new AcademicPeriodEntity();
 
-        entity.setId(academicPeriod.getAcademicPeriodId());
+        entity.setId(academicPeriod.getId());
         entity.setCode(academicPeriod.getCode());
         entity.setName(academicPeriod.getName());
         entity.setStartDate(academicPeriod.getStartDate().toString());

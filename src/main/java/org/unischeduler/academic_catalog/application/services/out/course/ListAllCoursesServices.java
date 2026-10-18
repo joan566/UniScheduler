@@ -40,13 +40,13 @@ public class ListAllCoursesServices implements ListAllCoursesUseCase {
                     prerequisitesResponse =
                     findAllPrerequisitesUseCase.execute(
                             new FindAllPrerequisitesCommand(
-                                    course.getCourseId()
+                                    course.getId()
                             )
                     );
 
             CourseInfo courseInfo =
                     new CourseInfo(
-                            course.getCourseId(),
+                            course.getId(),
                             course.getName(),
                             course.getCode(),
                             course.getCredits(),

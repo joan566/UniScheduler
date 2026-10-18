@@ -119,7 +119,7 @@ public class UpdateGroupService implements UpdateGroupUseCase {
         Teacher teacher = group.getTeacher();
 
         CourseInfo courseInfo = new CourseInfo(
-                course.getCourseId(),
+                course.getId(),
                 course.getCode(),
                 course.getName()
         );

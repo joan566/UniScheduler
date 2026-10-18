@@ -39,7 +39,7 @@ public class UpdateCourseService implements UpdateCourseUseCase {
         // Validación de código único
         courseRepository.findByCode(command.getCourseCode())
                 .ifPresent(course -> {
-                    if (!course.getCourseId().equals(command.getCourseId())) {
+                    if (!course.getId().equals(command.getCourseId())) {
                         throw new IllegalArgumentException(
                                 "El código de la asignatura ya está en uso"
                         );
@@ -60,11 +60,11 @@ public class UpdateCourseService implements UpdateCourseUseCase {
                             )
                     );
 
-            prerequisiteIds.add(prerequisite.getCourseId());
+            prerequisiteIds.add(prerequisite.getId());
 
             prerequisiteInfos.add(
                     new PrerequisiteInfo(
-                            prerequisite.getCourseId(),
+                            prerequisite.getId(),
                             prerequisite.getCode(),
                             prerequisite.getName()
                     )
@@ -86,7 +86,7 @@ public class UpdateCourseService implements UpdateCourseUseCase {
         // Reemplazar prerrequisitos (ya lo hace el use case)
         registerPrerequisiteUseCase.execute(
                 new RegisterPrerequisiteCommand(
-                        updatedCourse.getCourseId(),
+                        updatedCourse.getId(),
                         prerequisiteIds
                 )
         );
@@ -95,7 +95,7 @@ public class UpdateCourseService implements UpdateCourseUseCase {
                 true,
                 "Se actualizó la asignatura con éxito",
                 new CourseInfo(
-                        updatedCourse.getCourseId(),
+                        updatedCourse.getId(),
                         updatedCourse.getName(),
                         updatedCourse.getCode(),
                         updatedCourse.getCredits(),

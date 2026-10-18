@@ -60,7 +60,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
 
         Optional<EnrollmentEntity> entityOpt = enrollmentRepository.findByStudentIdAndAcademicPeriodId(
                 studentId,
-                academicPeriod.getAcademicPeriodId()
+                academicPeriod.getId()
         );
 
         if (entityOpt.isEmpty()) {

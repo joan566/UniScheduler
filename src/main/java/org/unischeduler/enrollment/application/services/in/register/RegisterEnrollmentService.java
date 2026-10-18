@@ -73,7 +73,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
                 .toList();
 
         List<Long> courseIds = groups.stream()
-                .map(group -> group.getCourse().getCourseId())
+                .map(group -> group.getCourse().getId())
                 .toList();
 
         RegisterEnrollmentResponse validationResponse =
@@ -91,7 +91,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
 
         AcademicProgram academicProgram =
                 academicProgramRepository.findById(
-                                student.getAcademicProgram().getAcademicProgramId())
+                                student.getAcademicProgram().getId())
                         .orElseThrow(() ->
                                 new EntityNotFoundException(
                                         "No se encontró el programa académico"));
@@ -212,13 +212,13 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
                 .map(detail ->
                         detail.getGroup()
                                 .getCourse()
-                                .getCourseId())
+                                .getId())
                 .collect(Collectors.toSet());
 
         return newGroups.stream()
                 .map(group ->
                         group.getCourse()
-                                .getCourseId())
+                                .getId())
                 .anyMatch(enrolledCourseIds::contains);
     }
 

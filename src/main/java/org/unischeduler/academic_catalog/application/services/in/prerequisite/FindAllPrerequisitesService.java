@@ -39,7 +39,7 @@ public class FindAllPrerequisitesService
         List<PrerequisiteInfo> prerequisites =
                 prerequisiteRepository
                         .findAllPrerequisitesWhereCourseId(
-                                course.getCourseId()
+                                course.getId()
                         )
                         .stream()
                         .map(PrerequisiteInfo::toInfo)

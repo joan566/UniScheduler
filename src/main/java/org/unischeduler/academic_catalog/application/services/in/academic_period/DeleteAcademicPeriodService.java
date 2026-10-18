@@ -20,7 +20,7 @@ public class DeleteAcademicPeriodService implements DeleteAcademicPeriodUseCase 
                         "No se encontro un periodo academico con id: " + command.getId()
                 ));
 
-        academicPeriodRepository.deleteById(academicPeriod.getAcademicPeriodId());
+        academicPeriodRepository.deleteById(academicPeriod.getId());
 
         return new DeleteAcademicPeriodResponse(
                 true,

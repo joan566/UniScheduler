@@ -26,10 +26,10 @@ public class SemesterTemplateRepositoryImpl implements SemesterTemplateRepositor
     @Override
     public SemesterTemplate findByProgramAndSemester(AcademicProgram program, int semester) {
         SemesterTemplateEntity entity = semesterTemplateRepository
-                .findByProgramIdAndSemester(program.getAcademicProgramId(), semester)
+                .findByProgramIdAndSemester(program.getId(), semester)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "No existe una plantilla para el programa "
-                                + program.getAcademicProgramId()
+                                + program.getId()
                                 + " y semestre "
                                 + semester
                 ));

@@ -23,7 +23,7 @@ public class StudentMapper {
         );
 
         entity.setAcademicProgramId(
-                student.getAcademicProgram().getAcademicProgramId()
+                student.getAcademicProgram().getId()
         );
 
         return entity;

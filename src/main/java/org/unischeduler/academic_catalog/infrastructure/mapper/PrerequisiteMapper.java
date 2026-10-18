@@ -18,7 +18,7 @@ public class PrerequisiteMapper {
         }
 
         return new Prerequisite(
-                entity.getPrerequisiteId(),
+                entity.getId(),
                 entity.getCourseId(),
                 requiredCourse
         );
@@ -33,10 +33,10 @@ public class PrerequisiteMapper {
 
         PrerequisiteEntity entity = new PrerequisiteEntity();
 
-        entity.setPrerequisiteId(prerequisite.getPrerequisite());
+        entity.setId(prerequisite.getId());
         entity.setCourseId(prerequisite.getCourseId());
         entity.setPrerequisiteCourseId(
-                prerequisite.getRequiredCourse().getCourseId()
+                prerequisite.getRequiredCourse().getId()
         );
 
         return entity;

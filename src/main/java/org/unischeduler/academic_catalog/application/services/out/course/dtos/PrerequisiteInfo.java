@@ -15,7 +15,7 @@ public class PrerequisiteInfo {
 
     public static PrerequisiteInfo toInfo(Prerequisite prerequisite) {
         return new PrerequisiteInfo(
-                prerequisite.getPrerequisite(),
+                prerequisite.getId(),
                 prerequisite.getRequiredCourse().getCode(),
                 prerequisite.getRequiredCourse().getName()
         );

@@ -23,7 +23,7 @@ public class EnrollmentMapper {
         );
 
         entity.setAcademicProgramId(
-                enrollment.getAcademicProgram().getAcademicProgramId()
+                enrollment.getAcademicProgram().getId()
         );
 
         entity.setEnrollmentDate(
@@ -31,7 +31,7 @@ public class EnrollmentMapper {
         );
 
 
-        entity.setAcademicPeriodId(enrollment.getAcademicPeriod().getAcademicPeriodId());
+        entity.setAcademicPeriodId(enrollment.getAcademicPeriod().getId());
 
         return entity;
     }

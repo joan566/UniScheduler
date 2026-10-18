@@ -95,7 +95,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
         UpdateGroupResponse updateGroupResponse = updateGroupUseCase.execute(
                 new UpdateGroupCommand(
                         groupSaved.getGroupId(),
-                        groupSaved.getCourse().getCourseId(),
+                        groupSaved.getCourse().getId(),
                         groupSaved.getGroupCode(),
                         groupSaved.getTeacher().getTeacherId(),
                         groupSaved.getCapacity(),
@@ -118,7 +118,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
         Teacher teacher = group.getTeacher();
 
         CourseInfo courseInfo = new CourseInfo(
-                course.getCourseId(),
+                course.getId(),
                 course.getCode(),
                 course.getName()
         );

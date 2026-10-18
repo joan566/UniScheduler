@@ -25,7 +25,7 @@ public class AcademicPeriodInfo {
 
     public static AcademicPeriodInfo fromDomain(AcademicPeriod academicPeriod) {
         return new AcademicPeriodInfo(
-                academicPeriod.getAcademicPeriodId(),
+                academicPeriod.getId(),
                 academicPeriod.getCode(),
                 academicPeriod.getName(),
                 academicPeriod.getStartDate(),

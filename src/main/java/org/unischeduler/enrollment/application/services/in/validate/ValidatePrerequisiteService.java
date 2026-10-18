@@ -55,7 +55,7 @@ public class ValidatePrerequisiteService
                 .map(detail ->
                         detail.getGroup()
                                 .getCourse()
-                                .getCourseId())
+                                .getId())
                 .collect(Collectors.toSet());
 
         List<String> messages = new ArrayList<>();
@@ -72,7 +72,7 @@ public class ValidatePrerequisiteService
         // 1. Verificar que la materia no haya sido aprobada anteriormente
         for (Course course : requestedCourses) {
 
-            if (approvedCourses.contains(course.getCourseId())) {
+            if (approvedCourses.contains(course.getId())) {
 
                 messages.add(
                         "La asignatura "
@@ -88,14 +88,14 @@ public class ValidatePrerequisiteService
             List<Prerequisite> prerequisites =
                     prerequisiteRepository
                             .findAllPrerequisitesWhereCourseId(
-                                    course.getCourseId()
+                                    course.getId()
                             );
 
             for (Prerequisite prerequisite : prerequisites) {
 
                 Long requiredCourseId =
                         prerequisite.getRequiredCourse()
-                                .getCourseId();
+                                .getId();
 
                 if (!approvedCourses.contains(requiredCourseId)) {
 

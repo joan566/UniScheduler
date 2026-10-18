@@ -55,7 +55,7 @@ public class RegisterCourseService implements RegisterCourseUseCase {
 
             prerequisiteInfos.add(
                     new PrerequisiteInfo(
-                            prerequisite.getCourseId(),
+                            prerequisite.getId(),
                             prerequisite.getCode(),
                             prerequisite.getName()
                     )
@@ -79,7 +79,7 @@ public class RegisterCourseService implements RegisterCourseUseCase {
                     return prerequisiteRepository.save(
                             new Prerequisite(
                                     null,
-                                    courseSaved.getCourseId(),
+                                    courseSaved.getId(),
                                     prerequisite
                             )
                     );
@@ -90,7 +90,7 @@ public class RegisterCourseService implements RegisterCourseUseCase {
                 true,
                 "Se creó la asignatura con éxito",
                 new CourseInfo(
-                        courseSaved.getCourseId(),
+                        courseSaved.getId(),
                         courseSaved.getName(),
                         courseSaved.getCode(),
                         courseSaved.getCredits(),

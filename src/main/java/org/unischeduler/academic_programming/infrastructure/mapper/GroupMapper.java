@@ -18,7 +18,7 @@ public class GroupMapper {
         );
 
         entity.setCourseId(
-                group.getCourse().getCourseId()
+                group.getCourse().getId()
         );
 
         entity.setGroupCode(

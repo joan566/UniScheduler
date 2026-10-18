@@ -3,27 +3,27 @@ package org.unischeduler.academic_catalog.domain.entity;
 public class Prerequisite {
 
     //================// Atributos //================//
-    private Long prerequisite;
+    private Long id;
     private Long courseId;
     private Course requiredCourse;
 
 
     //================// Constructores //================//
 
-    public Prerequisite(Long prerequisite, Long courseId, Course requiredCourse) {
-        this.prerequisite = prerequisite;
+    public Prerequisite(Long id, Long courseId, Course requiredCourse) {
+        this.id = id;
         this.courseId = courseId;
         this.requiredCourse = requiredCourse;
     }
 
     //================// Setters y Getters //================//
 
-    public Long getPrerequisite() {
-        return prerequisite;
+    public Long getId() {
+        return id;
     }
 
-    public void setPrerequisite(Long prerequisite) {
-        this.prerequisite = prerequisite;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCourseId() {

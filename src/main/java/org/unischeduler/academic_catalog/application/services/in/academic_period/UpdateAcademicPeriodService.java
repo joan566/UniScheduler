@@ -51,8 +51,8 @@ public class UpdateAcademicPeriodService implements UpdateAcademicPeriodUseCase 
         // Si este periodo se va a activar, desactivar el que esté activo actualmente
         if ("ACTIVE".equals(status)) {
             academicPeriodRepository.findActive().ifPresent(activePeriod -> {
-                if (!activePeriod.getAcademicPeriodId()
-                        .equals(academicPeriod.getAcademicPeriodId())) {
+                if (!activePeriod.getId()
+                        .equals(academicPeriod.getId())) {
 
                     activePeriod.setStatus(AcademicPeriodStatus.CLOSED);
                     academicPeriodRepository.save(activePeriod);

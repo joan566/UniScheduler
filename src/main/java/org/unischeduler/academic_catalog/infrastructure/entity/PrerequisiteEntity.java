@@ -15,7 +15,8 @@ import lombok.Setter;
 public class PrerequisiteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long prerequisiteId;
+    @Column(name = "prerequisite_id")
+    private Long id;
 
     @Column(name = "course_id", nullable = false)
     private Long courseId;

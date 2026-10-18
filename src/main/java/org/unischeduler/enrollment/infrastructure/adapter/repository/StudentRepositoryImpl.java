@@ -34,9 +34,9 @@ public class StudentRepositoryImpl implements StudentRepository {
         User user = userRepository.findById(entitySaved.getUserId())
                 .orElseThrow(() -> new EntityNotFoundException("No existe el usuario con id: " + entitySaved.getUserId()));
 
-        AcademicProgram academicProgram = academicProgramRepository.findById(student.getAcademicProgram().getAcademicProgramId())
+        AcademicProgram academicProgram = academicProgramRepository.findById(student.getAcademicProgram().getId())
                 .orElseThrow(() -> new EntityNotFoundException("No se encontro el programa con id "
-                + student.getAcademicProgram().getAcademicProgramId()));
+                + student.getAcademicProgram().getId()));
 
         return StudentMapper.toDomain(entitySaved, user, academicProgram);
     }

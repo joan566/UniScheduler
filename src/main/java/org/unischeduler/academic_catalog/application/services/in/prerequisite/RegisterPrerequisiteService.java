@@ -52,7 +52,7 @@ public class RegisterPrerequisiteService
         List<Course> prerequisites = new ArrayList<>();
         for (Long prerequisiteId : uniquePrerequisiteIds) {
 
-            if (course.getCourseId().equals(prerequisiteId)) {
+            if (course.getId().equals(prerequisiteId)) {
                 throw new IllegalArgumentException(
                         "Un curso no puede ser prerrequisito de sí mismo."
                 );
@@ -68,11 +68,11 @@ public class RegisterPrerequisiteService
         }
 
         List<Prerequisite> existing = prerequisiteRepository
-                .findAllPrerequisitesWhereCourseId(course.getCourseId());
+                .findAllPrerequisitesWhereCourseId(course.getId());
 
         Set<Long> existingIds =
                 existing.stream()
-                        .map(Prerequisite::getPrerequisite)
+                        .map(Prerequisite::getId)
                         .collect(java.util.stream.Collectors.toSet());
 
         // solo elimina si realmente hay cambios
@@ -80,7 +80,7 @@ public class RegisterPrerequisiteService
 
             deletePrerequisiteUseCase.execute(
                     new DeletePrerequisiteCommand(
-                            course.getCourseId()
+                            course.getId()
                     )
             );
 
@@ -89,7 +89,7 @@ public class RegisterPrerequisiteService
                 prerequisiteRepository.save(
                         new Prerequisite(
                                 null,
-                                course.getCourseId(),
+                                course.getId(),
                                 prerequisite
                         )
                 );

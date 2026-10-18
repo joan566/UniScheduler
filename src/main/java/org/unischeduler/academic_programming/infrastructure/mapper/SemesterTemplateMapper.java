@@ -19,7 +19,7 @@ public class SemesterTemplateMapper {
         );
 
         entity.setProgramId(
-                template.getAcademicProgram().getAcademicProgramId()
+                template.getAcademicProgram().getId()
         );
 
         entity.setSemester(

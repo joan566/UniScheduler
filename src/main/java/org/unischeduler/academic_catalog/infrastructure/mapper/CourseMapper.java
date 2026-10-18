@@ -27,7 +27,7 @@ public class CourseMapper {
         if (course == null) return null;
 
         CourseEntity entity = new CourseEntity();
-        entity.setId(course.getCourseId());
+        entity.setId(course.getId());
         entity.setName(course.getName());
         entity.setCode(course.getCode());
         entity.setCredits(course.getCredits());

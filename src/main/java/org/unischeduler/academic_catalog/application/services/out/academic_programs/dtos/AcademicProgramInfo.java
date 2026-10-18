@@ -27,7 +27,7 @@ public class AcademicProgramInfo {
 
      public static AcademicProgramInfo fromDomain(AcademicProgram program) {
         return new AcademicProgramInfo(
-                program.getAcademicProgramId(),
+                program.getId(),
                 program.getName(),
                 program.getTotalSemesters()
         );
