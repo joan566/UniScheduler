@@ -1,5 +1,6 @@
 package org.unischeduler.academic_programming.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_programming.domain.entity.Group;
@@ -11,19 +12,20 @@ import org.unischeduler.academic_programming.domain.outputports.GroupScheduleRep
 import org.unischeduler.academic_programming.domain.outputports.TeacherRepository;
 import org.unischeduler.academic_programming.infrastructure.entity.GroupEntity;
 import org.unischeduler.academic_programming.infrastructure.mapper.GroupMapper;
-import org.unischeduler.academic_programming.infrastructure.repository.excel.ExcelGroupRepository;
+import org.unischeduler.academic_programming.infrastructure.repository.postgres.SpringGroupRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class GroupRepositoryImpl implements GroupRepository {
-    private final ExcelGroupRepository groupRepository;
+    private final SpringGroupRepository groupRepository;
     private final CourseRepository courseRepository;
     private final TeacherRepository teacherRepository;
     private final GroupScheduleRepository groupScheduleRepository;
 
-    public GroupRepositoryImpl(ExcelGroupRepository groupRepository, CourseRepository courseRepository, TeacherRepository teacherRepository, GroupScheduleRepository groupScheduleRepository) {
+    public GroupRepositoryImpl(SpringGroupRepository groupRepository, CourseRepository courseRepository, TeacherRepository teacherRepository, GroupScheduleRepository groupScheduleRepository) {
         this.groupRepository = groupRepository;
         this.courseRepository = courseRepository;
         this.teacherRepository = teacherRepository;
@@ -57,13 +59,22 @@ public class GroupRepositoryImpl implements GroupRepository {
 
     @Override
     public Group update(Group group) {
-        GroupEntity entityUpdated = groupRepository.update(GroupMapper.toEntity(group));
+        if (!groupRepository.existsById(group.getGroupId())) {
+            throw new EntityNotFoundException("No existe el grupo con id: " + group.getGroupId());
+        }
+
+        GroupEntity entityUpdated = groupRepository.save(GroupMapper.toEntity(group));
         return toDomain(entityUpdated);
     }
 
     @Override
     public boolean deleteById(Long id) {
-        return groupRepository.deleteById(id);
+        if (!groupRepository.existsById(id)) {
+            return false;
+        }
+
+        groupRepository.deleteById(id);
+        return true;
     }
 
     private Group toDomain(GroupEntity entity) {

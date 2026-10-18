@@ -1,19 +1,21 @@
 package org.unischeduler.academic_programming.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_programming.domain.entity.Teacher;
 import org.unischeduler.academic_programming.domain.outputports.TeacherRepository;
 import org.unischeduler.academic_programming.infrastructure.entity.TeacherEntity;
 import org.unischeduler.academic_programming.infrastructure.mapper.TeacherMapper;
-import org.unischeduler.academic_programming.infrastructure.repository.excel.ExcelTeacherRepository;
+import org.unischeduler.academic_programming.infrastructure.repository.postgres.SpringTeacherRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 
+@Repository
 public class TeacherRepositoryImpl implements TeacherRepository {
-    private final ExcelTeacherRepository teacherRepository;
+    private final SpringTeacherRepository teacherRepository;
 
-    public TeacherRepositoryImpl(ExcelTeacherRepository teacherRepository) {
+    public TeacherRepositoryImpl(SpringTeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
     }
 

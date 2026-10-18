@@ -1,31 +1,29 @@
 package org.unischeduler.academic_programming.infrastructure.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "semester_template_details")
 public class SemesterTemplateDetailEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "template_detail_id")
     private Long templateDetailId;
+
+    @Column(name = "template_id", nullable = false)
     private Long templateId;
+
+    @Column(name = "group_id", nullable = false)
     private Long groupId;
-
-    public Long getTemplateDetailId() {
-        return templateDetailId;
-    }
-
-    public void setTemplateDetailId(Long templateDetailId) {
-        this.templateDetailId = templateDetailId;
-    }
-
-    public Long getTemplateId() {
-        return templateId;
-    }
-
-    public void setTemplateId(Long templateId) {
-        this.templateId = templateId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
 }

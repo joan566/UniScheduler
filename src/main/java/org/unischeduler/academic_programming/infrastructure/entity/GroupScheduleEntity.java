@@ -1,60 +1,40 @@
 package org.unischeduler.academic_programming.infrastructure.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "group_schedules")
 public class GroupScheduleEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "group_schedule_id")
     private Long groupScheduleId;
+
+    @Column(name = "group_id", nullable = false)
     private Long groupId;
+
+    @Column(name = "day_of_week", nullable = false, length = 20)
     private String dayOfWeek;
+
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
+
+    @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
+
+    @Column(name = "classroom", nullable = false, length = 100)
     private String classroom;
-
-    public Long getGroupScheduleId() {
-        return groupScheduleId;
-    }
-
-    public void setGroupScheduleId(Long groupScheduleId) {
-        this.groupScheduleId = groupScheduleId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(String dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
-    }
-
-    public LocalTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
-    }
 }

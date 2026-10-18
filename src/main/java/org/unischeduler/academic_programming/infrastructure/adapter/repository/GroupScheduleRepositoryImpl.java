@@ -1,24 +1,26 @@
 package org.unischeduler.academic_programming.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_programming.domain.entity.GroupSchedule;
 import org.unischeduler.academic_programming.domain.outputports.GroupScheduleRepository;
 import org.unischeduler.academic_programming.infrastructure.entity.GroupScheduleEntity;
 import org.unischeduler.academic_programming.infrastructure.mapper.GroupScheduleMapper;
-import org.unischeduler.academic_programming.infrastructure.repository.excel.ExcelGroupScheduleRepository;
+import org.unischeduler.academic_programming.infrastructure.repository.postgres.SpringGroupScheduleRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class GroupScheduleRepositoryImpl implements GroupScheduleRepository {
-    private final ExcelGroupScheduleRepository groupScheduleRepository;
+    private final SpringGroupScheduleRepository groupScheduleRepository;
 
-    public GroupScheduleRepositoryImpl(ExcelGroupScheduleRepository groupScheduleRepository) {
+    public GroupScheduleRepositoryImpl(SpringGroupScheduleRepository groupScheduleRepository) {
         this.groupScheduleRepository = groupScheduleRepository;
     }
 
     @Override
     public List<GroupSchedule> findAllWhereGroupId(Long groupId) {
-        List<GroupScheduleEntity> entities = groupScheduleRepository.findAllWhereGroupId(groupId);
+        List<GroupScheduleEntity> entities = groupScheduleRepository.findAllByGroupId(groupId);
 
         List<GroupSchedule> groupSchedules = new ArrayList<>();
         for(GroupScheduleEntity e : entities) {
@@ -39,6 +41,6 @@ public class GroupScheduleRepositoryImpl implements GroupScheduleRepository {
 
     @Override
     public void deleteAllWhereGroupId(Long groupId) {
-        groupScheduleRepository.deleteAllWhereGroupId(groupId);
+        groupScheduleRepository.deleteAllByGroupId(groupId);
     }
 }
