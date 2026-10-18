@@ -13,8 +13,8 @@ public class GroupMapper {
     public static GroupEntity toEntity(Group group) {
         GroupEntity entity = new GroupEntity();
 
-        entity.setGroupId(
-                group.getGroupId()
+        entity.setId(
+                group.getId()
         );
 
         entity.setCourseId(
@@ -26,7 +26,7 @@ public class GroupMapper {
         );
 
         entity.setTeacherId(
-                group.getTeacher().getTeacherId()
+                group.getTeacher().getId()
         );
 
         entity.setCapacity(
@@ -43,7 +43,7 @@ public class GroupMapper {
             List<GroupSchedule> schedules
     ) {
         return new Group(
-                entity.getGroupId(),
+                entity.getId(),
                 course,
                 entity.getGroupCode(),
                 teacher,

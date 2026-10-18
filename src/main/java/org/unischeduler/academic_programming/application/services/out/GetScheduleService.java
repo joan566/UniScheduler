@@ -33,13 +33,13 @@ public class GetScheduleService implements GetScheduleUseCase {
 
         Map<Long, String> courseNameByGroupId = enrollment.getDetails().stream()
                 .collect(Collectors.toMap(
-                        d -> d.getGroup().getGroupId(),
+                        d -> d.getGroup().getId(),
                         d -> d.getGroup().getCourse().getName()
                 ));
 
         List<GroupSchedule> schedules = enrollment.getDetails().stream()
                 .map(d -> groupScheduleRepository.findAllWhereGroupId(
-                        d.getGroup().getGroupId()
+                        d.getGroup().getId()
                 ))
                 .flatMap(List::stream)
                 .toList();

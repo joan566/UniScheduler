@@ -7,7 +7,7 @@ import java.util.List;
 public class Group {
 
     //================// Atributos //================//
-    private Long groupId;
+    private Long id;
     private Course course;
     private String groupCode;
     private Teacher teacher;
@@ -20,8 +20,8 @@ public class Group {
     public Group() {
     }
 
-    public Group(Long groupId, Course course, String groupCode, Teacher teacher, int capacity, List<GroupSchedule> schedules) {
-        this.groupId = groupId;
+    public Group(Long id, Course course, String groupCode, Teacher teacher, int capacity, List<GroupSchedule> schedules) {
+        this.id = id;
         this.course = course;
         this.groupCode = groupCode;
         this.teacher = teacher;
@@ -31,12 +31,12 @@ public class Group {
 
     //================// Setters y Getters //================//
 
-    public Long getGroupId() {
-        return groupId;
+    public Long getId() {
+        return id;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Course getCourse() {

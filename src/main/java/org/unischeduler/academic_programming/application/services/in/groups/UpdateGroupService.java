@@ -125,12 +125,12 @@ public class UpdateGroupService implements UpdateGroupUseCase {
         );
 
         TeacherInfo teacherInfo = new TeacherInfo(
-                teacher.getTeacherId(),
+                teacher.getId(),
                 teacher.getName()
         );
 
         return new GroupInfo(
-                group.getGroupId(),
+                group.getId(),
                 courseInfo,
                 group.getGroupCode(),
                 teacherInfo,

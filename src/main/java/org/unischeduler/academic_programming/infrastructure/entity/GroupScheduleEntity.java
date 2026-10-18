@@ -21,7 +21,7 @@ public class GroupScheduleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "group_schedule_id")
-    private Long groupScheduleId;
+    private Long id;
 
     @Column(name = "group_id", nullable = false)
     private Long groupId;

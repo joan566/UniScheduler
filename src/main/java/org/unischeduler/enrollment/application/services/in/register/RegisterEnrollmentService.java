@@ -127,7 +127,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
                 return new RegisterEnrollmentResponse(
                         false,
                         "El grupo "
-                                + group.getGroupId()
+                                + group.getId()
                                 + " no tiene cupos disponibles"
                 );
             }
@@ -194,7 +194,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
 
         return enrollment.getDetails()
                 .stream()
-                .map(detail -> detail.getGroup().getGroupId())
+                .map(detail -> detail.getGroup().getId())
                 .anyMatch(newGroupIds::contains);
     }
 

@@ -7,7 +7,7 @@ import java.time.LocalTime;
 
 public class GroupSchedule {
     //================// Atributos //================//
-    private Long groupScheduleId;
+    private Long id;
     private Long groupId;
     private WeekDays dayOfWeek;
     private LocalTime startTime;
@@ -20,8 +20,8 @@ public class GroupSchedule {
     public GroupSchedule() {
     }
 
-    public GroupSchedule(Long groupScheduleId, Long groupId, WeekDays dayOfWeek, LocalTime startTime, LocalTime endTime, String classroom) {
-        this.groupScheduleId = groupScheduleId;
+    public GroupSchedule(Long id, Long groupId, WeekDays dayOfWeek, LocalTime startTime, LocalTime endTime, String classroom) {
+        this.id = id;
         this.groupId = groupId;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
@@ -32,12 +32,12 @@ public class GroupSchedule {
 
     //================// Setters y Getters //================//
 
-    public Long getGroupScheduleId() {
-        return groupScheduleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setGroupScheduleId(Long groupScheduleId) {
-        this.groupScheduleId = groupScheduleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getGroupId() {

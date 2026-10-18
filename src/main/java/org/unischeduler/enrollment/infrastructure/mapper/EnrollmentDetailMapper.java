@@ -20,7 +20,7 @@ public class EnrollmentDetailMapper {
         entity.setEnrollmentId(enrollmentId);
 
         entity.setGroupId(
-                detail.getGroup().getGroupId()
+                detail.getGroup().getId()
         );
 
         entity.setStatus(

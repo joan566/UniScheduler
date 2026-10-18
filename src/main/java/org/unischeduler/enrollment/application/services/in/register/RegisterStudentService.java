@@ -117,7 +117,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
 
         List<Long> groupIds = template.getDetails()
                 .stream()
-                .map(detail -> detail.getGroup().getGroupId())
+                .map(detail -> detail.getGroup().getId())
                 .toList();
 
         RegisterEnrollmentCommand enrollmentCommand = new RegisterEnrollmentCommand(

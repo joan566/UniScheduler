@@ -9,8 +9,8 @@ public class GroupScheduleMapper {
     public static GroupScheduleEntity toEntity(GroupSchedule schedule) {
         GroupScheduleEntity entity = new GroupScheduleEntity();
 
-        entity.setGroupScheduleId(
-                schedule.getGroupScheduleId()
+        entity.setId(
+                schedule.getId()
         );
 
         entity.setGroupId(
@@ -40,7 +40,7 @@ public class GroupScheduleMapper {
             GroupScheduleEntity entity
     ) {
         return new GroupSchedule(
-                entity.getGroupScheduleId(),
+                entity.getId(),
                 entity.getGroupId(),
                 WeekDays.valueOf(entity.getDayOfWeek()),
                 entity.getStartTime(),

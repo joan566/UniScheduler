@@ -19,7 +19,7 @@ public class GroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "group_id")
-    private Long groupId;
+    private Long id;
 
     @Column(name = "course_id", nullable = false)
     private Long courseId;

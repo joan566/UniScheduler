@@ -3,18 +3,18 @@ package org.unischeduler.academic_programming.domain.entity;
 public class Teacher {
 
     //================// Atributos //================//
-    private Long teacherId;
+    private Long id;
     private String name;
 
     //================// Constructores //================//
 
-    public Teacher(Long teacherId, String name) {
-        this.teacherId = teacherId;
+    public Teacher(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {

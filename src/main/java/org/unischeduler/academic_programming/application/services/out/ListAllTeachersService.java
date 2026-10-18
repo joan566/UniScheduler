@@ -17,7 +17,7 @@ public class ListAllTeachersService implements ListAllTeachersUseCase {
         return teacherRepository.findAll()
                 .stream()
                 .map(teacher -> new TeacherInfo(
-                        teacher.getTeacherId(),
+                        teacher.getId(),
                         teacher.getName()
                 ))
                 .toList();

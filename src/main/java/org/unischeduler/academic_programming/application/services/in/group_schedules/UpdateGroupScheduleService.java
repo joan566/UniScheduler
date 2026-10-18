@@ -40,7 +40,7 @@ public class UpdateGroupScheduleService
                     new GroupScheduleInfo(
                             saved.getGroupId(),
                             null, // CourseName no está disponible aquí
-                            saved.getGroupScheduleId(),
+                            saved.getId(),
                             saved.getDayOfWeek().name(),
                             saved.getStartTime(),
                             saved.getEndTime(),

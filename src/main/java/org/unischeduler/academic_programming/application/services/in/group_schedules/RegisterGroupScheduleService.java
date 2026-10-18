@@ -69,7 +69,7 @@ public class RegisterGroupScheduleService implements RegisterGroupScheduleUseCas
 
         RegisterGroupScheduleInfo info =
                 new RegisterGroupScheduleInfo(
-                        saved.getGroupScheduleId(),
+                        saved.getId(),
                         saved.getGroupId(),
                         saved.getDayOfWeek().name(),
                         saved.getStartTime(),

@@ -8,8 +8,8 @@ public class TeacherMapper {
     public static TeacherEntity toEntity(Teacher teacher) {
         TeacherEntity entity = new TeacherEntity();
 
-        entity.setTeacherId(
-                teacher.getTeacherId()
+        entity.setId(
+                teacher.getId()
         );
 
         entity.setName(
@@ -23,7 +23,7 @@ public class TeacherMapper {
             TeacherEntity entity
     ) {
         return new Teacher(
-                entity.getTeacherId(),
+                entity.getId(),
                 entity.getName()
         );
     }

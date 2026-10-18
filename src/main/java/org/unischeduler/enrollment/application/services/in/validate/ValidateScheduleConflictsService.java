@@ -46,9 +46,9 @@ public class ValidateScheduleConflictsService
 
                                 schedules.add(
                                         new GroupScheduleInfo(
-                                                group.getGroupId(),
+                                                group.getId(),
                                                 group.getCourse().getName(),
-                                                schedule.getGroupScheduleId(),
+                                                schedule.getId(),
                                                 schedule.getDayOfWeek().name(),
                                                 schedule.getStartTime(),
                                                 schedule.getEndTime(),

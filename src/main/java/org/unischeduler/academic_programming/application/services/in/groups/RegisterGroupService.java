@@ -71,13 +71,13 @@ public class RegisterGroupService implements RegisterGroupUseCase {
                 new ArrayList<>()
         );
 
-        // Se guarda para obtener el groupId
+        // Se guarda para obtener el id del grupo
         Group groupSaved = groupRepository.save(group);
 
-        // Se construyen los horarios usando el groupId generado
+        // Se construyen los horarios usando el id del grupo generado
         BuildSchedulesResult schedulesResult =
                 buildSchedules(
-                        groupSaved.getGroupId(),
+                        groupSaved.getId(),
                         command.getGroupSchedules()
                 );
 
@@ -94,10 +94,10 @@ public class RegisterGroupService implements RegisterGroupUseCase {
 
         UpdateGroupResponse updateGroupResponse = updateGroupUseCase.execute(
                 new UpdateGroupCommand(
-                        groupSaved.getGroupId(),
+                        groupSaved.getId(),
                         groupSaved.getCourse().getId(),
                         groupSaved.getGroupCode(),
-                        groupSaved.getTeacher().getTeacherId(),
+                        groupSaved.getTeacher().getId(),
                         groupSaved.getCapacity(),
                         groupSaved.getSchedules()
                                 .stream()
@@ -124,7 +124,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
         );
 
         TeacherInfo teacherInfo = new TeacherInfo(
-                teacher.getTeacherId(),
+                teacher.getId(),
                 teacher.getName()
         );
 
@@ -135,9 +135,9 @@ public class RegisterGroupService implements RegisterGroupUseCase {
 
                 scheduleInfos.add(
                         new GroupScheduleInfo(
-                                group.getGroupId(),
+                                group.getId(),
                                 courseInfo.getCourseName(),
-                                schedule.getGroupScheduleId(),
+                                schedule.getId(),
                                 schedule.getDayOfWeek().name(),
                                 schedule.getStartTime(),
                                 schedule.getEndTime(),
@@ -148,7 +148,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
         }
 
         return new GroupInfo(
-                group.getGroupId(),
+                group.getId(),
                 courseInfo,
                 group.getGroupCode(),
                 teacherInfo,

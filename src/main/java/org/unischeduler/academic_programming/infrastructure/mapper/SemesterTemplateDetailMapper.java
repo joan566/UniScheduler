@@ -13,14 +13,14 @@ public class SemesterTemplateDetailMapper {
         SemesterTemplateDetailEntity entity =
                 new SemesterTemplateDetailEntity();
 
-        entity.setTemplateDetailId(
-                detail.getTemplateDetailId()
+        entity.setId(
+                detail.getId()
         );
 
         entity.setTemplateId(templateId);
 
         entity.setGroupId(
-                detail.getGroup().getGroupId()
+                detail.getGroup().getId()
         );
 
         return entity;
@@ -31,7 +31,7 @@ public class SemesterTemplateDetailMapper {
             Group group
     ) {
         return new SemesterTemplateDetail(
-                entity.getTemplateDetailId(),
+                entity.getId(),
                 group
         );
     }

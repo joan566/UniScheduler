@@ -19,7 +19,7 @@ public class SemesterTemplateDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "template_detail_id")
-    private Long templateDetailId;
+    private Long id;
 
     @Column(name = "template_id", nullable = false)
     private Long templateId;

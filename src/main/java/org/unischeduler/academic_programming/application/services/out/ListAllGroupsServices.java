@@ -49,7 +49,7 @@ public class ListAllGroupsServices implements ListAllGroupsUseCase {
         );
 
         TeacherInfo teacherInfo = new TeacherInfo(
-                teacher.getTeacherId(),
+                teacher.getId(),
                 teacher.getName()
         );
 
@@ -58,9 +58,9 @@ public class ListAllGroupsServices implements ListAllGroupsUseCase {
         if(schedules != null) {
             for(GroupSchedule schedule : schedules) {
                 scheduleInfos.add(new GroupScheduleInfo(
-                        group.getGroupId(),
+                        group.getId(),
                         courseInfo.getCourseName(),
-                        schedule.getGroupScheduleId(),
+                        schedule.getId(),
                         schedule.getDayOfWeek().name(),
                         schedule.getStartTime(),
                         schedule.getEndTime(),
@@ -70,7 +70,7 @@ public class ListAllGroupsServices implements ListAllGroupsUseCase {
         }
 
         return new GroupInfo(
-                group.getGroupId(),
+                group.getId(),
                 courseInfo,
                 group.getGroupCode(),
                 teacherInfo,

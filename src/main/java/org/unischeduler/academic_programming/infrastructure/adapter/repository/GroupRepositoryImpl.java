@@ -59,8 +59,8 @@ public class GroupRepositoryImpl implements GroupRepository {
 
     @Override
     public Group update(Group group) {
-        if (!groupRepository.existsById(group.getGroupId())) {
-            throw new EntityNotFoundException("No existe el grupo con id: " + group.getGroupId());
+        if (!groupRepository.existsById(group.getId())) {
+            throw new EntityNotFoundException("No existe el grupo con id: " + group.getId());
         }
 
         GroupEntity entityUpdated = groupRepository.save(GroupMapper.toEntity(group));
@@ -82,7 +82,7 @@ public class GroupRepositoryImpl implements GroupRepository {
                 .orElseThrow(() -> new EntityNotFoundException("No existe el courso con id: " + entity.getCourseId()));
         Teacher teacher = teacherRepository.findById(entity.getTeacherId())
                 .orElseThrow(() -> new EntityNotFoundException("No existe el profesor con id: " + entity.getTeacherId()));
-        List<GroupSchedule> groupSchedules = groupScheduleRepository.findAllWhereGroupId(entity.getGroupId());
+        List<GroupSchedule> groupSchedules = groupScheduleRepository.findAllWhereGroupId(entity.getId());
 
         return GroupMapper.toDomain(entity, course, teacher, groupSchedules);
     }

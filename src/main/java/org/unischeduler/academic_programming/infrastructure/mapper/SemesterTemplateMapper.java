@@ -14,8 +14,8 @@ public class SemesterTemplateMapper {
     ) {
         SemesterTemplateEntity entity = new SemesterTemplateEntity();
 
-        entity.setTemplateId(
-                template.getTemplateId()
+        entity.setId(
+                template.getId()
         );
 
         entity.setProgramId(
@@ -35,7 +35,7 @@ public class SemesterTemplateMapper {
             List<SemesterTemplateDetail> details
     ) {
         return new SemesterTemplate(
-                entity.getTemplateId(),
+                entity.getId(),
                 academicProgram,
                 entity.getSemester(),
                 details

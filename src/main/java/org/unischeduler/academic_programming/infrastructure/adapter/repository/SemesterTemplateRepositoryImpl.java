@@ -34,7 +34,7 @@ public class SemesterTemplateRepositoryImpl implements SemesterTemplateRepositor
                                 + semester
                 ));
 
-        List<SemesterTemplateDetail> templateDetails = semesterTemplateDetailRepository.findAllWhereTemplateId(entity.getTemplateId());
+        List<SemesterTemplateDetail> templateDetails = semesterTemplateDetailRepository.findAllWhereTemplateId(entity.getId());
         return SemesterTemplateMapper.toDomain(
                 entity,
                 program,
