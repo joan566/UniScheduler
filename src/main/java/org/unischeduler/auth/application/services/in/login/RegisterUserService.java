@@ -62,7 +62,7 @@ public class RegisterUserService implements RegisterUserUseCase {
                 true,
                 "Se Registro un usuario con exito",
                 new RegisterUserInfo(
-                        userSaved.getUserId(),
+                        userSaved.getId(),
                         userSaved.getFirstName() + " " + userSaved.getLastName(),
                         userSaved.getEmail().getValue()
                 )

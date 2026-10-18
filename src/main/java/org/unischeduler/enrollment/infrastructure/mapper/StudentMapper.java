@@ -19,7 +19,7 @@ public class StudentMapper {
         );
 
         entity.setUserId(
-                student.getUser().getUserId()
+                student.getUser().getId()
         );
 
         entity.setAcademicProgramId(

@@ -21,7 +21,8 @@ import java.time.LocalDateTime;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @Column(name = "user_id")
+    private Long id;
 
     // Información personal
     @Column(name = "first_name", nullable = false, length = 100)

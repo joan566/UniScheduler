@@ -37,12 +37,12 @@ public class LoginUserService implements LoginUserUseCase {
         }
 
         String accessToken = accessTokenIssuerPort.issueAccessToken(
-                user.getUserId(),
+                user.getId(),
                 user.getEmail().getValue()
         );
 
         UserInfo userInfo = new UserInfo(
-                user.getUserId(),
+                user.getId(),
                 user.getFirstName() + " " + user.getLastName(),
                 user.getEmail().getValue()
         );

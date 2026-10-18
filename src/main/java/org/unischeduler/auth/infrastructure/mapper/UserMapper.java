@@ -14,7 +14,7 @@ public class UserMapper {
     public static UserEntity toEntity(User user) {
         UserEntity entity = new UserEntity();
 
-        entity.setUserId(user.getUserId());
+        entity.setId(user.getId());
 
         entity.setFirstName(user.getFirstName());
         entity.setLastName(user.getLastName());
@@ -41,7 +41,7 @@ public class UserMapper {
     public static User toDomain(UserEntity entity) {
 
         return new User(
-                entity.getUserId(),
+                entity.getId(),
 
                 entity.getFirstName(),
                 entity.getLastName(),

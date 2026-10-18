@@ -131,7 +131,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
                 true,
                 "El estudiante fue registrado con exito",
                 new StudentInfo(
-                        userSaved.getUserId(),
+                        userSaved.getId(),
                         studentSaved.getId(),
                         studentSaved.getStudentCode(),
                         rawPassword
