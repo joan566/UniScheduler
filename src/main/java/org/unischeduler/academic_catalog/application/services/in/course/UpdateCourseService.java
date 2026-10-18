@@ -81,7 +81,7 @@ public class UpdateCourseService implements UpdateCourseUseCase {
                 List.of() // prerrequisitos se manejan aparte
         );
 
-        Course updatedCourse = courseRepository.update(course);
+        Course updatedCourse = courseRepository.save(course);
 
         // Reemplazar prerrequisitos (ya lo hace el use case)
         registerPrerequisiteUseCase.execute(

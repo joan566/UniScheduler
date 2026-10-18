@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PrerequisiteRepository {
     List<Prerequisite> findAllPrerequisitesWhereCourseId(Long courseId);
-    Prerequisite save(Long courseId, Long coursePrerequisiteId);
+    Prerequisite save(Prerequisite prerequisite);
     boolean deleteWhereCourseId(Long id);
 }

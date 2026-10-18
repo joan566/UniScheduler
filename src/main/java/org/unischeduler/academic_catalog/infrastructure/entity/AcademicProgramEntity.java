@@ -1,31 +1,26 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "academic_programs")
 public class AcademicProgramEntity {
-    private Long academicProgramId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
+
+    @Column(name = "total_semesters", nullable = false)
     private int totalSemesters;
 
-    public Long getAcademicProgramId() {
-        return academicProgramId;
-    }
-
-    public void setAcademicProgramId(Long academicProgramId) {
-        this.academicProgramId = academicProgramId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getTotalSemesters() {
-        return totalSemesters;
-    }
-
-    public void setTotalSemesters(int totalSemesters) {
-        this.totalSemesters = totalSemesters;
-    }
 }

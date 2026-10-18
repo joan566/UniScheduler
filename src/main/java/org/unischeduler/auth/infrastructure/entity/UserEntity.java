@@ -1,7 +1,9 @@
 package org.unischeduler.auth.infrastructure.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.unischeduler.auth.domain.enums.DocumentType;
 import org.unischeduler.auth.domain.enums.Gender;
@@ -12,6 +14,8 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class UserEntity {

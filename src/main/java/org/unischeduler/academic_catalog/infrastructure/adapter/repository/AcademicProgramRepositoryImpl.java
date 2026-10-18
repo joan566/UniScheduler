@@ -4,15 +4,15 @@ import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
 import org.unischeduler.academic_catalog.infrastructure.mapper.AcademicProgramMapper;
-import org.unischeduler.academic_catalog.infrastructure.repository.excel.ExcelAcademicProgramRepository;
+import org.unischeduler.academic_catalog.infrastructure.repository.postgres.SpringAcademicProgramRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class AcademicProgramRepositoryImpl implements AcademicProgramRepository {
-    private final ExcelAcademicProgramRepository programRepository;
+    private final SpringAcademicProgramRepository programRepository;
 
-    public AcademicProgramRepositoryImpl(ExcelAcademicProgramRepository programRepository) {
+    public AcademicProgramRepositoryImpl(SpringAcademicProgramRepository programRepository) {
         this.programRepository = programRepository;
     }
 

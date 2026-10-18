@@ -13,7 +13,7 @@ public class CourseMapper {
         if (entity == null) return null;
 
         return new Course(
-                entity.getCourseId(),
+                entity.getId(),
                 entity.getName(),
                 entity.getCode(),
                 entity.getCredits(),
@@ -27,7 +27,7 @@ public class CourseMapper {
         if (course == null) return null;
 
         CourseEntity entity = new CourseEntity();
-        entity.setCourseId(course.getCourseId());
+        entity.setId(course.getCourseId());
         entity.setName(course.getName());
         entity.setCode(course.getCode());
         entity.setCredits(course.getCredits());

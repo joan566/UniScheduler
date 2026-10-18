@@ -6,17 +6,18 @@ import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_catalog.domain.outputports.PrerequisiteRepository;
 import org.unischeduler.academic_catalog.infrastructure.entity.PrerequisiteEntity;
 import org.unischeduler.academic_catalog.infrastructure.mapper.PrerequisiteMapper;
-import org.unischeduler.academic_catalog.infrastructure.repository.excel.ExcelPrerequisiteRepository;
+import org.unischeduler.academic_catalog.infrastructure.repository.postgres.SpringPrerequisiteRepository;
+import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
-    private final ExcelPrerequisiteRepository prerequisiteRepository;
+    private final SpringPrerequisiteRepository prerequisiteRepository;
     private final CourseRepository courseRepository;
 
-    public PrerequisiteRepositoryImpl(ExcelPrerequisiteRepository prerequisiteRepository, CourseRepository courseRepository) {
+    public PrerequisiteRepositoryImpl(SpringPrerequisiteRepository prerequisiteRepository, CourseRepository courseRepository) {
         this.prerequisiteRepository = prerequisiteRepository;
         this.courseRepository = courseRepository;
     }
@@ -41,11 +42,18 @@ public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
     }
 
     @Override
-    public Prerequisite save(Long courseId, Long coursePrerequisiteId) {
-        PrerequisiteEntity entity = prerequisiteRepository.save(courseId, coursePrerequisiteId);
-        Optional<Course> course = courseRepository.findById(entity.getCourseId());
+    public Prerequisite save(Prerequisite prerequisite) {
 
-        return PrerequisiteMapper.toDomain(entity, course.get());
+        PrerequisiteEntity entity = prerequisiteRepository.save(
+                PrerequisiteMapper.toEntity(prerequisite)
+        );
+
+        Course course = courseRepository.findById(entity.getCourseId())
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "No se encontro un curso con id: " + entity.getCourseId()
+                ));
+
+        return PrerequisiteMapper.toDomain(entity, course);
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.unischeduler.academic_catalog.application.services.in.course.dtos.Reg
 import org.unischeduler.academic_catalog.application.services.out.course.dtos.CourseInfo;
 import org.unischeduler.academic_catalog.application.services.out.course.dtos.PrerequisiteInfo;
 import org.unischeduler.academic_catalog.domain.entity.Course;
+import org.unischeduler.academic_catalog.domain.entity.Prerequisite;
 import org.unischeduler.academic_catalog.domain.inputports.course.RegisterCourseUseCase;
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_catalog.domain.outputports.PrerequisiteRepository;
@@ -72,12 +73,18 @@ public class RegisterCourseService implements RegisterCourseUseCase {
 
         Course courseSaved = courseRepository.save(course);
 
-        for (Course prerequisite : prerequisites) {
-            prerequisiteRepository.save(
-                    courseSaved.getCourseId(),
-                    prerequisite.getCourseId()
-            );
-        }
+        List<Prerequisite> prerequisites1 = prerequisites
+                .stream()
+                .map(prerequisite -> {
+                    return prerequisiteRepository.save(
+                            new Prerequisite(
+                                    null,
+                                    courseSaved.getCourseId(),
+                                    prerequisite
+                            )
+                    );
+                })
+                .toList();
 
         return new RegisterCourseResponse(
                 true,

@@ -1,31 +1,26 @@
 package org.unischeduler.academic_catalog.infrastructure.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "prerequisites")
 public class PrerequisiteEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long prerequisiteId;
+
+    @Column(name = "course_id", nullable = false)
     private Long courseId;
+
+    @Column(name = "prerequisite_course_id", nullable = false)
     private Long prerequisiteCourseId;
 
-    public Long getPrerequisiteId() {
-        return prerequisiteId;
-    }
-
-    public void setPrerequisiteId(Long prerequisiteId) {
-        this.prerequisiteId = prerequisiteId;
-    }
-
-    public Long getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
-    }
-
-    public Long getPrerequisiteCourseId() {
-        return prerequisiteCourseId;
-    }
-
-    public void setPrerequisiteCourseId(Long prerequisiteCourseId) {
-        this.prerequisiteCourseId = prerequisiteCourseId;
-    }
 }

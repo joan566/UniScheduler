@@ -16,12 +16,12 @@ public class AcademicPeriodMapper {
         }
 
         return new AcademicPeriod(
-                entity.getAcademicPeriodId(),
+                entity.getId(),
                 entity.getCode(),
                 entity.getName(),
                 LocalDate.parse(entity.getStartDate()),
                 LocalDate.parse(entity.getEndDate()),
-                AcademicPeriodStatus.valueOf(entity.getStatus())
+                entity.getStatus()
         );
     }
 
@@ -33,12 +33,12 @@ public class AcademicPeriodMapper {
 
         AcademicPeriodEntity entity = new AcademicPeriodEntity();
 
-        entity.setAcademicPeriodId(academicPeriod.getAcademicPeriodId());
+        entity.setId(academicPeriod.getAcademicPeriodId());
         entity.setCode(academicPeriod.getCode());
         entity.setName(academicPeriod.getName());
         entity.setStartDate(academicPeriod.getStartDate().toString());
         entity.setEndDate(academicPeriod.getEndDate().toString());
-        entity.setStatus(academicPeriod.getStatus().name());
+        entity.setStatus(academicPeriod.getStatus());
 
         return entity;
     }

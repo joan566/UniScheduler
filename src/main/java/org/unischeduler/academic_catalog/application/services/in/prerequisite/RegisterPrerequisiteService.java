@@ -8,6 +8,7 @@ import org.unischeduler.academic_catalog.domain.inputports.prerequisite.Register
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_catalog.domain.outputports.PrerequisiteRepository;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,41 +41,34 @@ public class RegisterPrerequisiteService
                         )
                 );
 
-        Set<Long> uniquePrerequisiteIds =
-                new HashSet<>(command.getPrerequisiteIds());
+        Set<Long> uniquePrerequisiteIds = new HashSet<>(command.getPrerequisiteIds());
 
-        if (uniquePrerequisiteIds.size()
-                != command.getPrerequisiteIds().size()) {
-
+        if (uniquePrerequisiteIds.size() != command.getPrerequisiteIds().size()) {
             throw new IllegalArgumentException(
                     "La lista contiene prerrequisitos duplicados."
             );
         }
 
+        List<Course> prerequisites = new ArrayList<>();
         for (Long prerequisiteId : uniquePrerequisiteIds) {
 
             if (course.getCourseId().equals(prerequisiteId)) {
-
                 throw new IllegalArgumentException(
                         "Un curso no puede ser prerrequisito de sí mismo."
                 );
             }
 
-            courseRepository.findById(prerequisiteId)
+            prerequisites.add(courseRepository.findById(prerequisiteId)
                     .orElseThrow(() ->
                             new IllegalArgumentException(
                                     "El prerrequisito no existe: " + prerequisiteId
                             )
-                    );
+                    )
+            );
         }
 
-        // ==========================
-        // 🔥 FIX IMPORTANTE AQUÍ
-        // ==========================
-
-        List<Prerequisite> existing =
-                prerequisiteRepository
-                        .findAllPrerequisitesWhereCourseId(course.getCourseId());
+        List<Prerequisite> existing = prerequisiteRepository
+                .findAllPrerequisitesWhereCourseId(course.getCourseId());
 
         Set<Long> existingIds =
                 existing.stream()
@@ -90,11 +84,14 @@ public class RegisterPrerequisiteService
                     )
             );
 
-            for (Long prerequisiteId : uniquePrerequisiteIds) {
+            for (Course prerequisite : prerequisites) {
 
                 prerequisiteRepository.save(
-                        course.getCourseId(),
-                        prerequisiteId
+                        new Prerequisite(
+                                null,
+                                course.getCourseId(),
+                                prerequisite
+                        )
                 );
             }
         }

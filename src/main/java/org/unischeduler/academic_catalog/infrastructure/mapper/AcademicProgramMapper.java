@@ -6,7 +6,7 @@ import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEn
 public class AcademicProgramMapper {
     public static AcademicProgram toDomain(AcademicProgramEntity entity) {
         return new AcademicProgram(
-                entity.getAcademicProgramId(),
+                entity.getId(),
                 entity.getName(),
                 entity.getTotalSemesters()
         );
@@ -14,7 +14,7 @@ public class AcademicProgramMapper {
 
     public static AcademicProgramEntity toEntity(AcademicProgram domain) {
         AcademicProgramEntity entity = new AcademicProgramEntity();
-        entity.setAcademicProgramId(domain.getAcademicProgramId());
+        entity.setId(domain.getAcademicProgramId());
         entity.setName(domain.getName());
         entity.setTotalSemesters(domain.getTotalSemesters());
 

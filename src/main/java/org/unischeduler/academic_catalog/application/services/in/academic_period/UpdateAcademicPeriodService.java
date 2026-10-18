@@ -55,7 +55,7 @@ public class UpdateAcademicPeriodService implements UpdateAcademicPeriodUseCase 
                         .equals(academicPeriod.getAcademicPeriodId())) {
 
                     activePeriod.setStatus(AcademicPeriodStatus.CLOSED);
-                    academicPeriodRepository.update(activePeriod);
+                    academicPeriodRepository.save(activePeriod);
                 }
             });
         }
@@ -64,7 +64,7 @@ public class UpdateAcademicPeriodService implements UpdateAcademicPeriodUseCase 
         academicPeriod.setStatus(AcademicPeriodStatus.valueOf(status));
 
         AcademicPeriod academicPeriodUpdated =
-                academicPeriodRepository.update(academicPeriod);
+                academicPeriodRepository.save(academicPeriod);
 
         return new UpdateAcademicPeriodResponse(
                 true,

@@ -12,7 +12,6 @@ public interface AcademicPeriodRepository {
     boolean existsByCode(String code);
     Optional<AcademicPeriod> findByCode(String code);
     AcademicPeriod save(AcademicPeriod academicPeriod);
-    AcademicPeriod update(AcademicPeriod academicPeriod);
-    boolean deleteById(Long id);
+    void deleteById(Long id);
     Optional<AcademicPeriod> findActive();
 }

@@ -4,16 +4,16 @@ import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_catalog.infrastructure.entity.CourseEntity;
 import org.unischeduler.academic_catalog.infrastructure.mapper.CourseMapper;
-import org.unischeduler.academic_catalog.infrastructure.repository.excel.ExcelCourseRepository;
+import org.unischeduler.academic_catalog.infrastructure.repository.postgres.SpringCourseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class CourseRepositoryImpl implements CourseRepository {
-    private final ExcelCourseRepository courseRepository;
+    private final SpringCourseRepository courseRepository;
 
-    public CourseRepositoryImpl(ExcelCourseRepository courseRepository) {
+    public CourseRepositoryImpl(SpringCourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 
@@ -67,15 +67,7 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public Course update(Course course) {
-        CourseEntity entity = CourseMapper.toEntity(course);
-
-        CourseEntity entitySaved = courseRepository.update(entity);
-        return CourseMapper.toDomain(entitySaved);
-    }
-
-    @Override
-    public boolean deleteById(Long id) {
-        return courseRepository.deleteById(id);
+    public void deleteById(Long id) {
+        courseRepository.deleteById(id);
     }
 }

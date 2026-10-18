@@ -5,10 +5,10 @@ package org.unischeduler.academic_catalog.infrastructure.adapter.repository;
 import org.unischeduler.academic_catalog.domain.exceptions.PeriodActiveNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEntity;
-import org.unischeduler.academic_catalog.infrastructure.repository.excel.ExcelAcademicPeriodRepository;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicPeriodRepository;
 
 import org.unischeduler.academic_catalog.infrastructure.mapper.AcademicPeriodMapper;
+import org.unischeduler.academic_catalog.infrastructure.repository.postgres.SpringAcademicPeriodRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 public class AcademicPeriodRepositoryImpl implements AcademicPeriodRepository {
 
-    private final ExcelAcademicPeriodRepository academicPeriodRepository;
+    private final SpringAcademicPeriodRepository academicPeriodRepository;
 
-    public AcademicPeriodRepositoryImpl(ExcelAcademicPeriodRepository academicPeriodRepository) {
+    public AcademicPeriodRepositoryImpl(SpringAcademicPeriodRepository academicPeriodRepository) {
         this.academicPeriodRepository = academicPeriodRepository;
     }
 
@@ -60,20 +60,8 @@ public class AcademicPeriodRepositoryImpl implements AcademicPeriodRepository {
     }
 
     @Override
-    public AcademicPeriod update(AcademicPeriod academicPeriod) {
-
-        AcademicPeriodEntity entity =
-                AcademicPeriodMapper.toEntity(academicPeriod);
-
-        AcademicPeriodEntity updatedEntity =
-                academicPeriodRepository.update(entity);
-
-        return AcademicPeriodMapper.toDomain(updatedEntity);
-    }
-
-    @Override
-    public boolean deleteById(Long id) {
-        return academicPeriodRepository.deleteById(id);
+    public void deleteById(Long id) {
+        academicPeriodRepository.deleteById(id);
     }
 
     @Override
