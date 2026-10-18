@@ -1,4 +1,4 @@
-package org.unischeduler.enrollment.application.services.in;
+package org.unischeduler.enrollment.application.services.in.validate;
 
 import org.unischeduler.enrollment.application.services.in.validate.ValidateCreditLimitCommand;
 import org.unischeduler.enrollment.application.services.in.validate.dtos.ValidateCreditLimitResponse;
