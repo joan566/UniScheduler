@@ -17,12 +17,7 @@ public class DeleteCourseService implements DeleteCourseUseCase {
 
     @Override
     public DeleteCourseResponse execute(DeleteCourseCommand command) {
-        if(!courseRepository.deleteById(command.getId())) {
-            return new DeleteCourseResponse(
-                    false,
-                    "No existe una asignatura con id " + command.getId()
-            );
-        }
+        courseRepository.deleteById(command.getId());
 
         prerequisiteRepository.deleteWhereCourseId(command.getId());
 
