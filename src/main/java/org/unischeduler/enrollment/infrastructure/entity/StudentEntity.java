@@ -1,40 +1,32 @@
 package org.unischeduler.enrollment.infrastructure.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "students")
 public class StudentEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private Long studentId;
+
+    @Column(name = "student_code", nullable = false, length = 50)
     private String studentCode;
+
+    @Column(name = "user_id", nullable = false)
     private Long userId;
+
+    @Column(name = "academic_program_id", nullable = false)
     private Long academicProgramId;
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentCode() {
-        return studentCode;
-    }
-
-    public void setStudentCode(String studentCode) {
-        this.studentCode = studentCode;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getAcademicProgramId() {
-        return academicProgramId;
-    }
-
-    public void setAcademicProgramId(Long academicProgramId) {
-        this.academicProgramId = academicProgramId;
-    }
 }

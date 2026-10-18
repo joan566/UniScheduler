@@ -1,49 +1,35 @@
 package org.unischeduler.enrollment.infrastructure.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "enrollment_details")
 public class EnrollmentDetailEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "enrollment_detail_id")
     private Long enrollmentDetailId;
+
+    @Column(name = "enrollment_id", nullable = false)
     private Long enrollmentId;
+
+    @Column(name = "group_id", nullable = false)
     private Long groupId;
+
+    @Column(name = "status", nullable = false, length = 20)
     private String status;
+
+    @Column(name = "final_grade")
     private Double finalGrade;
-
-    public Long getEnrollmentDetailId() {
-        return enrollmentDetailId;
-    }
-
-    public void setEnrollmentDetailId(Long enrollmentDetailId) {
-        this.enrollmentDetailId = enrollmentDetailId;
-    }
-
-    public Long getEnrollmentId() {
-        return enrollmentId;
-    }
-
-    public void setEnrollmentId(Long enrollmentId) {
-        this.enrollmentId = enrollmentId;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Double getFinalGrade() {
-        return finalGrade;
-    }
-
-    public void setFinalGrade(Double finalGrade) {
-        this.finalGrade = finalGrade;
-    }
 }

@@ -1,5 +1,6 @@
 package org.unischeduler.enrollment.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_programming.domain.entity.Group;
 import org.unischeduler.enrollment.domain.entity.EnrollmentDetail;
@@ -7,16 +8,17 @@ import org.unischeduler.academic_programming.domain.outputports.GroupRepository;
 import org.unischeduler.enrollment.domain.outputports.EnrollmentDetailRepository;
 import org.unischeduler.enrollment.infrastructure.entity.EnrollmentDetailEntity;
 import org.unischeduler.enrollment.infrastructure.mapper.EnrollmentDetailMapper;
-import org.unischeduler.enrollment.infrastructure.repository.excel.ExcelEnrollmentDetailRepository;
+import org.unischeduler.enrollment.infrastructure.repository.postgres.SpringEnrollmentDetailRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class EnrollmentDetailImpl implements EnrollmentDetailRepository {
-    private final ExcelEnrollmentDetailRepository detailRepository;
+    private final SpringEnrollmentDetailRepository detailRepository;
     private final GroupRepository groupRepository;
 
-    public EnrollmentDetailImpl(ExcelEnrollmentDetailRepository detailRepository, GroupRepository groupRepository) {
+    public EnrollmentDetailImpl(SpringEnrollmentDetailRepository detailRepository, GroupRepository groupRepository) {
         this.detailRepository = detailRepository;
         this.groupRepository = groupRepository;
     }
@@ -36,7 +38,7 @@ public class EnrollmentDetailImpl implements EnrollmentDetailRepository {
     public ArrayList<EnrollmentDetail> findByEnrollmentId(Long enrollmentId) {
 
         List<EnrollmentDetailEntity> entities =
-                detailRepository.findByEnrollmentId(enrollmentId);
+                detailRepository.findAllByEnrollmentId(enrollmentId);
 
         ArrayList<EnrollmentDetail> result = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package org.unischeduler.enrollment.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_catalog.domain.exceptions.PeriodActiveNotFoundException;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
@@ -14,20 +15,21 @@ import org.unischeduler.enrollment.domain.outputports.EnrollmentRepository;
 import org.unischeduler.enrollment.domain.outputports.StudentRepository;
 import org.unischeduler.enrollment.infrastructure.entity.EnrollmentEntity;
 import org.unischeduler.enrollment.infrastructure.mapper.EnrollmentMapper;
-import org.unischeduler.enrollment.infrastructure.repository.excel.ExcelEnrollmentRepository;
+import org.unischeduler.enrollment.infrastructure.repository.postgres.SpringEnrollmentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class EnrollmentRepositoryImpl implements EnrollmentRepository {
-    private final ExcelEnrollmentRepository enrollmentRepository;
+    private final SpringEnrollmentRepository enrollmentRepository;
     private final AcademicProgramRepository programRepository;
     private final StudentRepository studentRepository;
     private final EnrollmentDetailRepository enrollmentDetailRepository;
     private final AcademicPeriodRepository academicPeriodRepository;
 
-    public EnrollmentRepositoryImpl(ExcelEnrollmentRepository enrollmentRepository, AcademicProgramRepository programRepository, StudentRepository studentRepository, EnrollmentDetailRepository enrollmentDetailRepository, AcademicPeriodRepository academicPeriodRepository) {
+    public EnrollmentRepositoryImpl(SpringEnrollmentRepository enrollmentRepository, AcademicProgramRepository programRepository, StudentRepository studentRepository, EnrollmentDetailRepository enrollmentDetailRepository, AcademicPeriodRepository academicPeriodRepository) {
         this.enrollmentRepository = enrollmentRepository;
         this.programRepository = programRepository;
         this.studentRepository = studentRepository;
@@ -56,7 +58,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
                 .orElseThrow(() -> new PeriodActiveNotFoundException(
                         "No se encontro un periodo academico activo"));
 
-        Optional<EnrollmentEntity> entityOpt = enrollmentRepository.findByStudentAndActivePeriod(
+        Optional<EnrollmentEntity> entityOpt = enrollmentRepository.findByStudentIdAndAcademicPeriodId(
                 studentId,
                 academicPeriod.getAcademicPeriodId()
         );
@@ -99,7 +101,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
                         "No existe un estudiante con el id: " + studentId));
 
         List<EnrollmentEntity> entities =
-                enrollmentRepository.findAllWhereStudentId(studentId);
+                enrollmentRepository.findAllByStudentId(studentId);
 
         return entities.stream()
                 .map(entity -> {

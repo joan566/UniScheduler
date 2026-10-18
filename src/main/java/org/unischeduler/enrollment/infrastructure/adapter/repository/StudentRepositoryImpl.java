@@ -1,5 +1,6 @@
 package org.unischeduler.enrollment.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.auth.domain.entity.User;
@@ -9,16 +10,17 @@ import org.unischeduler.auth.domain.outputports.UserRepository;
 import org.unischeduler.enrollment.domain.outputports.StudentRepository;
 import org.unischeduler.enrollment.infrastructure.entity.StudentEntity;
 import org.unischeduler.enrollment.infrastructure.mapper.StudentMapper;
-import org.unischeduler.enrollment.infrastructure.repository.excel.ExcelStudentRepository;
+import org.unischeduler.enrollment.infrastructure.repository.postgres.SpringStudentRepository;
 
 import java.util.Optional;
 
+@Repository
 public class StudentRepositoryImpl implements StudentRepository {
-    private final ExcelStudentRepository studentRepository;
+    private final SpringStudentRepository studentRepository;
     private final UserRepository userRepository;
     private final AcademicProgramRepository academicProgramRepository;
 
-    public StudentRepositoryImpl(ExcelStudentRepository studentRepository, UserRepository userRepository, AcademicProgramRepository academicProgramRepository) {
+    public StudentRepositoryImpl(SpringStudentRepository studentRepository, UserRepository userRepository, AcademicProgramRepository academicProgramRepository) {
         this.studentRepository = studentRepository;
         this.userRepository = userRepository;
         this.academicProgramRepository = academicProgramRepository;
@@ -64,7 +66,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public Optional<Student> findByUserId(Long userId) {
-        Optional<StudentEntity> entityOptional = studentRepository.findStudentByUserId(userId);
+        Optional<StudentEntity> entityOptional = studentRepository.findByUserId(userId);
         if(entityOptional.isEmpty()) {
             return Optional.empty();
         }
