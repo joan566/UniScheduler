@@ -121,7 +121,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
                 .toList();
 
         RegisterEnrollmentCommand enrollmentCommand = new RegisterEnrollmentCommand(
-                studentSaved.getStudentId(),
+                studentSaved.getId(),
                 groupIds
         );
 
@@ -132,7 +132,7 @@ public class RegisterStudentService implements RegisterStudentUseCase {
                 "El estudiante fue registrado con exito",
                 new StudentInfo(
                         userSaved.getUserId(),
-                        studentSaved.getStudentId(),
+                        studentSaved.getId(),
                         studentSaved.getStudentCode(),
                         rawPassword
                 )

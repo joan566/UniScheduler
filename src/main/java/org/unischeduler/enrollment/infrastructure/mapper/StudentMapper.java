@@ -10,8 +10,8 @@ public class StudentMapper {
     public static StudentEntity toEntity(Student student) {
         StudentEntity entity = new StudentEntity();
 
-        entity.setStudentId(
-                student.getStudentId()
+        entity.setId(
+                student.getId()
         );
 
         entity.setStudentCode(
@@ -35,7 +35,7 @@ public class StudentMapper {
             AcademicProgram academicProgram
     ) {
         return new Student(
-                entity.getStudentId(),
+                entity.getId(),
                 entity.getStudentCode(),
                 user,
                 academicProgram

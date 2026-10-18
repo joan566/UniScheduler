@@ -14,12 +14,12 @@ public class EnrollmentMapper {
     public static EnrollmentEntity toEntity(Enrollment enrollment) {
         EnrollmentEntity entity = new EnrollmentEntity();
 
-        entity.setEnrollmentId(
-                enrollment.getEnrollmentId()
+        entity.setId(
+                enrollment.getId()
         );
 
         entity.setStudentId(
-                enrollment.getStudent().getStudentId()
+                enrollment.getStudent().getId()
         );
 
         entity.setAcademicProgramId(
@@ -44,7 +44,7 @@ public class EnrollmentMapper {
             AcademicPeriod academicPeriod
     ) {
         return new Enrollment(
-                entity.getEnrollmentId(),
+                entity.getId(),
                 student,
                 academicProgram,
                 entity.getEnrollmentDate(),

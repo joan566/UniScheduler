@@ -13,8 +13,8 @@ public class EnrollmentDetailMapper {
     ) {
         EnrollmentDetailEntity entity = new EnrollmentDetailEntity();
 
-        entity.setEnrollmentDetailId(
-                detail.getEnrollmentDetailId()
+        entity.setId(
+                detail.getId()
         );
 
         entity.setEnrollmentId(enrollmentId);
@@ -39,7 +39,7 @@ public class EnrollmentDetailMapper {
             Group group
     ) {
         return new EnrollmentDetail(
-                entity.getEnrollmentDetailId(),
+                entity.getId(),
                 group,
                 EnrollmentStatus.valueOf(
                         entity.getStatus()

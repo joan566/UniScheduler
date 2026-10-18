@@ -21,7 +21,7 @@ public class EnrollmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "enrollment_id")
-    private Long enrollmentId;
+    private Long id;
 
     @Column(name = "student_id", nullable = false)
     private Long studentId;

@@ -148,7 +148,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
         enrollmentDetails.forEach(detail ->
                 enrollmentDetailRepository.save(
                         detail,
-                        enrollment.getEnrollmentId()
+                        enrollment.getId()
                 )
         );
 
@@ -166,7 +166,7 @@ public class RegisterEnrollmentService implements RegisterEnrollmentUseCase {
 
         return enrollmentRepository
                 .findByStudentAndActivePeriod(
-                        student.getStudentId()
+                        student.getId()
                 )
                 .orElseGet(() -> {
 

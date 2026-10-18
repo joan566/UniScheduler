@@ -19,7 +19,7 @@ public class EnrollmentDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "enrollment_detail_id")
-    private Long enrollmentDetailId;
+    private Long id;
 
     @Column(name = "enrollment_id", nullable = false)
     private Long enrollmentId;

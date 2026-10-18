@@ -9,7 +9,7 @@ import java.util.List;
 public class Enrollment {
 
     //================// Atributos //================//
-    private final Long enrollmentId;
+    private final Long id;
     private final Student student;
     private  AcademicProgram academicProgram;
     private final LocalDate enrollmentDate;
@@ -17,10 +17,10 @@ public class Enrollment {
     private AcademicPeriod academicPeriod;
 
 
-    public Enrollment(Long enrollmentId, Student student, AcademicProgram academicProgram,
+    public Enrollment(Long id, Student student, AcademicProgram academicProgram,
                       LocalDate enrollmentDate, List<EnrollmentDetail> details,
                       AcademicPeriod academicPeriod) {
-        this.enrollmentId = enrollmentId;
+        this.id = id;
         this.student = student;
         this.academicProgram = academicProgram;
         this.enrollmentDate = enrollmentDate;
@@ -30,8 +30,8 @@ public class Enrollment {
 
     //================// Setters y Getters //================//
 
-    public Long getEnrollmentId() {
-        return enrollmentId;
+    public Long getId() {
+        return id;
     }
 
     public Student getStudent() {

@@ -47,7 +47,7 @@ public class ValidatePrerequisiteService
                 .flatMap(enrollment ->
                         enrollmentDetailRepository
                                 .findByEnrollmentId(
-                                        enrollment.getEnrollmentId()
+                                        enrollment.getId()
                                 )
                                 .stream())
                 .filter(detail ->

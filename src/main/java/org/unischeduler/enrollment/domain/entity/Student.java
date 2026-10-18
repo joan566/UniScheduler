@@ -6,15 +6,15 @@ import org.unischeduler.auth.domain.entity.User;
 public class Student {
 
     //================// Atributos //================//
-    private final Long studentId;
+    private final Long id;
     private final String studentCode;
     private final User user;
     private final AcademicProgram academicProgram;
 
 
     //================// Constructores //================//
-    public Student(Long studentId, String studentCode, User user, AcademicProgram academicProgram) {
-        this.studentId = studentId;
+    public Student(Long id, String studentCode, User user, AcademicProgram academicProgram) {
+        this.id = id;
         this.studentCode = studentCode;
         this.user = user;
         this.academicProgram = academicProgram;
@@ -22,8 +22,8 @@ public class Student {
 
     //================// Setters y Getters //================//
 
-    public Long getStudentId() {
-        return studentId;
+    public Long getId() {
+        return id;
     }
 
     public String getStudentCode() {

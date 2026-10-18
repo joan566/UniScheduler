@@ -80,7 +80,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
                                 + entity.getStudentId()));
 
         ArrayList<EnrollmentDetail> details = enrollmentDetailRepository
-                .findByEnrollmentId(entity.getEnrollmentId());
+                .findByEnrollmentId(entity.getId());
 
         return Optional.of(
                 EnrollmentMapper.toDomain(
@@ -118,7 +118,7 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepository {
 
                     ArrayList<EnrollmentDetail> details =
                             enrollmentDetailRepository.findByEnrollmentId(
-                                    entity.getEnrollmentId());
+                                    entity.getId());
 
                     return EnrollmentMapper.toDomain(
                             entity,

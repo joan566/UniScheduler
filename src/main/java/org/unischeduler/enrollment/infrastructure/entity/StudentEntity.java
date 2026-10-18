@@ -19,7 +19,7 @@ public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
-    private Long studentId;
+    private Long id;
 
     @Column(name = "student_code", nullable = false, length = 50)
     private String studentCode;
