@@ -1,6 +1,6 @@
 package org.unischeduler.academic_programming.infrastructure.mapper;
 
-import org.unischeduler.academic_programming.domain.entity.Group;
+import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_programming.domain.entity.SemesterTemplateDetail;
 import org.unischeduler.academic_programming.infrastructure.entity.SemesterTemplateDetailEntity;
 
@@ -19,8 +19,8 @@ public class SemesterTemplateDetailMapper {
 
         entity.setTemplateId(templateId);
 
-        entity.setGroupId(
-                detail.getGroup().getId()
+        entity.setCourseId(
+                detail.getCourse().getId()
         );
 
         return entity;
@@ -28,11 +28,11 @@ public class SemesterTemplateDetailMapper {
 
     public static SemesterTemplateDetail toDomain(
             SemesterTemplateDetailEntity entity,
-            Group group
+            Course course
     ) {
         return new SemesterTemplateDetail(
                 entity.getId(),
-                group
+                course
         );
     }
 }

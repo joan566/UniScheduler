@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,14 +15,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(
+        name = "students",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uk_students_student_code", columnNames = "student_code"),
+                @UniqueConstraint(name = "uk_students_user_id", columnNames = "user_id")
+        }
+)
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
     private Long id;
 
-    @Column(name = "student_code", nullable = false, length = 50)
+    @Column(name = "student_code", nullable = false, length = 30)
     private String studentCode;
 
     @Column(name = "user_id", nullable = false)

@@ -18,7 +18,6 @@ import lombok.Setter;
 public class TeacherEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "teacher_id")
     private Long id;
 
     @Column(name = "name", nullable = false, length = 150)

@@ -24,11 +24,13 @@ public class EnrollmentDetailMapper {
         );
 
         entity.setStatus(
-                detail.getStatus().name()
+                detail.getStatus()
         );
 
         entity.setFinalGrade(
-                detail.getFinalGrade()
+                detail.getFinalGrade() == null
+                        ? null
+                        : java.math.BigDecimal.valueOf(detail.getFinalGrade())
         );
 
         return entity;
@@ -41,10 +43,10 @@ public class EnrollmentDetailMapper {
         return new EnrollmentDetail(
                 entity.getId(),
                 group,
-                EnrollmentStatus.valueOf(
-                        entity.getStatus()
-                ),
-                entity.getFinalGrade()
+                entity.getStatus(),
+                entity.getFinalGrade() == null
+                        ? null
+                        : entity.getFinalGrade().doubleValue()
         );
     }
 }

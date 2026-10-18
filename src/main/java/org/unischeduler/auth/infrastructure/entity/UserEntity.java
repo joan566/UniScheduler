@@ -1,6 +1,8 @@
 package org.unischeduler.auth.infrastructure.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +19,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(
+        name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uk_users_document_number", columnNames = "document_number"),
+                @UniqueConstraint(name = "uk_users_email", columnNames = "email")
+        }
+)
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Long id;
 
     // Información personal
@@ -32,36 +39,40 @@ public class UserEntity {
     private String lastName;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "document_type", nullable = false, length = 30)
     private DocumentType documentType;
 
-    @Column(name = "document_type", nullable = false, length = 10)
+    @Column(name = "document_number", nullable = false, length = 30)
     private String documentNumber;
 
-    @Column(name = "birth_date", nullable = false)
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "gender", length = 20)
     private Gender gender;
 
     // Contacto
-    @Column(name = "phone_number", nullable = false, length = 10)
+    @Column(name = "phone_number", length = 20)
     private String phoneNumber;
 
-    @Column(name = "address", nullable = false, length = 100)
+    @Column(name = "address", length = 255)
     private String address;
 
-    @Column(name = "email", nullable = false, length = 100)
+    @Column(name = "email", nullable = false, length = 150)
     private String email;
 
     // Seguridad
-    @Column(name = "password", nullable = false, length = 100)
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
 
     // Sistema
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "status", nullable = false, columnDefinition = "user_status")
     private Status status;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
 
 }

@@ -11,11 +11,16 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "prerequisites")
+@Table(
+        name = "prerequisites",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uq_prerequisites_course_pair",
+                columnNames = {"course_id", "prerequisite_course_id"}
+        )
+)
 public class PrerequisiteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prerequisite_id")
     private Long id;
 
     @Column(name = "course_id", nullable = false)

@@ -42,6 +42,13 @@ public class UpdateGroupService implements UpdateGroupUseCase {
 
     @Override
     public UpdateGroupResponse execute(UpdateGroupCommand command) {
+        if (command.getAcademicPeriodId() == null) {
+            return new UpdateGroupResponse(
+                    false,
+                    "El período académico es obligatorio.",
+                    null
+            );
+        }
 
         if (groupRepository.findById(command.getGroupId()).isEmpty()) {
             return new UpdateGroupResponse(
@@ -79,6 +86,7 @@ public class UpdateGroupService implements UpdateGroupUseCase {
                 command.getGroupCode(),
                 teacherOptional.get(),
                 command.getCapacity(),
+                command.getAcademicPeriodId(),
                 new ArrayList<>()
         );
 

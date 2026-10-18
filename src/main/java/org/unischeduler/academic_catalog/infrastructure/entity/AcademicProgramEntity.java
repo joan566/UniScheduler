@@ -17,7 +17,7 @@ public class AcademicProgramEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "name", nullable = false, length = 150)
     private String name;
 
     @Column(name = "total_semesters", nullable = false)

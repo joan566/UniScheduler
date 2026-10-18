@@ -11,22 +11,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "courses")
+@Table(
+        name = "courses",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uk_courses_code", columnNames = "code"
+        )
+)
 public class CourseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "name", nullable = false, length = 150)
     private String name;
 
-    @Column(name = "code", nullable = false, length = 20, updatable = false)
+    @Column(name = "code", nullable = false, length = 30, updatable = false)
     private String code;
 
     @Column(name = "credits", nullable = false)
     private int credits;
 
-    @Column(name = "description", nullable = false, length = 255, updatable = false)
+    @Column(name = "description", columnDefinition = "text", updatable = false)
     private String description;
 
 }

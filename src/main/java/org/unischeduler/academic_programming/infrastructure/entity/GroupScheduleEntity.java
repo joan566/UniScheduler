@@ -20,7 +20,6 @@ import java.time.LocalTime;
 public class GroupScheduleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "group_schedule_id")
     private Long id;
 
     @Column(name = "group_id", nullable = false)
@@ -35,6 +34,6 @@ public class GroupScheduleEntity {
     @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
 
-    @Column(name = "classroom", nullable = false, length = 100)
+    @Column(name = "classroom", length = 50)
     private String classroom;
 }

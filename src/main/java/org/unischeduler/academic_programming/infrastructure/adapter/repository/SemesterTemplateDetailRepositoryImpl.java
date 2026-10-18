@@ -2,9 +2,9 @@ package org.unischeduler.academic_programming.infrastructure.adapter.repository;
 
 import org.springframework.stereotype.Repository;
 import org.unischeduler.shared.domain.exceptions.EntityNotFoundException;
-import org.unischeduler.academic_programming.domain.entity.Group;
+import org.unischeduler.academic_catalog.domain.entity.Course;
+import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_programming.domain.entity.SemesterTemplateDetail;
-import org.unischeduler.academic_programming.domain.outputports.GroupRepository;
 import org.unischeduler.academic_programming.domain.outputports.SemesterTemplateDetailRepository;
 import org.unischeduler.academic_programming.infrastructure.entity.SemesterTemplateDetailEntity;
 import org.unischeduler.academic_programming.infrastructure.mapper.SemesterTemplateDetailMapper;
@@ -16,11 +16,11 @@ import java.util.List;
 @Repository
 public class SemesterTemplateDetailRepositoryImpl implements SemesterTemplateDetailRepository {
     private final SpringSemesterTemplateDetailRepository templateDetailRepository;
-    private final GroupRepository groupRepository;
+    private final CourseRepository courseRepository;
 
-    public SemesterTemplateDetailRepositoryImpl(SpringSemesterTemplateDetailRepository templateDetailRepository, GroupRepository groupRepository) {
+    public SemesterTemplateDetailRepositoryImpl(SpringSemesterTemplateDetailRepository templateDetailRepository, CourseRepository courseRepository) {
         this.templateDetailRepository = templateDetailRepository;
-        this.groupRepository = groupRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
@@ -29,10 +29,10 @@ public class SemesterTemplateDetailRepositoryImpl implements SemesterTemplateDet
 
         ArrayList<SemesterTemplateDetail> details = new ArrayList<>();
         for(SemesterTemplateDetailEntity e : entities) {
-            Group group = groupRepository.findById(e.getGroupId())
-                    .orElseThrow(() -> new EntityNotFoundException("No existe el grupo con id: " + e.getGroupId()));;
+            Course course = courseRepository.findById(e.getCourseId())
+                    .orElseThrow(() -> new EntityNotFoundException("No existe el curso con id: " + e.getCourseId()));
             details.add(
-                    SemesterTemplateDetailMapper.toDomain(e, group)
+                    SemesterTemplateDetailMapper.toDomain(e, course)
             );
         }
 

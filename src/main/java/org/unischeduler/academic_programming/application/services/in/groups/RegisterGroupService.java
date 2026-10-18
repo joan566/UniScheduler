@@ -38,6 +38,13 @@ public class RegisterGroupService implements RegisterGroupUseCase {
 
     @Override
     public RegisterGroupResponse execute(RegisterGroupCommand command) {
+        if (command.getAcademicPeriodId() == null) {
+            return new RegisterGroupResponse(
+                    false,
+                    "El período académico es obligatorio.",
+                    null
+            );
+        }
 
         Optional<Course> courseOptional =
                 courseRepository.findById(command.getCourseId());
@@ -68,6 +75,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
                 command.getGroupCode(),
                 teacherOptional.get(),
                 command.getCapacity(),
+                command.getAcademicPeriodId(),
                 new ArrayList<>()
         );
 
@@ -99,6 +107,7 @@ public class RegisterGroupService implements RegisterGroupUseCase {
                         groupSaved.getGroupCode(),
                         groupSaved.getTeacher().getId(),
                         groupSaved.getCapacity(),
+                        groupSaved.getAcademicPeriodId(),
                         groupSaved.getSchedules()
                                 .stream()
                                 .map(RegisterGroupScheduleCommand::toCommand).toList()

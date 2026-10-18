@@ -18,12 +18,11 @@ import lombok.Setter;
 public class SemesterTemplateDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "template_detail_id")
     private Long id;
 
     @Column(name = "template_id", nullable = false)
     private Long templateId;
 
-    @Column(name = "group_id", nullable = false)
-    private Long groupId;
+    @Column(name = "course_id", nullable = false)
+    private Long courseId;
 }

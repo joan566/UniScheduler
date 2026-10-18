@@ -33,6 +33,10 @@ public class GroupMapper {
                 group.getCapacity()
         );
 
+        entity.setAcademicPeriodId(
+                group.getAcademicPeriodId()
+        );
+
         return entity;
     }
 
@@ -48,6 +52,7 @@ public class GroupMapper {
                 entity.getGroupCode(),
                 teacher,
                 entity.getCapacity(),
+                entity.getAcademicPeriodId(),
                 schedules
         );
     }

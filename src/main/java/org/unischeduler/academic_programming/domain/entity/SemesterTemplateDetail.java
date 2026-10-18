@@ -1,12 +1,14 @@
 package org.unischeduler.academic_programming.domain.entity;
 
+import org.unischeduler.academic_catalog.domain.entity.Course;
+
 public class SemesterTemplateDetail {
     private Long id;
-    private Group group;
+    private Course course;
 
-    public SemesterTemplateDetail(Long id, Group group) {
+    public SemesterTemplateDetail(Long id, Course course) {
         this.id = id;
-        this.group = group;
+        this.course = course;
     }
 
     public Long getId() {
@@ -17,11 +19,11 @@ public class SemesterTemplateDetail {
         this.id = id;
     }
 
-    public Group getGroup() {
-        return group;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

@@ -12,6 +12,7 @@ public class Group {
     private String groupCode;
     private Teacher teacher;
     private int capacity;
+    private Long academicPeriodId;
     private List<GroupSchedule> schedules;
 
 
@@ -21,11 +22,16 @@ public class Group {
     }
 
     public Group(Long id, Course course, String groupCode, Teacher teacher, int capacity, List<GroupSchedule> schedules) {
+        this(id, course, groupCode, teacher, capacity, null, schedules);
+    }
+
+    public Group(Long id, Course course, String groupCode, Teacher teacher, int capacity, Long academicPeriodId, List<GroupSchedule> schedules) {
         this.id = id;
         this.course = course;
         this.groupCode = groupCode;
         this.teacher = teacher;
         this.capacity = capacity;
+        this.academicPeriodId = academicPeriodId;
         this.schedules = schedules;
     }
 
@@ -71,6 +77,14 @@ public class Group {
         this.capacity = capacity;
 
         return this;
+    }
+
+    public Long getAcademicPeriodId() {
+        return academicPeriodId;
+    }
+
+    public void setAcademicPeriodId(Long academicPeriodId) {
+        this.academicPeriodId = academicPeriodId;
     }
 
     public List<GroupSchedule> getSchedules() {
