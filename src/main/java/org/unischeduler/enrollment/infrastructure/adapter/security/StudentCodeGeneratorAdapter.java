@@ -1,9 +1,11 @@
 package org.unischeduler.enrollment.infrastructure.adapter.security;
 
+import org.springframework.stereotype.Component;
 import org.unischeduler.enrollment.domain.outputports.StudentCodeGeneratorPort;
 
 import java.security.SecureRandom;
 
+@Component
 public class StudentCodeGeneratorAdapter implements StudentCodeGeneratorPort {
 
     @Override
