@@ -7,7 +7,6 @@ import org.unischeduler.academic_history.domain.inputports.academic_history.GetA
 import org.unischeduler.enrollment.domain.outputports.EnrollmentRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class GetAcademicHistoryService implements GetAcademicHistoryUseCase {
     private final EnrollmentRepository enrollmentRepository;
@@ -20,7 +19,7 @@ public class GetAcademicHistoryService implements GetAcademicHistoryUseCase {
     public GetAcademicHistoryResponse execute(GetAcademicHistoryCommand command) {
 
         List<Enrollment> enrollments =
-                enrollmentRepository.findAllWhereStudentId(command.getStudentId());
+                enrollmentRepository.findAllWhereStudentId(command.studentId());
 
         if (enrollments.isEmpty()) {
             return new GetAcademicHistoryResponse(
