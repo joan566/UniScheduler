@@ -1,7 +1,7 @@
 package org.unischeduler.academic_catalog.infrastructure.adapter.repository;
 
 
-
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_catalog.domain.exceptions.PeriodActiveNotFoundException;
 import org.unischeduler.academic_catalog.domain.entity.AcademicPeriod;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicPeriodEntity;
@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+@Repository
 public class AcademicPeriodRepositoryImpl implements AcademicPeriodRepository {
 
     private final SpringAcademicPeriodRepository academicPeriodRepository;

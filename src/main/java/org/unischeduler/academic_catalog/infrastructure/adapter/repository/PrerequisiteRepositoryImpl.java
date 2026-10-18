@@ -1,5 +1,6 @@
 package org.unischeduler.academic_catalog.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_catalog.domain.entity.Prerequisite;
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class PrerequisiteRepositoryImpl implements PrerequisiteRepository {
     private final SpringPrerequisiteRepository prerequisiteRepository;
     private final CourseRepository courseRepository;

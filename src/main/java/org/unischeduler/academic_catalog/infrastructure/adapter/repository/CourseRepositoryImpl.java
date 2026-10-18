@@ -1,5 +1,6 @@
 package org.unischeduler.academic_catalog.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_catalog.domain.entity.Course;
 import org.unischeduler.academic_catalog.domain.outputports.CourseRepository;
 import org.unischeduler.academic_catalog.infrastructure.entity.CourseEntity;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class CourseRepositoryImpl implements CourseRepository {
     private final SpringCourseRepository courseRepository;
 

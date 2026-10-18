@@ -1,5 +1,6 @@
 package org.unischeduler.academic_catalog.infrastructure.adapter.repository;
 
+import org.springframework.stereotype.Repository;
 import org.unischeduler.academic_catalog.domain.entity.AcademicProgram;
 import org.unischeduler.academic_catalog.domain.outputports.AcademicProgramRepository;
 import org.unischeduler.academic_catalog.infrastructure.entity.AcademicProgramEntity;
@@ -9,6 +10,7 @@ import org.unischeduler.academic_catalog.infrastructure.repository.postgres.Spri
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class AcademicProgramRepositoryImpl implements AcademicProgramRepository {
     private final SpringAcademicProgramRepository programRepository;
 
